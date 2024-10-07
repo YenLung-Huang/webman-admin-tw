@@ -73,7 +73,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 			this.logoRender = function(param) {
 				$(".layui-logo .logo").attr("src", param.logo.image);
 				$(".layui-logo .title").html(param.logo.title);
-				$("title").html(param.logo.title); //变更
+				$("title").html(param.logo.title); //變更
 			}
 
 			this.menuRender = function(param) {
@@ -158,7 +158,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 				} else {
 					bodyFrame = pearFrame.render({
 						elem: 'content',
-						title: '首页',
+						title: '首頁',
 						url: param.tab.index.href,
 						width: '100%',
 						height: '100%'
@@ -464,7 +464,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 		});
 
 		body.on("click", ".menuSearch", function () {
-			// 过滤菜单
+			// 過濾選單
 			var filterHandle = function (filterData, val) {
 				if (!val) return [];
 				var filteredMenus = [];
@@ -476,7 +476,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 						if (children && children.length) {
 							filteredMenus.push(obj);
 						} else if (item.title.indexOf(val) >= 0) {
-							item.children = []; // 父级匹配但子级不匹配,就去除子级
+							item.children = []; // 父級匹配但子級不匹配,就去除子級
 							filteredMenus.push($.extend({}, item));
 						}
 					} else if (item.title.indexOf(val) >= 0) {
@@ -486,24 +486,24 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 				return filteredMenus;
 			}
 
-			// 树转路径
+			// 樹轉路徑
 			var tiledHandle = function (data) {
 				var tiledMenus = [];
 				var treeTiled = function (data, content) {
 					var path = "";
 					var separator = " / ";
-					// 上级路径
+					// 上級路徑
 					if (!content) content = "";
 					$.each(data, function (index, item) {
 						if (item.children && item.children.length) {
 							path += content + item.title + separator;
 							var childPath = treeTiled(item.children, path);
 							path += childPath;
-							if (!childPath) path = ""; // 重置路径
+							if (!childPath) path = ""; // 重置路徑
 						} else {
 							path += content + item.title
 							tiledMenus.push({ path: path, info: item });
-							path = ""; //重置路径
+							path = ""; //重置路徑
 						}
 					})
 					return path;
@@ -513,7 +513,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 				return tiledMenus;
 			}
 
-			// 创建搜索列表
+			// 建立搜尋清單
 			var createList = function (data) {
 				var _listHtml = '';
 				$.each(data, function (index, item) {
@@ -532,10 +532,10 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 				'      <div class="layui-input-prefix">',
 				'        <i class="layui-icon layui-icon-search"></i>',
 				'      </div>',
-				'      <input type="text" name="menuSearch" value="" placeholder="搜索菜单" autocomplete="off" class="layui-input" lay-affix="clear">',
+				'      <input type="text" name="menuSearch" value="" placeholder="搜尋選單" autocomplete="off" class="layui-input" lay-affix="clear">',
 				'    </div>',
 				'  </div>',
-				'  <div class="menu-search-no-data">暂无搜索结果</div>',
+				'  <div class="menu-search-no-data">暫無搜尋結果</div>',
 				'  <ul class="menu-search-list">',
 				'  </ul>',
 				'</div>'
@@ -562,7 +562,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 
 					$layer.css("border-radius", "6px");
 					$input.off("focus").focus();
-					// 搜索菜单
+					// 搜尋選單
 					$input.off("input").on("input", debounce(function(){
 						var keywords = $input.val().trim();
 						var filteredMenus = filterHandle(menuData, keywords);
@@ -581,7 +581,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 						$content.css("height", currentHeight);
 					}, 500)
 					)
-					// 搜索列表点击事件
+					// 搜尋清單點擊事件
 					$list.off("click").on("click", "li", function () {
 						var menuId = $(this).attr("smenu-id");
 						var menuUrl = $(this).attr("smenu-url");
@@ -609,7 +609,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 						$(this).removeClass("this");
 					})
 
-					// 监听键盘事件
+					// 監聽鍵盤事件
 					// Enter:13 Spacebar:32 UpArrow:38 DownArrow:40 Esc:27
 					$(document).off("keydown").keydown(function (e) {
 						if (e.keyCode === 13 || e.keyCode === 32) {
@@ -703,7 +703,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 
 			var menuHtml =
 				'<div class="pearone-color">\n' +
-				'<div class="color-title">菜单风格</div>\n' +
+				'<div class="color-title">菜單風格</div>\n' +
 				'<div class="color-content">\n' +
 				'<ul>\n' + menuItem + '</ul>\n' +
 				'</div>\n' +
@@ -727,29 +727,29 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 
 			var headHtml =
 				'<div class="pearone-color">\n' +
-				'<div class="color-title">顶部风格</div>\n' +
+				'<div class="color-title">頂部風格</div>\n' +
 				'<div class="color-content">\n' +
 				'<ul>\n' + headItem + '</ul>\n' +
 				'</div>\n' +
 				'</div>';
 
 			var moreItem =
-				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="control" lay-filter="control" lay-skin="switch" lay-text="开|关"></div><span class="set-text">菜单</span></div>';
+				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="control" lay-filter="control" lay-skin="switch" lay-text="開|關"></div><span class="set-text">選單</span></div>';
 
 			moreItem +=
-				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="muilt-tab" lay-filter="muilt-tab" lay-skin="switch" lay-text="开|关"></div><span class="set-text">视图</span></div>';
+				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="muilt-tab" lay-filter="muilt-tab" lay-skin="switch" lay-text="開|關"></div><span class="set-text">視圖</span></div>';
 
 			moreItem +=
-				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="banner" lay-filter="banner" lay-skin="switch" lay-text="开|关"></div><span class="set-text">通栏</span></div>';
+				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="banner" lay-filter="banner" lay-skin="switch" lay-text="開|關"></div><span class="set-text">通欄</span></div>';
 
 			moreItem +=
-				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="auto-head" lay-filter="auto-head" lay-skin="switch" lay-text="开|关"></div><span class="set-text">通色</span></div>';
+				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="auto-head" lay-filter="auto-head" lay-skin="switch" lay-text="開|關"></div><span class="set-text">通色</span></div>';
 
 			moreItem +=
-				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="footer" lay-filter="footer" lay-skin="switch" lay-text="开|关"></div><span class="set-text">页脚</span></div>';
+				'<div class="layui-form-item"><div class="layui-input-inline"><input type="checkbox" name="footer" lay-filter="footer" lay-skin="switch" lay-text="開|關"></div><span class="set-text">頁尾</span></div>';
 
 			var moreHtml = '<br><div class="pearone-color">\n' +
-				'<div class="color-title">更多设置</div>\n' +
+				'<div class="color-title">更多設定</div>\n' +
 				'<div class="color-content">\n' +
 				'<form class="layui-form">\n' + moreItem + '</form>\n' +
 				'</div>\n' +
@@ -923,7 +923,7 @@ layui.define(['message', 'table', 'jquery', 'element', 'yaml', 'form', 'tab', 'm
 				colors += "<span class='select-color-item' color-id='" + value.id + "' style='background-color:" + value.color +
 					";'></span>";
 			})
-			return "<div class='select-color'><div class='select-color-title'>主题配色</div><div class='select-color-content'>" +
+			return "<div class='select-color'><div class='select-color-title'>主題配色</div><div class='select-color-content'>" +
 				colors + "</div></div>"
 		}
 

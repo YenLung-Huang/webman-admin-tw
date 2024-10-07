@@ -7,12 +7,12 @@ use support\Response;
 use Throwable;
 
 /**
- * 开发辅助相关
+ * 開發輔助相關
  */
 class DevController
 {
     /**
-     * 表单构建
+     * 表單建置
      * @return Response
      * @throws Throwable
      */

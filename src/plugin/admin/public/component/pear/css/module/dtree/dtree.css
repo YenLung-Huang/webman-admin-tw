@@ -1,6 +1,6 @@
 
-/**************** 主题换肤  ****************/
-/* 默认风格*/
+/**************** 主題換膚  ****************/
+/* 預設風格*/
 .dtree-theme-item-this{background-color: #d2d2d2!important;}
 .dtree-theme-item:hover{background-color: #eaeceb!important;}
 .dtree-theme-item cite{font-size:12px!important;}
@@ -12,7 +12,7 @@
 .dtree-theme-checkbox:hover{color:#fe7786!important;}
 .dtree-theme-choose{color:#fe7786!important;}
 
-/* layui主题风格*/
+/* layui主題風格*/
 .dtree-layui-item-this{background: none!important;}
 .dtree-layui-item:hover{background: none!important;}
 .dtree-layui-item cite{font-size:14px!important;}
@@ -24,7 +24,7 @@
 .dtree-layui-checkbox:hover{color:#5FB878!important;}
 .dtree-layui-choose{color:#5FB878!important;}
 
-/* laySimple主题风格*/
+/* laySimple主題風格*/
 .dtree-laySimple-item-this{background-color: #d2d2d2!important;}
 .dtree-laySimple-item:hover{background-color: #eaeceb!important;}
 .dtree-laySimple-item cite{font-size:12px!important;}
@@ -35,13 +35,13 @@
 .dtree-laySimple-icon{color:#393D49!important;}
 .dtree-laySimple-checkbox:hover{color:#01AAED!important;}
 .dtree-laySimple-choose{color:#01AAED!important;}
-/**************** 树基础  ****************/
-/* 菜单栏*/
+/**************** 樹基礎  ****************/
+/* 選單列*/
 .dtree-menubar {padding-left: 10px;}
 .dtree-menubar .layui-btn-group .layui-btn-sm{height: 20px;line-height: 20px;padding: 0 5px;font-size: 12px;}
 .dtree-menubar .layui-btn-group .layui-btn-sm i{font-size: 12px!important;}
 
-/* 工具栏*/
+/* 工具列*/
 .dtree-toolbar{position: absolute;z-index: 940520;padding: 0;background-color: #eceaeb;}
 .dtree-toolbar .layui-nav-child{position: static;}
 .dtree-toolbar .layui-nav-child dd{cursor: pointer;}
@@ -55,13 +55,13 @@
 .dtree-toolbar-fixed a i{font-size:14px;display: inline-block;margin: 0px 1px;color:#fe7786;}
 .dtree-toolbar-fixed a i:hover{opacity:0.8;filter:Alpha(opacity=80);}
 
-/* 树基本*/
+/* 樹基本*/
 .dtree{width:260px;}
 .dtree-nav-item{line-height:33px;padding-left:16px;}
 .dtree-nav-ul-sid{display: none;}
 .dtree-none-text{font-size: 12px;text-align: center;color: gray;}
 
-/* 树线*/
+/* 樹線*/
 .dtree-nav-first-line,.dtree-nav-line,.dtree-nav-last-line{position: relative;}
 .dtree-nav-first-line:before{content:"";position: absolute;height: 0;border-left: 1px dotted #c0c4cc;}
 .dtree-nav-first-line:after{content:"";position: absolute;height: 0;border-top: 1px dotted #c0c4cc;}
@@ -73,7 +73,7 @@
 .dtree-nav-last-line:after{content:"";position: absolute;top: 16px;left: 8px;width: 9px;height: 0;border-top: 1px dotted #c0c4cc;}
 
 
-/* 图标及复选框*/
+/* 圖示及複選框*/
 .dtreefont{cursor: pointer;}
 .dtreefont-special{margin: 0 4px;}
 .dtree-nav-checkbox-div{display: inline-block;}
@@ -86,7 +86,7 @@
 .dtree-nav-div cite{font-style: normal;cursor: pointer;}
 .dtree-nav-div:hover cite{opacity:0.7;filter:Alpha(opacity=70);transition: all .3s;-webkit-transition: all .3s;}
 
-/* 规则属性*/
+/* 規則屬性*/
 .dtree-nav-show {display: block!important;}
 .dtree-nav-hide {display: none!important;}
 .dtree-nav-this {}
@@ -98,11 +98,11 @@
 .dtree-nav-div>cite.dtree-disabled:hover{color:#c2c2c2!important;}
 
 
-/** 下拉树属性*/
+/** 下拉樹屬性*/
 .dtree-select{position: absolute;max-height: 500px;height: 350px;overflow: auto;width: 99%;z-index: 123;display: none;border:1px solid silver;top: 42px;}
 .dtree-select-show{display: block!important;}
 
-/* 简单适配*/
+/* 簡單適配*/
 @media screen and (max-width:1700px) and (min-width:1300px){	
 	.dtree-nav-item {padding-left: 15px;}
 }

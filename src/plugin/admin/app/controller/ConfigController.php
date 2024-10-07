@@ -10,18 +10,18 @@ use support\Response;
 use Throwable;
 
 /**
- * 系统设置
+ * 系統設定
  */
 class ConfigController extends Base
 {
     /**
-     * 不需要验证权限的方法
+     * 不需要驗證權限的方法
      * @var string[]
      */
     protected $noNeedAuth = ['get'];
 
     /**
-     * 账户设置
+     * 帳戶設定
      * @return Response
      * @throws Throwable
      */
@@ -31,7 +31,7 @@ class ConfigController extends Base
     }
 
     /**
-     * 获取配置
+     * 取得配置
      * @return Response
      */
     public function get(): Response
@@ -40,7 +40,7 @@ class ConfigController extends Base
     }
 
     /**
-     * 基于配置文件获取默认权限
+     * 基於設定檔取得預設權限
      * @return mixed
      */
     protected function getByDefault()
@@ -99,7 +99,7 @@ class ConfigController extends Base
                     $data[$section]['max'] = Util::filterNum($items['max'] ?? '30');
                     $data[$section]['index']['id'] = Util::filterNum($items['index']['id'] ?? '0');
                     $data[$section]['index']['href'] = Util::filterUrlPath($items['index']['href'] ?? '');
-                    $data[$section]['index']['title'] = htmlspecialchars($items['index']['title'] ?? '首页');
+                    $data[$section]['index']['title'] = htmlspecialchars($items['index']['title'] ?? '首頁');
                     break;
                 case 'theme':
                     $data[$section]['defaultColor'] = Util::filterNum($items['defaultColor'] ?? '2');
@@ -132,7 +132,7 @@ class ConfigController extends Base
     }
 
     /**
-     * 颜色检查
+     * 顏色檢查
      * @param string $color
      * @return string
      * @throws BusinessException
@@ -140,7 +140,7 @@ class ConfigController extends Base
     protected function filterColor(string $color): string
     {
         if (!preg_match('/\#[a-zA-Z]6/', $color)) {
-            throw new BusinessException('参数错误');
+            throw new BusinessException('參數錯誤');
         }
         return $color;
     }

@@ -172,7 +172,7 @@ body,
 	display: none;
 }
 
-/** 收缩布局 */
+/** 收縮佈局 */
 .pear-mini .layui-side .layui-logo .title {
 	display: none;
 }
@@ -259,7 +259,7 @@ body,
 	}
 }
 
-/** 新增兼容 */
+/** 新增相容 */
 @media screen and (max-width:768px) {
 	.collapse {
 		display: none !important;
@@ -368,7 +368,7 @@ body,
 
 }
 
-/** 侧边主题 (亮) */
+/** 側邊主題 (亮) */
 .light-theme.layui-side {
 	box-shadow: 2px 0 8px 0 rgba(29, 35, 41, .05) !important;
 }
@@ -400,14 +400,14 @@ body,
 }
 
 
-/** 顶部主题 (白) */
+/** 頂部主題 (白) */
 .light-theme.layui-header .layui-logo {
 	background-color: white;
 	border: none;
 	box-shadow: none;
 }
 
-/** 主题面板 */
+/** 主題面板 */
 .pearone-color .set-text {
 	height: 42px;
 	line-height: 42px;
@@ -499,7 +499,7 @@ body,
 	border-right: 1px solid #eee;
 }
 
-/* 搜索面板 */
+/* 搜尋面板 */
 .menu-search-content .layui-input {
 	padding-left: 30px;
 }
@@ -555,4 +555,4 @@ body,
 	color: white;
 }
 
-/* 搜索面板结束 */
+/* 搜尋面板結束 */

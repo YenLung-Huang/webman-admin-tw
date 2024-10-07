@@ -102,7 +102,7 @@ a {
     }
 }
 
-/** 右间隔 **/
+/** 右間隔 **/
 .mr-1
 {
     margin-right: 4px;
@@ -124,7 +124,7 @@ a {
     margin-right: 48px;
 }
 
-/** 图片尺寸 **/
+/** 圖片尺寸 **/
 .img-1
 {
     max-width: 16px;
@@ -150,7 +150,7 @@ a {
     border-radius: 6px;
 }
 
-/** 左侧菜单 Start **/
+/** 左側選單 Start **/
 
 .pear-nav-tree .layui-nav-item a span {
     font-size: 14px;
@@ -161,10 +161,10 @@ a {
     color: #333;
 }
 
-/** 左侧菜单 End **/
+/** 左側選單 End **/
 
 
-/** 表详情顶部搜索框 Start **/
+/** 表格詳情頂部搜尋框 Start **/
 
 .top-search-from .layui-form-item {
     position: relative;
@@ -225,9 +225,9 @@ a {
     }
 }
 
-/** 表详情顶部搜索框 End **/
+/** 表格詳情頂部搜尋框 End **/
 
-/* tinymce 样式优化 Start */
+/* tinymce 樣式優化 Start */
 
 .layui-input-block .tox.tox-tinymce.tox-fullscreen {
     z-index: 1;
@@ -237,4 +237,4 @@ a {
 	z-index: 90000000 !important;
 }
 
-/* tinymce 样式优化 End */
+/* tinymce 樣式優化 End */

@@ -21,7 +21,7 @@ class Crud extends Base
     protected $model = null;
 
     /**
-     * 查询
+     * 查詢
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -60,7 +60,7 @@ class Crud extends Base
     }
 
     /**
-     * 删除
+     * 刪除
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -73,7 +73,7 @@ class Crud extends Base
     }
 
     /**
-     * 查询前置
+     * 查詢前置
      * @param Request $request
      * @return array
      * @throws BusinessException
@@ -107,7 +107,7 @@ class Crud extends Base
                 unset($where[$column]);
             }
         }
-        // 按照数据限制字段返回数据
+        // 按照資料限製字段返回資料
         if (!Auth::isSuperAdmin()) {
             if ($this->dataLimit === 'personal') {
                 $where[$this->dataLimitField] = admin_id();
@@ -122,7 +122,7 @@ class Crud extends Base
     }
 
     /**
-     * 指定查询where条件,并没有真正的查询数据库操作
+     * 指定查詢where條件,並沒有真正的查詢資料庫操作
      * @param array $where
      * @param string|null $field
      * @param string $order
@@ -167,7 +167,7 @@ class Crud extends Base
     }
 
     /**
-     * 执行真正查询，并返回格式化数据
+     * 執行真正查詢，並傳回格式化資料
      * @param $query
      * @param $format
      * @param $limit
@@ -212,7 +212,7 @@ class Crud extends Base
                 if (!empty($data[$this->dataLimitField])) {
                     $admin_id = $data[$this->dataLimitField];
                     if (!in_array($admin_id, Auth::getScopeAdminIds(true))) {
-                        throw new BusinessException('无数据权限');
+                        throw new BusinessException('無資料權限');
                     }
                 } else {
                     $data[$this->dataLimitField] = admin_id();
@@ -225,7 +225,7 @@ class Crud extends Base
     }
 
     /**
-     * 执行插入
+     * 執行插入
      * @param array $data
      * @return mixed|null
      */
@@ -254,30 +254,30 @@ class Crud extends Base
         $data = $this->inputFilter($request->post());
         $model = $this->model->find($id);
         if (!$model) {
-            throw new BusinessException('记录不存在', 2);
+            throw new BusinessException('記錄不存在', 2);
         }
 
         if (!Auth::isSuperAdmin()) {
             if ($this->dataLimit == 'personal') {
                 if ($model->{$this->dataLimitField} != admin_id()) {
-                    throw new BusinessException('无数据权限');
+                    throw new BusinessException('無資料權限');
                 }
             } elseif ($this->dataLimit == 'auth') {
                 $scopeAdminIds = Auth::getScopeAdminIds(true);
                 $admin_ids = [
-                    $data[$this->dataLimitField] ?? false, // 检查要更新的数据admin_id是否是有权限的值
-                    $model->{$this->dataLimitField} ?? false // 检查要更新的记录的admin_id是否有权限
+                    $data[$this->dataLimitField] ?? false, // 檢查要更新的資料admin_id是否是有權限的值
+                    $model->{$this->dataLimitField} ?? false // 檢查要更新的記錄的admin_id是否有權限
                 ];
                 foreach ($admin_ids as $admin_id) {
                     if ($admin_id && !in_array($admin_id, $scopeAdminIds)) {
-                        throw new BusinessException('无数据权限');
+                        throw new BusinessException('無資料權限');
                     }
                 }
             }
         }
         $password_filed = 'password';
         if (isset($data[$password_filed])) {
-            // 密码为空，则不更新密码
+            // 密碼為空，則不更新密碼
             if ($data[$password_filed] === '') {
                 unset($data[$password_filed]);
             } else {
@@ -289,7 +289,7 @@ class Crud extends Base
     }
 
     /**
-     * 执行更新
+     * 執行更新
      * @param $id
      * @param $data
      * @return void
@@ -304,7 +304,7 @@ class Crud extends Base
     }
 
     /**
-     * 对用户输入表单过滤
+     * 對使用者輸入表單過濾
      * @param array $data
      * @return array
      * @throws BusinessException
@@ -322,7 +322,7 @@ class Crud extends Base
                 unset($data[$col]);
                 continue;
             }
-            // 非字符串类型传空则为null
+            // 非字串型別傳空則為null
             if ($item === '' && strpos(strtolower($columns[$col]), 'varchar') === false && strpos(strtolower($columns[$col]), 'text') === false) {
                 $data[$col] = null;
             }
@@ -340,7 +340,7 @@ class Crud extends Base
     }
 
     /**
-     * 删除前置方法
+     * 刪除前置方法
      * @param Request $request
      * @return array
      * @throws BusinessException
@@ -349,7 +349,7 @@ class Crud extends Base
     {
         $primary_key = $this->model->getKeyName();
         if (!$primary_key) {
-            throw new BusinessException('该表无主键，不支持删除');
+            throw new BusinessException('此表無主鍵，不支援刪除');
         }
         $ids = (array)$request->post($primary_key, []);
         if (!Auth::isSuperAdmin()){
@@ -359,11 +359,11 @@ class Crud extends Base
             }
             if ($this->dataLimit == 'personal') {
                 if (!in_array(admin_id(), $admin_ids)) {
-                    throw new BusinessException('无数据权限');
+                    throw new BusinessException('無資料權限');
                 }
             } elseif ($this->dataLimit == 'auth') {
                 if (array_diff($admin_ids, Auth::getScopeAdminIds(true))) {
-                    throw new BusinessException('无数据权限');
+                    throw new BusinessException('無資料權限');
                 }
             }
         }
@@ -371,7 +371,7 @@ class Crud extends Base
     }
 
     /**
-     * 执行删除
+     * 執行刪除
      * @param array $ids
      * @return void
      */
@@ -387,7 +387,7 @@ class Crud extends Base
     }
 
     /**
-     * 格式化树
+     * 格式化樹
      * @param $items
      * @return Response
      */
@@ -408,7 +408,7 @@ class Crud extends Base
     }
 
     /**
-     * 格式化表格树
+     * 格式化表格樹
      * @param $items
      * @return Response
      */
@@ -419,7 +419,7 @@ class Crud extends Base
     }
 
     /**
-     * 格式化下拉列表
+     * 格式化下拉清單
      * @param $items
      * @return Response
      */
@@ -448,9 +448,9 @@ class Crud extends Base
     }
 
     /**
-     * 查询数据库后置方法，可用于修改数据
-     * @param mixed $items 原数据
-     * @return mixed 修改后数据
+     * 查詢資料庫後置方法，可用來修改資料
+     * @param mixed $items 原資料
+     * @return mixed 修改後資料
      */
     protected function afterQuery($items)
     {
@@ -458,7 +458,7 @@ class Crud extends Base
     }
 
     /**
-     * 猜测记录名称
+     * 猜測紀錄名稱
      * @param $item
      * @return mixed
      */

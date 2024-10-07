@@ -13,31 +13,31 @@
 		<form id="userForm" class="layui-form" action="">
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label">用户名</label>
+					<label class="layui-form-label">使用者名稱</label>
 					<div class="layui-input-inline">
 						<input type="text" name="realName" placeholder="" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
-					<label class="layui-form-label">账号</label>
+					<label class="layui-form-label">帳號</label>
 					<div class="layui-input-inline">
 						<input type="text" name="username" placeholder="" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
-					<label class="layui-form-label">账号</label>
+					<label class="layui-form-label">帳號</label>
 					<div class="layui-input-inline">
 						<input type="text" name="username" placeholder="" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
-					<label class="layui-form-label">账号</label>
+					<label class="layui-form-label">帳號</label>
 					<div class="layui-input-inline">
 						<input type="text" name="username" placeholder="" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
-					<label class="layui-form-label">账号</label>
+					<label class="layui-form-label">帳號</label>
 					<div class="layui-input-inline">
 						<input type="text" name="username" placeholder="" class="layui-input">
 					</div>
@@ -45,7 +45,7 @@
 				<div class="layui-inline" style="margin-left: 50px;">
 					<button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="user-query">
 						<i class="layui-icon layui-icon-search"></i>
-						查询
+						查詢
 					</button>
 					<button type="reset" class="pear-btn pear-btn-md">
 						<i class="layui-icon layui-icon-refresh"></i>
@@ -71,7 +71,7 @@
 			</button>
 			<button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
 				<i class="layui-icon layui-icon-delete"></i>
-				删除
+				刪除
 			</button>
 </script>
 
@@ -84,7 +84,7 @@
 </script>
 
 <script type="text/html" id="user-enable">
-			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="user-enable"
+			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="啟用|停用" lay-filter="user-enable"
 				checked="{{ d.enable == 0 ? 'true' : 'false' }}">
 </script>
 
@@ -98,9 +98,9 @@
 
 <script type="text/html" id="user-login">
 		{{#if (d.login == 0) { }}
-			<span>在线</span>
+			<span>線上</span>
 			{{# }else if(d.sex == 1){ }}
-				<span>离线</span>
+				<span>離線</span>
 				{{# } }}
 </script>
 
@@ -126,15 +126,15 @@
 				isExpand: false,
 				prefixIcon: "layui-icon",
 				toggleIcon: ['layui-icon-down', 'layui-icon-up'],
-				toggleText: ['展开', '折叠'],
+				toggleText: ['展開', '折疊'],
 			}
 			var opt = $.extend({}, defaultsOpt, options);
-			var elem = opt.elem; // 绑定的表单元素,必填
-			var min = opt.min; // 最小显示数,默认显示一行
-			var isExpand = opt.isExpand; // 初始展开
-			var prefixIcon = opt.prefixIcon + " "; // 图标前缀
-			var toggleIcon = opt.toggleIcon; // 折叠和展开时的图标类[unExpandIcon, ExpandIcon]
-			var toggleText = opt.toggleText; // 折叠和展开时的文本
+			var elem = opt.elem; // 綁定的表單元素,必填
+			var min = opt.min; // 最小顯示數,預設顯示一行
+			var isExpand = opt.isExpand; // 初始展開
+			var prefixIcon = opt.prefixIcon + " "; // 圖示前綴
+			var toggleIcon = opt.toggleIcon; // 折疊與展開時的圖示類別[unExpandIcon, ExpandIcon]
+			var toggleText = opt.toggleText; // 折疊與展開時的文字
 
 			var eleDOM = $(elem + " .layui-inline");
 			var firstElTop = eleDOM.first().offset().top;
@@ -180,7 +180,7 @@
 				type: 'checkbox'
 			},
 			{
-				title: '账号',
+				title: '帳號',
 				field: 'username',
 				align: 'center',
 				width: 100
@@ -191,31 +191,31 @@
 				align: 'center'
 			},
 			{
-				title: '性别',
+				title: '性別',
 				field: 'sex',
 				align: 'center',
 				width: 80,
 				templet: '#user-sex'
 			},
 			{
-				title: '电话',
+				title: '電話',
 				field: 'phone',
 				align: 'center'
 			},
 			{
-				title: '启用',
+				title: '啟用',
 				field: 'enable',
 				align: 'center',
 				templet: '#user-enable'
 			},
 			{
-				title: '登录',
+				title: '登入',
 				field: 'login',
 				align: 'center',
 				templet: '#user-login'
 			},
 			{
-				title: '注册',
+				title: '註冊',
 				field: 'createTime',
 				align: 'center',
 				templet: '#user-createTime'
@@ -257,7 +257,7 @@
 						}],
 						id: '#more_' + res.data[i].userId,
 						click: function (obj) {
-							layer.tips('点击了：' + obj.title, this.elem, {
+							layer.tips('點擊了：' + obj.title, this.elem, {
 								tips: [1, '#5FB878']
 							})
 						}
@@ -304,7 +304,7 @@
 		}
 
 		window.remove = function (obj) {
-			layer.confirm('确定要删除该用户', {
+			layer.confirm('確定要刪除該使用者', {
 				icon: 3,
 				title: '提示'
 			}, function (index) {
@@ -337,7 +337,7 @@
 		window.batchRemove = function (obj) {
 			let data = table.checkStatus(obj.config.id).data;
 			if (data.length === 0) {
-				layer.msg("未选中数据", {
+				layer.msg("未選取資料", {
 					icon: 3,
 					time: 1000
 				});
@@ -348,7 +348,7 @@
 				ids += data[i].userId + ",";
 			}
 			ids = ids.substr(0, ids.length - 1);
-			layer.confirm('确定要删除这些用户', {
+			layer.confirm('確定要刪除這些使用者', {
 				icon: 3,
 				title: '提示'
 			}, function (index) {

@@ -13,12 +13,12 @@ use support\Response;
 use Throwable;
 
 /**
- * 权限菜单
+ * 權限選單
  */
 class RuleController extends Crud
 {
     /**
-     * 不需要权限的方法
+     * 不需要權限的方法
      *
      * @var string[]
      */
@@ -30,7 +30,7 @@ class RuleController extends Crud
     protected $model = null;
 
     /**
-     * 构造函数
+     * 建構子
      */
     public function __construct()
     {
@@ -38,7 +38,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */
@@ -48,7 +48,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 查询
+     * 查詢
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -60,7 +60,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 获取菜单
+     * 取得選單
      * @param Request $request
      * @return Response
      * @throws Exception
@@ -83,7 +83,7 @@ class RuleController extends Crud
 
         $tree = new Tree($formatted_items);
         $tree_items = $tree->getTree();
-        // 超级管理员权限为 *
+        // 超級管理員權限為 *
         if (!in_array('*', $rules)) {
             $this->removeNotContain($tree_items, 'id', $rules);
         }
@@ -111,7 +111,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 获取权限
+     * 取得權限
      * @param Request $request
      * @return Response
      * @throws Exception
@@ -119,7 +119,7 @@ class RuleController extends Crud
     public function permission(Request $request): Response
     {
         $rules = $this->getRules(admin('roles'));
-        // 超级管理员
+        // 超級管理員
         if (in_array('*', $rules)) {
             return $this->json(0, 'ok', ['*']);
         }
@@ -136,7 +136,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 根据类同步规则到数据库
+     * 根據類別同步規則到資料庫
      * @return void
      */
     protected function syncRules()
@@ -182,7 +182,7 @@ class RuleController extends Crud
                 }
             }
         }
-        // 从数据库中删除已经不存在的方法
+        // 從資料庫中刪除已經不存在的方法
         $menu_names_to_del = array_diff($methods_in_db, $methods_in_files);
         if ($menu_names_to_del) {
             //Rule::whereIn('key', $menu_names_to_del)->delete();
@@ -190,7 +190,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 查询前置方法
+     * 查詢前置方法
      * @param Request $request
      * @return array
      * @throws BusinessException
@@ -198,12 +198,12 @@ class RuleController extends Crud
     protected function selectInput(Request $request): array
     {
         [$where, $format, $limit, $field, $order] = parent::selectInput($request);
-        // 允许通过type=0,1格式传递菜单类型
+        // 允許透過type=0,1格式傳遞選單類型
         $types = $request->get('type');
         if ($types && is_string($types)) {
             $where['type'] = ['in', explode(',', $types)];
         }
-        // 默认weight排序
+        // 預設weight排序
         if (!$field) {
             $field = 'weight';
             $order = 'desc';
@@ -229,7 +229,7 @@ class RuleController extends Crud
         $data['key'] = str_replace('\\\\', '\\', $data['key']);
         $key = $data['key'] ?? '';
         if ($this->model->where('key', $key)->first()) {
-            return $this->json(1, "菜单标识 $key 已经存在");
+            return $this->json(1, "選單標識 $key 已經存在");
         }
         $data['pid'] = empty($data['pid']) ? 0 : $data['pid'];
         $this->doInsert($data);
@@ -249,12 +249,12 @@ class RuleController extends Crud
         }
         [$id, $data] = $this->updateInput($request);
         if (!$row = $this->model->find($id)) {
-            return $this->json(2, '记录不存在');
+            return $this->json(2, '記錄不存在');
         }
         if (isset($data['pid'])) {
             $data['pid'] = $data['pid'] ?: 0;
             if ($data['pid'] == $row['id']) {
-                return $this->json(2, '不能将自己设置为上级菜单');
+                return $this->json(2, '不能設定自己為上級選單');
             }
         }
         if (isset($data['key'])) {
@@ -265,14 +265,14 @@ class RuleController extends Crud
     }
     
     /**
-     * 删除
+     * 刪除
      * @param Request $request
      * @return Response
      */
     public function delete(Request $request): Response
     {
         $ids = $this->deleteInput($request);
-        // 子规则一起删除
+        // 子規則一起刪除
         $delete_ids = $children_ids = $ids;
         while($children_ids) {
             $children_ids = $this->model->whereIn('pid', $children_ids)->pluck('id')->toArray();
@@ -283,7 +283,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 移除不包含某些数据的数组
+     * 移除不包含某些資料的陣列
      * @param $array
      * @param $key
      * @param $values
@@ -307,7 +307,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 判断数组是否包含某些数据
+     * 判斷數組是否包含某些資料
      * @param $array
      * @param $key
      * @param $values
@@ -333,7 +333,7 @@ class RuleController extends Crud
     }
 
     /**
-     * 获取权限规则
+     * 取得權限規則
      * @param $roles
      * @return array
      */

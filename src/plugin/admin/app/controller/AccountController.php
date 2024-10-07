@@ -13,18 +13,18 @@ use Webman\Captcha\CaptchaBuilder;
 use Webman\Captcha\PhraseBuilder;
 
 /**
- * 管理员账户
+ * 管理者帳號
  */
 class AccountController extends Crud
 {
     /**
-     * 不需要登录的方法
+     * 不需要登入的方法
      * @var string[]
      */
     protected $noNeedLogin = ['login', 'logout', 'captcha'];
 
     /**
-     * 不需要鉴权的方法
+     * 不需要鑑權的方法
      * @var string[]
      */
     protected $noNeedAuth = ['info'];
@@ -35,7 +35,7 @@ class AccountController extends Crud
     protected $model = null;
 
     /**
-     * 构造函数
+     * 建構子
      */
     public function __construct()
     {
@@ -43,7 +43,7 @@ class AccountController extends Crud
     }
 
     /**
-     * 账户设置
+     * 帳戶設定
      * @return Response
      * @throws Throwable
      */
@@ -53,7 +53,7 @@ class AccountController extends Crud
     }
 
     /**
-     * 登录
+     * 登入
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -63,21 +63,21 @@ class AccountController extends Crud
         $this->checkDatabaseAvailable();
         $captcha = $request->post('captcha', '');
         if (strtolower($captcha) !== session('captcha-login')) {
-            return $this->json(1, '验证码错误');
+            return $this->json(1, '驗證碼錯誤');
         }
         $request->session()->forget('captcha-login');
         $username = $request->post('username', '');
         $password = $request->post('password', '');
         if (!$username) {
-            return $this->json(1, '用户名不能为空');
+            return $this->json(1, '使用者名稱不能為空');
         }
         $this->checkLoginLimit($username);
         $admin = Admin::where('username', $username)->first();
         if (!$admin || !Util::passwordVerify($password, $admin->password)) {
-            return $this->json(1, '账户不存在或密码错误');
+            return $this->json(1, '帳戶不存在或密碼錯誤');
         }
         if ($admin->status != 0) {
-            return $this->json(1, '当前账户暂时无法登录');
+            return $this->json(1, '目前帳戶暫時無法登入');
         }
         $admin->login_at = date('Y-m-d H:i:s');
         $admin->save();
@@ -86,7 +86,7 @@ class AccountController extends Crud
         $session = $request->session();
         $admin['password'] = md5($admin['password']);
         $session->set('admin', $admin);
-        return $this->json(0, '登录成功', [
+        return $this->json(0, '登入成功', [
             'nickname' => $admin['nickname'],
             'token' => $request->sessionId(),
         ]);
@@ -104,7 +104,7 @@ class AccountController extends Crud
     }
 
     /**
-     * 获取登录信息
+     * 取得登入資訊
      * @param Request $request
      * @return Response
      */
@@ -162,7 +162,7 @@ class AccountController extends Crud
     }
 
     /**
-     * 修改密码
+     * 修改密碼
      * @param Request $request
      * @return Response
      */
@@ -171,13 +171,13 @@ class AccountController extends Crud
         $hash = Admin::find(admin_id())['password'];
         $password = $request->post('password');
         if (!$password) {
-            return $this->json(2, '密码不能为空');
+            return $this->json(2, '密碼不能為空');
         }
         if ($request->post('password_confirm') !== $password) {
-            return $this->json(3, '两次密码输入不一致');
+            return $this->json(3, '兩次密碼輸入不一致');
         }
         if (!Util::passwordVerify($request->post('old_password'), $hash)) {
-            return $this->json(1, '原始密码不正确');
+            return $this->json(1, '原始密碼不正確');
         }
         $update_data = [
             'password' => Util::passwordHash($password)
@@ -187,7 +187,7 @@ class AccountController extends Crud
     }
 
     /**
-     * 验证码
+     * 驗證碼
      * @param Request $request
      * @param string $type
      * @return Response
@@ -203,7 +203,7 @@ class AccountController extends Crud
     }
 
     /**
-     * 检查登录频率限制
+     * 檢查登入頻率限制
      * @param $username
      * @return void
      * @throws BusinessException
@@ -232,12 +232,12 @@ class AccountController extends Crud
         $limit_info['count']++;
         file_put_contents($limit_file, json_encode($limit_info));
         if ($limit_info['count'] >= 5) {
-            throw new BusinessException('登录失败次数过多，请5分钟后再试');
+            throw new BusinessException('登入失敗次數過多，請5分鐘後再試');
         }
     }
 
     /**
-     * 解除登录频率限制
+     * 解除登入頻率限制
      * @param $username
      * @return void
      */
@@ -253,7 +253,7 @@ class AccountController extends Crud
     protected function checkDatabaseAvailable()
     {
         if (!config('plugin.admin.database')) {
-            throw new BusinessException('请重启webman');
+            throw new BusinessException('請重啟webman');
         }
     }
 

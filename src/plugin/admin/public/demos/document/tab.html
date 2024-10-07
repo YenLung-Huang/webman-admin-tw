@@ -2,23 +2,23 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>多选项卡</title>
+		<title>多選項卡</title>
 		<link rel="stylesheet" href="../../component/pear/css/pear.css" />
 	</head>
 	<body class="pear-container">
 		<div class="layui-row layui-col-space10">
 			<div class="layui-col-md12">
 				<div class="layui-card">
-					<div class="layui-card-header">开发环境</div>
+					<div class="layui-card-header">開發環境</div>
 					<div class="layui-card-body">
-						Tab.js 是一个多视图组件，你可在任何地方内嵌它，并执行常用操作，Admin 正式使用该组件进行路由切换
+						Tab.js 是一個多視圖元件，你可在任何地方內嵌它，並執行常用操作，Admin 正式使用該元件進行路由切換
 					</div>
 				</div>
 			</div>
 			<div class="layui-col-md12">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 							    &lt;link rel="stylesheet" href="component/pear/css/pear.css" />
@@ -38,8 +38,8 @@
 					</div>
 					<div class="layui-card-body">
 						<button class="pear-btn pear-btn-primary add">新增 Demo</button>
-						<button class="pear-btn pear-btn-danger del">删除当前</button>
-						<button class="pear-btn pear-btn-warming enable">高级操作</button>
+						<button class="pear-btn pear-btn-danger del">刪除目前</button>
+						<button class="pear-btn pear-btn-warming enable">進階操作</button>
 					</div>
 				</div>
 			</div>
@@ -49,7 +49,7 @@
 						基本使用
 					</div>
 					<div class="layui-card-body">
-						<!-- 内 容 页 面 -->
+						<!-- 內 容 頁 面 -->
 						<div id="contents"></div>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 			<div class="layui-col-md6">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content layui-show">
 							<pre class="layui-code" lay-encode="true">
 								
@@ -75,7 +75,7 @@
 								    },
 								    data: [{
 								        id: "1",
-								        title: "首页",
+								        title: "首頁",
 								        url: "http://www.baidu.com",
 								        close: false
 								    },{
@@ -116,7 +116,7 @@
 					session: false,
 					tabMax: 30,
 					closeEvent: function(id) {
-						layer.msg("关闭回调")
+						layer.msg("關閉回呼")
 					},
 					data: [{
 						id: "1",
@@ -128,20 +128,20 @@
 				
 				$(".add").click(function(){
 					
-					// ADD 添加方法
+					// ADD 新增方法
 					tab.addTabOnlyByElem('contents',{id:'demo',title:'Demo',url:'../system/space.html',close: true})
 				})
 				
 				$(".enable").click(function(){
 					
-					// ADD 添加方法
-					tab.addTabOnlyByElem('contents',{id:'tabContent',title:'高级操作',url:'tabContent.html',close: true})
+					// ADD 新增方法
+					tab.addTabOnlyByElem('contents',{id:'tabContent',title:'進階操作',url:'tabContent.html',close: true})
 				})
 				
 				$(".del").click(function(){
 					
 					tab.delCurrentTabByElem('contents',function(id){
-						layer.msg("已删除 '"+id+"' 标签页")
+						layer.msg("已刪除 '"+id+"' 標籤頁")
 					});
 					
 				})

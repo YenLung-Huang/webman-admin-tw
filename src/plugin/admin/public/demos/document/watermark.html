@@ -2,23 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>水印组件</title>
+    <title>水印組件</title>
     <link rel="stylesheet" href="../../component/pear/css/pear.css" />
 </head>
 <body class="pear-container">
 <div class="layui-row layui-col-space10">
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header">开发环境</div>
+            <div class="layui-card-header">開發環境</div>
             <div class="layui-card-body">
-                watermark 用于水印叠加
+                watermark 用於浮水印疊加
             </div>
         </div>
     </div>
     <div class="layui-col-md12">
         <div class="layui-collapse">
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">显示代码</h2>
+                <h2 class="layui-colla-title">顯示代碼</h2>
                 <div class="layui-colla-content">
                     <pre class="layui-code" lay-encode="true">
                         &lt;link rel="stylesheet" href="component/pear/css/pear.css" /&gt;
@@ -33,29 +33,29 @@
     </div>
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header">水印创建</div>
+            <div class="layui-card-header">水印創建</div>
             <div class="layui-card-body">
-                <button class="btntype1 pear-btn pear-btn-primary">单行水印</button>
-                <button class="btntype2 pear-btn pear-btn-danger">多行水印</button>
-                <button class="btntype3 pear-btn pear-btn-warming">叠加目标</button>
+                <button class="btntype1 pear-btn pear-btn-primary">單行浮水印</button>
+                <button class="btntype2 pear-btn pear-btn-danger">多行浮水印</button>
+                <button class="btntype3 pear-btn pear-btn-warming">疊加目標</button>
             </div>
         </div>
     </div>
     <div class="layui-col-md12">
         <div class="layui-collapse">
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">显示代码</h2>
+                <h2 class="layui-colla-title">顯示代碼</h2>
                 <div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								layui.use(['watermark'], function() {
 								    var watermark = layui.watermark;
 
     var mark_node=new watermark({
-        content: "单行水印"
+        content: "單行浮水印"
     });
 
     new watermark({
-        content: "多行水印1<br>多行水印2",
+        content: "多行浮水印1<br>多行浮水印2",
         height:40
     });
 
@@ -72,7 +72,7 @@
     </div>
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header">指定容器水印</div>
+            <div class="layui-card-header">指定容器浮水印</div>
             <div class="layui-card-body">
                 <div id="water_div"
                      style="width: 600px;
@@ -92,16 +92,16 @@
 </div>
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header">移除水印</div>
+            <div class="layui-card-header">移除浮水印</div>
             <div class="layui-card-body">
-                <button class="btnclose pear-btn pear-btn-primary">销毁水印</button>
+                <button class="btnclose pear-btn pear-btn-primary">銷毀水印</button>
             </div>
         </div>
     </div>
     <div class="layui-col-md12">
         <div class="layui-collapse">
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">显示代码</h2>
+                <h2 class="layui-colla-title">顯示代碼</h2>
                 <div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								layui.use(['watermark'], function() {
@@ -135,20 +135,20 @@
         $(".btntype1").click(function() {
             remove_water_marker();
             mark_node=new watermark({
-                content: "单行水印"
+                content: "單行浮水印"
             });
         })
         $(".btntype2").click(function() {
             remove_water_marker();
             mark_node =new watermark({
-                content: "多行水印1<br>第二行长多行水印2",
+                content: "多行浮水印1<br>第二行長多行浮水印2",
                 height:40
             });
         })
         $(".btntype3").click(function() {
             remove_water_marker();
             mark_node = new watermark({
-                content: "指定目标上",
+                content: "指定目標上",
                 appendTo:'#water_div',
             });
         })

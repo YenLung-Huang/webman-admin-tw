@@ -44,19 +44,19 @@ layui.define(['table', 'jquery', 'element'], function (exports) {
 			if(option.type=="success"){
 				Notiflix.Report.Success(
 				    option.title,
-				    option.message,'确认');
+				    option.message,'確認');
 			}else if(option.type=="failure"){
 				Notiflix.Report.Failure(
 				    option.title,
-				    option.message,'确认');
+				    option.message,'確認');
 			}else if(option.type=="warning"){
 				Notiflix.Report.Warning(
 				    option.title,
-				    option.message,'确认');
+				    option.message,'確認');
 			}else if(option.type=="info"){
 				Notiflix.Report.Info(
 				    option.title,
-				    option.message,'确认');
+				    option.message,'確認');
 			}
 		}
 
@@ -83,7 +83,7 @@ layui.define(['table', 'jquery', 'element'], function (exports) {
 			Notiflix.Confirm.Show(
 			option.title,
 			option.message,
-			'确认',
+			'確認',
 			'取消',
 			option.success,
 			option.cancle
@@ -1929,7 +1929,7 @@ layui.define(['table', 'jquery', 'element'], function (exports) {
 
 
 	/*
-	 * 侧边滑出弹层插件 mSlider.js
+	 * 側邊滑出彈層插件 mSlider.js
 	 * DH (https://denghao.me)
 	 * 2018-07
 	 */
@@ -1970,7 +1970,7 @@ layui.define(['table', 'jquery', 'element'], function (exports) {
 	// 		init: function() {
 	// 			var g = this;
 	// 			if (!g.dom) {
-	// 				console.log("未正确绑定弹窗容器");
+	// 				console.log("未正確綁定彈跳窗容器");
 	// 				return
 	// 			}
 	// 			var d = document.createElement("div");

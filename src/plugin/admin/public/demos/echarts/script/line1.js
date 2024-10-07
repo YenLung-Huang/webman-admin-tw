@@ -9,7 +9,7 @@ layui.use(['echarts'], function() {
 	option = {
 		backgroundColor: '#fff',
 		title: {
-			text: '全国6月销售统计',
+			text: '全國6月銷售統計',
 			fontSize: 12,
 			fontWeight: 400,
 			left: 'center',
@@ -48,7 +48,7 @@ layui.use(['echarts'], function() {
 		},
 		xAxis: [{
 			type: 'category',
-			data: ['北京', '上海', '广州', '深圳', '香港', '澳门', '台湾'],
+			data: ['北京', '上海', '廣州', '深圳', '香港', '澳門', '台灣'],
 			axisLine: {
 				lineStyle: {
 					color: '#DCE2E8'
@@ -60,9 +60,9 @@ layui.use(['echarts'], function() {
 			axisLabel: {
 				interval: 0,
 				color: '#556677',
-				// 默认x轴字体大小
+				// 預設x軸字體大小
 				fontSize: 12,
-				// margin:文字到x轴的距离
+				// margin:文字到x軸的距離
 				margin: 15
 			},
 			axisPointer: {
@@ -70,9 +70,9 @@ layui.use(['echarts'], function() {
 					// padding: [11, 5, 7],
 					padding: [0, 0, 10, 0],
 
-					// 这里的margin和axisLabel的margin要一致!
+					// 這裡的margin和axisLabel的margin要一致!
 					margin: 15,
-					// 移入时的字体大小
+					// 移入時的字體大小
 					fontSize: 12,
 					backgroundColor: {
 						type: 'linear',
@@ -82,20 +82,20 @@ layui.use(['echarts'], function() {
 						y2: 1,
 						colorStops: [{
 							offset: 0,
-							color: '#fff' // 0% 处的颜色
+							color: '#fff' // 0% 處的顏色
 						}, {
 							// offset: 0.9,
 							offset: 0.86,
 
-							color: '#fff' // 0% 处的颜色
+							color: '#fff' // 0% 處的顏色
 						}, {
 							offset: 0.86,
-							color: '#33c0cd' // 0% 处的颜色
+							color: '#33c0cd' // 0% 處的顏色
 						}, {
 							offset: 1,
-							color: '#33c0cd' // 100% 处的颜色
+							color: '#33c0cd' // 100% 處的顏色
 						}],
-						global: false // 缺省为 false
+						global: false // 缺省為 false
 					}
 				}
 			},

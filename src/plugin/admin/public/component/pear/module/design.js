@@ -47,7 +47,7 @@ layui.define(['layer', 'form'], function(exports) {
 					});
 				});
 				if (module.indexOf('iconPicker') === -1) module.push('iconPicker');
-				allJS += '    // 图标选择\n' +
+				allJS += '    // 圖示選擇\n' +
 					'    layui.iconPicker.render({\n' +
 					'       elem: "#' + key + '",\n' +
 					'       type: "fontClass",\n' +
@@ -63,15 +63,15 @@ layui.define(['layer', 'form'], function(exports) {
 					layui.xmSelect.render({
 						el: "#" + key,
 						name: key,
-						data: [{value: 1, name: "深圳"},{value: 2, name: "上海"},{value: 3, name: "广州"}],
+						data: [{value: 1, name: "深圳"},{value: 2, name: "上海"},{value: 3, name: "廣州"}],
 					});
 				});
 				if (module.indexOf('xmSelect') === -1) module.push('xmSelect');
-				allJS += '    // 下拉多选\n' +
+				allJS += '    // 下拉多選\n' +
 					'    layui.xmSelect.render({\n' +
 					'       el: "#' + key + '",\n' +
 					'       name: "' + key + '",\n' +
-					'       data: [{value: 1, name: "深圳"},{value: 2, name: "上海"},{value: 3, name: "广州"}],\n' +
+					'       data: [{value: 1, name: "深圳"},{value: 2, name: "上海"},{value: 3, name: "廣州"}],\n' +
 					'    });\n';
 				$('.js-show').text(jscode())
 				return;
@@ -85,16 +85,16 @@ layui.define(['layer', 'form'], function(exports) {
 						el: "#" + key,
 						name: key,
 						tree: {show: true},
-						data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "广州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],
+						data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "廣州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],
 					});
 				});
 				if (module.indexOf('xmSelect') === -1) module.push('xmSelect');
-				allJS += '    // 树多选\n' +
+				allJS += '    // 樹多選\n' +
 					'    layui.xmSelect.render({\n' +
 					'       el: "#' + key + '",\n' +
 					'       name: "' + key + '",\n' +
 					'       tree: {show: true},\n' +
-					'       data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "广州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],\n' +
+					'       data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "廣州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],\n' +
 					'    });\n';
 				$('.js-show').text(jscode())
 				return;
@@ -111,11 +111,11 @@ layui.define(['layer', 'form'], function(exports) {
 						clickClose: true,
 						radio: true,
 						tree: {show: true, strict: false, clickCheck: true, clickExpand: false},
-						data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "广州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],
+						data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "廣州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],
 					});
 				});
 				if (module.indexOf('xmSelect') === -1) module.push('xmSelect');
-				allJS += '    // 树多选\n' +
+				allJS += '    // 樹多選\n' +
 					'    layui.xmSelect.render({\n' +
 					'       el: "#' + key + '",\n' +
 					'       name: "' + key + '",\n' +
@@ -123,7 +123,7 @@ layui.define(['layer', 'form'], function(exports) {
 					'       clickClose: true,\n' +
 					'       radio: true,\n' +
 					'       tree: {show: true, strict: false, clickCheck: true, clickExpand: false},\n' +
-					'       data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "广州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],\n' +
+					'       data: [{value: 1, name: "广东省", children:[{value: 2, name: "深圳"},{value: 3, name: "廣州"}]},{value: 4, name: "福建省", children:[{value: 5, name: "厦门"},{value: 6, name: "福州"}]}],\n' +
 					'    });\n';
 				$('.js-show').text(jscode())
 				return;
@@ -138,7 +138,7 @@ layui.define(['layer', 'form'], function(exports) {
 					layui.$("#attachment-choose-" + key).on('click', function() {
 						parent.layer.open({
 							type: 2,
-							title: "选择附件",
+							title: "選擇附件",
 							content: "/app/admin/upload/attachment",
 							area: ["95%", "90%"],
 							success: function (layero, index) {
@@ -160,14 +160,14 @@ layui.define(['layer', 'form'], function(exports) {
 				});
 				if (module.indexOf('upload') === -1) module.push('upload');
 				if (module.indexOf('util') === -1) module.push('util');
-				allJS += '    // 上传文件\n' +
+				allJS += '    // 上傳文件\n' +
 					'    layui.use([\'upload\'], function() {\n' +
 					'      let input = layui.$("#'+key+'").prev();\n' +
 					'      input.prev().html(layui.util.escape(input.val()));\n' +
 					'      layui.$("#attachment-choose-'+key+'").on("click", function() {\n' +
 					'        parent.layer.open({\n' +
 					'          type: 2,\n' +
-					'          title: "选择附件",\n' +
+					'          title: "選擇附件",\n' +
 					'          content: "/app/admin/upload/attachment",\n' +
 					'          area: ["95%", "90%"],\n' +
 					'          success: function (layero, index) {\n' +
@@ -200,7 +200,7 @@ layui.define(['layer', 'form'], function(exports) {
 					layui.$('#attachment-choose-' + key).on('click', function() {
 						parent.layer.open({
 							type: 2,
-							title: '选择附件',
+							title: '選擇附件',
 							content: '/app/admin/upload/attachment?ext=jpg,jpeg,png,gif,bmp',
 							area: ["95%", "90%"],
 							success: function (layero, index) {
@@ -221,14 +221,14 @@ layui.define(['layer', 'form'], function(exports) {
 					});
 				});
 				if (module.indexOf('upload') === -1) module.push('upload');
-				allJS += '    // 上传图片\n' +
+				allJS += '    // 上傳圖片\n' +
 					'    layui.use([\'upload\'], function() {\n' +
 					'      let input = layui.$("#'+key+'").prev();\n' +
 					'      input.prev().attr(\'src\', input.val());\n' +
 					'      layui.$("#attachment-choose-'+key+'").on("click", function() {\n' +
 					'        parent.layer.open({\n' +
 					'          type: 2,\n' +
-					'          title: "选择附件",\n' +
+					'          title: "選擇附件",\n' +
 					'          content: "/app/admin/upload/attachment?ext=jpg,jpeg,png,gif,bmp",\n' +
 					'          area: ["95%", "90%"],\n' +
 					'          success: function (layero, index) {\n' +
@@ -258,7 +258,7 @@ layui.define(['layer', 'form'], function(exports) {
 				delHtml()
 				return false;
 			default:
-				layer.msg('类型错误', {
+				layer.msg('類型錯誤', {
 					icon: 2
 				})
 		}
@@ -283,7 +283,7 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function icon(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">图标选择</label>\n' +
+			'    <label class="layui-form-label">圖示選擇</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <input name="'+key+'" id="'+key+'" />\n' +
 			'    </div>\n' +
@@ -293,7 +293,7 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function multiSelect(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">下拉多选</label>\n' +
+			'    <label class="layui-form-label">下拉多選</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <div name="'+key+'" id="'+key+'" ></div>\n' +
 			'    </div>\n' +
@@ -303,7 +303,7 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function tree(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">树多选</label>\n' +
+			'    <label class="layui-form-label">樹多選</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <div name="'+key+'" id="'+key+'" ></div>\n' +
 			'    </div>\n' +
@@ -313,7 +313,7 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function treeSelectOne(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">树单选</label>\n' +
+			'    <label class="layui-form-label">樹單選</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <div name="'+key+'" id="'+key+'" ></div>\n' +
 			'    </div>\n' +
@@ -322,10 +322,10 @@ layui.define(['layer', 'form'], function(exports) {
 	}
 
 	function upload(size) {
-		let uploadWords = size === "block" ? "上传文件" : "上传";
-		let selectWords = size === "block" ? "选择文件" : "选择";
+		let uploadWords = size === "block" ? "上傳檔案" : "上傳";
+		let selectWords = size === "block" ? "選擇檔案" : "選擇";
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">上传文件</label>\n' +
+			'    <label class="layui-form-label">上傳文件</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <span></span>\n' +
 			'      <input type="text" style="display:none" name="'+key+'" value="" />\n' +
@@ -341,10 +341,10 @@ layui.define(['layer', 'form'], function(exports) {
 	}
 
 	function uploadImg(size) {
-		let uploadWords = size === "block" ? "上传文件" : "上传";
-		let selectWords = size === "block" ? "选择图片" : "选择";
+		let uploadWords = size === "block" ? "上傳檔案" : "上傳";
+		let selectWords = size === "block" ? "選擇圖片" : "選擇";
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">上传图片</label>\n' +
+			'    <label class="layui-form-label">上傳圖片</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <img class="img-3" src=""/>\n' +
 			'      <input type="text" style="display:none" name="'+key+'" value="" />\n' +
@@ -360,12 +360,12 @@ layui.define(['layer', 'form'], function(exports) {
 	}
 
 	function input(type, size) {
-		var name = type === 'text' ? '输入框' : (type === 'password' ? '密码框' : '');
+		var name = type === 'text' ? '輸入框' : (type === 'password' ? '密碼框' : '');
 		var html = '  <div class="layui-form-item">\n' +
 			'    <label class="layui-form-label">' + name + '</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
-			'      <input type="' + type + '" name="' + key + '" required  lay-verify="required" placeholder="请输入' + name +
-			'内容" autocomplete="off" class="layui-input">\n' +
+			'      <input type="' + type + '" name="' + key + '" required  lay-verify="required" placeholder="請輸入' + name +
+			'內容" autocomplete="off" class="layui-input">\n' +
 			'    </div>\n' +
 			'  </div>\n';
 		return html;
@@ -373,13 +373,13 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function select(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">选择框</label>\n' +
+			'    <label class="layui-form-label">選擇框</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <select name="' + key + '" lay-verify="required" lay-search>\n' +
 			'        <option value=""></option>\n' +
 			'        <option value="0">北京</option>\n' +
 			'        <option value="1">上海</option>\n' +
-			'        <option value="2">广州</option>\n' +
+			'        <option value="2">廣州</option>\n' +
 			'        <option value="3">深圳</option>\n' +
 			'        <option value="4">杭州</option>\n' +
 			'      </select>\n' +
@@ -390,11 +390,11 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function checkbox_a(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">复选框</label>\n' +
+			'    <label class="layui-form-label">複選框</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
-			'      <input type="checkbox" name="' + key + '[]" title="写作">\n' +
-			'      <input type="checkbox" name="' + key + '[]" title="阅读" checked>\n' +
-			'      <input type="checkbox" name="' + key + '[]" title="发呆">\n' +
+			'      <input type="checkbox" name="' + key + '[]" title="寫作">\n' +
+			'      <input type="checkbox" name="' + key + '[]" title="閱讀" checked>\n' +
+			'      <input type="checkbox" name="' + key + '[]" title="發呆">\n' +
 			'    </div>\n' +
 			'  </div>\n';
 		return html;
@@ -402,7 +402,7 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function checkbox_b(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">开关</label>\n' +
+			'    <label class="layui-form-label">開關</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <input type="checkbox" name="' + key + '" lay-skin="switch">\n' +
 			'    </div>\n' +
@@ -412,7 +412,7 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function radio(size) {
 		var html = '  <div class="layui-form-item">\n' +
-			'    <label class="layui-form-label">单选框</label>\n' +
+			'    <label class="layui-form-label">單選框</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
 			'      <input type="radio" name="' + key + '" value="男" title="男">\n' +
 			'      <input type="radio" name="' + key + '" value="女" title="女" checked>\n' +
@@ -423,9 +423,9 @@ layui.define(['layer', 'form'], function(exports) {
 
 	function textarea(size) {
 		var html = '  <div class="layui-form-item layui-form-text">\n' +
-			'    <label class="layui-form-label">文本域</label>\n' +
+			'    <label class="layui-form-label">文字域</label>\n' +
 			'    <div class="layui-input-' + size + '">\n' +
-			'      <textarea name="' + key + '" placeholder="请输入内容" class="layui-textarea"></textarea>\n' +
+			'      <textarea name="' + key + '" placeholder="請輸入內容" class="layui-textarea"></textarea>\n' +
 			'    </div>\n' +
 			'  </div>\n';
 		return html;
@@ -446,7 +446,7 @@ layui.define(['layer', 'form'], function(exports) {
 			'  layui.use('+JSON.stringify(module)+', function(){\n' +
 			'    var form = layui.form;\n' +
 			''+ allJS +
-			'    // 提交表单\n' +
+			'    // 提交表單\n' +
 			'    form.on(\'submit(formDemo)\', function(data){\n' +
 			'      layer.msg(JSON.stringify(data.field));\n' +
 			'      return false;\n' +

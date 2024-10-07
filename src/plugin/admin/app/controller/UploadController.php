@@ -24,13 +24,13 @@ class UploadController extends Crud
     protected $model = null;
 
     /**
-     * 只返回当前管理员数据
+     * 只返回目前管理員資料
      * @var string
      */
     protected $dataLimit = 'personal';
 
     /**
-     * 构造函数
+     * 建構子
      * @return void
      */
     public function __construct()
@@ -39,7 +39,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */
@@ -49,7 +49,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 浏览附件
+     * 瀏覽附件
      * @return Response
      * @throws Throwable
      */
@@ -59,7 +59,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 查询附件
+     * 查詢附件
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -92,7 +92,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 添加附件
+     * 新增附件
      * @param Request $request
      * @return Response
      * @throws Exception|Throwable
@@ -122,7 +122,7 @@ class UploadController extends Crud
         ] = array_values($data);
         $upload->category = $request->post('category');
         $upload->save();
-        return $this->json(0, '上传成功', [
+        return $this->json(0, '上傳成功', [
             'url' => $data['url'],
             'name' => $data['name'],
             'size' => $data['size'],
@@ -130,7 +130,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 上传文件
+     * 上傳文件
      * @param Request $request
      * @return Response
      * @throws Exception
@@ -151,7 +151,7 @@ class UploadController extends Crud
             return $this->image($request);
         }
         $data = $this->base($request, '/upload/files/'.date('Ymd'));
-        return $this->json(0, '上传成功', [
+        return $this->json(0, '上傳成功', [
             'url' => $data['url'],
             'name' => $data['name'],
             'size' => $data['size'],
@@ -159,7 +159,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 上传图片
+     * 上傳圖片
      * @param Request $request
      * @return Response
      * @throws Exception
@@ -183,12 +183,12 @@ class UploadController extends Crud
             unlink($realpath);
             return json( [
                 'code'  => 500,
-                'msg'  => '处理图片发生错误'
+                'msg'  => '處理圖片發生錯誤'
             ]);
         }
         return json( [
             'code'  => 0,
-            'msg'  => '上传成功',
+            'msg'  => '上傳成功',
             'data' => [
                 'url' => $data['url'],
                 'name' => $data['name'],
@@ -198,7 +198,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 上传头像
+     * 上傳頭像
      * @param Request $request
      * @return Response
      * @throws Exception
@@ -209,7 +209,7 @@ class UploadController extends Crud
         if ($file && $file->isValid()) {
             $ext = strtolower($file->getUploadExtension());
             if (!in_array($ext, ['jpg', 'jpeg', 'gif', 'png'])) {
-                return json(['code' => 2, 'msg' => '仅支持 jpg jpeg gif png格式']);
+                return json(['code' => 2, 'msg' => '僅支援 jpg jpeg gif png格式']);
             }
             $image = Image::make($file);
             $width = $image->width();
@@ -241,7 +241,7 @@ class UploadController extends Crud
 
             return json([
                 'code' => 0,
-                'msg' => '上传成功',
+                'msg' => '上傳成功',
                 'data' => [
                     'url' => "/app/admin/$relative_path/$name.md.$ext"
                 ]
@@ -251,7 +251,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 删除附件
+     * 刪除附件
      * @param Request $request
      * @return Response
      */
@@ -281,7 +281,7 @@ class UploadController extends Crud
     }
 
     /**
-     * 获取上传数据
+     * 取得上傳資料
      * @param Request $request
      * @param $relative_dir
      * @return array
@@ -292,7 +292,7 @@ class UploadController extends Crud
         $relative_dir = ltrim($relative_dir, '\\/');
         $file = current($request->file());
         if (!$file || !$file->isValid()) {
-            throw new BusinessException('未找到上传文件', 400);
+            throw new BusinessException('未找到上傳文件', 400);
         }
 
         $admin_public_path = rtrim(config('plugin.admin.app.public_path', ''), '\\/');
@@ -315,7 +315,7 @@ class UploadController extends Crud
         $ext = strtolower($ext);
         $ext_forbidden_map = ['php', 'php3', 'php5', 'css', 'js', 'html', 'htm', 'asp', 'jsp'];
         if (in_array($ext, $ext_forbidden_map)) {
-            throw new BusinessException('不支持该格式的文件上传', 400);
+            throw new BusinessException('不支援該格式的檔案上傳', 400);
         }
 
         $relative_path = $relative_dir . '/' . bin2hex(pack('Nn',time(), random_int(1, 65535))) . ".$ext";

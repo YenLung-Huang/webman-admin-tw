@@ -9,43 +9,43 @@ layui.config({
 	base: rootPath + "module/",
 	version: "3.10.0"
 }).extend({
-	admin: "admin", 	// 框架布局组件
-	menu: "menu",		// 数据菜单组件
-	frame: "frame", 	// 内容页面组件
-	tab: "tab",			// 多选项卡组件
-	echarts: "echarts", // 数据图表组件
-	echartsTheme: "echartsTheme", // 数据图表主题
-	encrypt: "encrypt",		// 数据加密组件
-	select: "select",	// 下拉多选组件
-	xmSelect: "xm-select",	// 下拉多选组件 //变更
-	drawer: "drawer",	// 抽屉弹层组件
-	notice: "notice",	// 消息提示组件
-	step:"step",		// 分布表单组件
-	tag:"tag",			// 多标签页组件
-	popup:"popup",      // 弹层封装
-	treetable:"treetable",   // 树状表格
-	dtree:"dtree",			// 树结构
-	tinymce:"tinymce/tinymce", // 编辑器
-	area:"area",			// 省市级联  
-	count:"count",			// 数字滚动
-	topBar: "topBar",		// 置顶组件
-	button: "button",		// 加载按钮
-	design: "design",		// 表单设计
-	card: "card",			// 数据卡片组件
-	loading: "loading",		// 加载组件
-	cropper:"cropper",		// 裁剪组件
-	convert:"convert",		// 数据转换
-	yaml:"yaml",			// yaml 解析组件
-	context: "context",		// 上下文组件
-	http: "http",			// ajax请求组件
-	theme: "theme",			// 主题转换
-	message: "message",     // 通知组件
-	toast: "toast",         // 消息通知
-	iconPicker: "iconPicker",// 图标选择
-	nprogress: "nprogress",  // 进度过渡
+	admin: "admin", 	// 框架佈局元件
+	menu: "menu",		// 資料選單組件
+	frame: "frame", 	// 內容頁面元件
+	tab: "tab",			// 多重選項卡組件
+	echarts: "echarts", // 資料圖表組件
+	echartsTheme: "echartsTheme", // 資料圖表主題
+	encrypt: "encrypt",		// 資料加密元件
+	select: "select",	// 下拉多重選擇組件
+	xmSelect: "xm-select",	// 下拉多重選取元件 //變更
+	drawer: "drawer",	// 抽屜彈層組件
+	notice: "notice",	// 訊息提示元件
+	step:"step",		// 分佈表單元件
+	tag:"tag",			// 多重標籤頁元件
+	popup:"popup",      // 彈層封裝
+	treetable:"treetable",   // 樹狀表格
+	dtree:"dtree",			// 樹狀結構
+	tinymce:"tinymce/tinymce", // 編輯器
+	area:"area",			// 省市級聯  
+	count:"count",			// 數字滾動
+	topBar: "topBar",		// 置頂組件
+	button: "button",		// 載入按鈕
+	design: "design",		// 表單設計
+	card: "card",			// 資料卡組件
+	loading: "loading",		// 載入元件
+	cropper:"cropper",		// 裁切組件
+	convert:"convert",		// 資料轉換
+	yaml:"yaml",			// yaml 解析組件
+	context: "context",		// 上下文元件
+	http: "http",			// ajax請求元件
+	theme: "theme",			// 主題轉換
+	message: "message",     // 通知組件
+	toast: "toast",         // 訊息通知
+	iconPicker: "iconPicker",// 圖示選擇
+	nprogress: "nprogress",  // 進度過渡
 	watermark:"watermark/watermark", //水印
-	fullscreen:"fullscreen",  //全屏组件
-	popover:"popover/popover" //汽泡组件
+	fullscreen:"fullscreen",  //全螢幕組件
+	popover:"popover/popover" //汽泡組件
 }).use(['layer', 'theme'], function () {
 	layui.theme.changeTheme(window, false);
 });

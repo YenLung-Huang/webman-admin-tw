@@ -14,7 +14,7 @@ layui.define(['jquery', 'element'], function (exports) {
 			title: opt.title,
 			width: opt.width,
 			height: opt.height,
-			done: opt.done ? opt.done : function () { console.log("菜单渲染成功"); }
+			done: opt.done ? opt.done : function () { console.log("選單渲染成功"); }
 		}
 		createFrameHTML(option);
 		$("#" + option.elem).width(option.width);

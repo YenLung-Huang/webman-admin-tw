@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>树形表格</title>
+    <title>樹狀表格</title>
     <link rel="stylesheet" href="../../component/pear/css/pear.css" />
 </head>
 <body class="pear-container">
@@ -10,13 +10,13 @@
     <div class="layui-card-body">
         <form class="layui-form" action="">
             <div class="layui-form-item">
-                <label class="layui-form-label">关键字</label>
+                <label class="layui-form-label">關鍵字</label>
                 <div class="layui-input-inline">
                     <input type="text" name="keyword" placeholder="" class="layui-input">
                 </div>
                 <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="power-query">
                     <i class="layui-icon layui-icon-search"></i>
-                    查询
+                    查詢
                 </button>
                 <button type="reset" class="pear-btn pear-btn-md">
                     <i class="layui-icon layui-icon-refresh"></i>
@@ -40,19 +40,19 @@
     </button>
     <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
         <i class="layui-icon layui-icon-delete"></i>
-        删除
+        刪除
     </button>
 	<button class="pear-btn pear-btn-success pear-btn-md" lay-event="expandAll">
 	    <i class="layui-icon layui-icon-spread-left"></i>
-	    展开
+	    展開
 	</button>
 	<button class="pear-btn pear-btn-success pear-btn-md" lay-event="foldAll">
 	    <i class="layui-icon layui-icon-shrink-right"></i>
-	    折叠
+	    折疊
 	</button>
 	<button class="pear-btn pear-btn-success pear-btn-md" lay-event="reload">
 	    <i class="layui-icon layui-icon-refresh"></i>
-	    重载
+	    重載
 	</button>
 </script>
 
@@ -63,16 +63,16 @@
 
 <script type="text/html" id="power-type">
     {{#if (d.powerType == '0') { }}
-    <span>目录</span>
+    <span>目錄</span>
     {{# }else if(d.powerType == '1'){ }}
-    <span>菜单</span>
+    <span>菜單</span>
     {{# }else if(d.powerType == '2'){ }}
-    <span>按钮</span>
+    <span>按鈕</span>
     {{# } }}
 </script>
 
 <script type="text/html" id="power-enable">
-    <input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="user-enable" checked = "{{ d.id == 10003 ? 'true' : 'false' }}">
+    <input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="啟用|停用" lay-filter="user-enable" checked = "{{ d.id == 10003 ? 'true' : 'false' }}">
 </script>
 
 <script type="text/html" id="icon">
@@ -103,9 +103,9 @@
                 cols: [
                     [
                     {type: 'checkbox'},
-                    {field: 'powerName', minWidth: 200, title: '权限名称'},
-                    {field: 'icon', title: '图标',templet:'#icon'},
-                    {field: 'powerType', title: '权限类型',templet:'#power-type'},
+                    {field: 'powerName', minWidth: 200, title: '權限名稱'},
+                    {field: 'icon', title: '圖示',templet:'#icon'},
+                    {field: 'powerType', title: '權限類型',templet:'#power-type'},
                     {field: 'enable', title: '是否可用',templet:'#power-enable'},
                     {field: 'sort', title: '排序'},
                     {title: '操作',templet: '#power-bar', width: 150, align: 'center'}
@@ -164,7 +164,7 @@
         }
 		
         window.remove = function(obj){
-            layer.confirm('确定要删除该权限', {icon: 3, title:'提示'}, function(index){
+            layer.confirm('確定要刪除該權限', {icon: 3, title:'提示'}, function(index){
                 layer.close(index);
                 let loading = layer.load();
                 $.ajax({
@@ -188,7 +188,7 @@
 		window.batchRemove = function(obj) {
 			let data = table.checkStatus(obj.config.id).data;
 			if (data.length === 0) {
-				layer.msg("未选中数据", {
+				layer.msg("未選取資料", {
 					icon: 3,
 					time: 1000
 				});
@@ -199,7 +199,7 @@
 				ids += data[i].powerId + ",";
 			}
 			ids = ids.substr(0, ids.length - 1);
-			layer.confirm('确定要删除这些数据', {
+			layer.confirm('確定要刪除這些資料', {
 				icon: 3,
 				title: '提示'
 			}, function(index) {

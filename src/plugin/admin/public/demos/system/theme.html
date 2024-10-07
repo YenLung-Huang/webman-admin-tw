@@ -2,53 +2,53 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>主题预览</title>
+		<title>主題預覽</title>
 		<link rel="stylesheet" href="../../component/pear/css/pear.css" />
 	</head>
 	<body class="pear-container">
 		<div class="layui-card">
-			<div class="layui-card-header">按钮</div>
+			<div class="layui-card-header">按鈕</div>
 			<div class="layui-card-body">
 				<button class="pear-btn pear-btn-primary">Button</button>
 				<button class="pear-btn pear-btn-primary">Button</button>
 			</div>
 		</div>
 		<div class="layui-card">
-			<div class="layui-card-header">输入框</div>
+			<div class="layui-card-header">輸入框</div>
 			<div class="layui-card-body">
 				<div class="layui-row layui-col-space10">
 					<div class="layui-col-md12">
-						<input type="text" name="title" placeholder="请输入标题" autocomplete="off" class="layui-input">
+						<input type="text" name="title" placeholder="請輸入標題" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="layui-card layui-form" lay-filter="component-form-element">
-			<div class="layui-card-header">复选框</div>
+			<div class="layui-card-header">複選框</div>
 			<div class="layui-card-body layui-row layui-col-space10">
 				<div class="layui-col-md12">
-					<input type="checkbox" name="" title="写作" checked>
-					<input type="checkbox" name="" title="发呆">
+					<input type="checkbox" name="" title="寫作" checked>
+					<input type="checkbox" name="" title="發呆">
 					<input type="checkbox" name="" title="禁用" disabled>
-					<input type="checkbox" name="" title="写作" lay-skin="primary" checked>
-					<input type="checkbox" name="" title="发呆" lay-skin="primary">
+					<input type="checkbox" name="" title="寫作" lay-skin="primary" checked>
+					<input type="checkbox" name="" title="發呆" lay-skin="primary">
 					<input type="checkbox" name="" title="禁用" lay-skin="primary" disabled>
 				</div>
 			</div>
 		</div>
 		<div class="layui-card layui-form" lay-filter="component-form-element">
-			<div class="layui-card-header">开关</div>
+			<div class="layui-card-header">開關</div>
 			<div class="layui-card-body layui-row layui-col-space10">
 				<div class="layui-col-md12">
 					<input type="checkbox" name="xxx" lay-skin="switch">&nbsp;&nbsp;
 					<input type="checkbox" name="yyy" lay-skin="switch" lay-text="ON|OFF" checked>&nbsp;&nbsp;
-					<input type="checkbox" name="zzz" lay-skin="switch" lay-text="开启|关闭">&nbsp;&nbsp;
+					<input type="checkbox" name="zzz" lay-skin="switch" lay-text="開啟|關閉">&nbsp;&nbsp;
 					<input type="checkbox" name="aaa" lay-skin="switch" disabled>&nbsp;&nbsp;
 				</div>
 			</div>
 		</div>
 		<div class="layui-card layui-form" lay-filter="component-form-element">
-			<div class="layui-card-header">单选框</div>
+			<div class="layui-card-header">單選框</div>
 			<div class="layui-card-body layui-row layui-col-space10">
 				<div class="layui-col-md12">
 					<input type="radio" name="sex" value="nan" title="男">
@@ -61,7 +61,7 @@
 			<div class="layui-card-header">下拉</div>
 			<div class="layui-card-body">
 				<select name="city" lay-verify="">
-					<option value="">请选择一个城市</option>
+					<option value="">請選擇一個城市</option>
 					<option value="010">北京</option>
 					<option value="021">上海</option>
 					<option value="0571">杭州</option>
@@ -81,7 +81,7 @@
 		    </button>
 		    <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
 		        <i class="layui-icon layui-icon-delete"></i>
-		        删除
+		        刪除
 		    </button>
 		</script>
 
@@ -91,7 +91,7 @@
 		</script>
 
 		<script type="text/html" id="user-enable">
-			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="user-enable" checked = "{{ d.enable == 0 ? 'true' : 'false' }}">
+			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="啟用|停用" lay-filter="user-enable" checked = "{{ d.enable == 0 ? 'true' : 'false' }}">
 		</script>
 
 		<script type="text/html" id="user-sex">
@@ -104,9 +104,9 @@
 
 		<script type="text/html" id="user-login">
 			{{#if (d.login == 0) { }}
-		    <span>在线</span>
+		    <span>線上</span>
 		    {{# }else if(d.sex == 1){ }}
-		    <span>离线</span>
+		    <span>離線</span>
 		    {{# } }}
 		</script>
 
@@ -115,15 +115,15 @@
 		</script>
 
 		<div class="layui-card">
-			<div class="layui-card-header">选项卡</div>
+			<div class="layui-card-header">選項卡</div>
 			<div class="layui-card-body">
 				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 					<ul class="layui-tab-title">
-						<li class="layui-this">网站设置</li>
-						<li>用户管理</li>
-						<li>权限分配</li>
+						<li class="layui-this">網站設定</li>
+						<li>用戶管理</li>
+						<li>權限分配</li>
 						<li>商品管理</li>
-						<li>订单管理</li>
+						<li>訂單管理</li>
 					</ul>
 					<div class="layui-tab-content" style="height: 30px;">
 						<div class="layui-tab-item layui-show"></div>
@@ -136,7 +136,7 @@
 			</div>
 		</div>
 		<div class="layui-card">
-			<div class="layui-card-header">进度条</div>
+			<div class="layui-card-header">進度條</div>
 			<div class="layui-card-body">
 				<div class="layui-progress">
 					<div class="layui-progress-bar" lay-percent="30%"></div>
@@ -148,16 +148,16 @@
 			</div>
 		</div>
 		<div class="layui-card">
-			<div class="layui-card-header">分页</div>
+			<div class="layui-card-header">分頁</div>
 			<div class="layui-card-body">
 				<div id="test1"></div>
 			</div>
 		</div>
 		<div class="layui-card">
-			<div class="layui-card-header">辅助元素</div>
+			<div class="layui-card-header">輔助元素</div>
 			<div class="layui-card-body">
-				<blockquote class="layui-elem-quote">快乐的时候不敢尽兴，频繁警戒自己保持清醒.</blockquote>
-				<blockquote class="layui-elem-quote">路上没有灯火的时候，就点亮自己的头颅.</blockquote>
+				<blockquote class="layui-elem-quote">快樂的時候不敢盡興，經常警戒自己保持清醒.</blockquote>
+				<blockquote class="layui-elem-quote">路上沒有燈火的時候，就點亮自己的頭顱.</blockquote>
 			</div>
 		</div>
 		<div class="layui-card">
@@ -169,7 +169,7 @@
 						<div class="layui-timeline-content layui-text">
 							<h3 class="layui-timeline-title">8月18日</h3>
 							<p>
-								layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
+								layui 2.0 的一切準備工作似乎都已到位。發布之弦，一觸即發。
 							</p>
 						</div>
 					</li>
@@ -177,7 +177,7 @@
 						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
 						<div class="layui-timeline-content layui-text">
 							<h3 class="layui-timeline-title">8月16日</h3>
-							<p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
+							<p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君堯舜上，再使風俗淳</em>”的宏偉抱負。個人最愛的名篇有：</p>
 						</div>
 					</li>
 					<li class="layui-timeline-item">
@@ -185,7 +185,7 @@
 						<div class="layui-timeline-content layui-text">
 							<h3 class="layui-timeline-title">8月15日</h3>
 							<p>
-								中国人民抗日战争胜利72周年
+								中國人民抗日戰爭勝利72週年
 							</p>
 						</div>
 					</li>
@@ -193,7 +193,7 @@
 			</div>
 		</div>
 		<div class="layui-card">
-			<div class="layui-card-header">日期选择</div>
+			<div class="layui-card-header">日期選擇</div>
 			<div class="layui-card-body">
 				<input type="text" class="layui-input" id="test2">
 			</div>
@@ -220,26 +220,26 @@
 						align: 'center'
 					},
 					{
-						title: '性别',
+						title: '性別',
 						field: 'sex',
 						align: 'center',
 						width: 80,
 						templet: '#user-sex'
 					},
 					{
-						title: '启用',
+						title: '啟用',
 						field: 'enable',
 						align: 'center',
 						templet: '#user-enable'
 					},
 					{
-						title: '登录',
+						title: '登入',
 						field: 'login',
 						align: 'center',
 						templet: '#user-login'
 					},
 					{
-						title: '注册',
+						title: '註冊',
 						field: 'createTime',
 						align: 'center',
 						templet: '#user-createTime'
@@ -284,7 +284,7 @@
 			laypage.render({
 				elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
 					,
-				count: 50 //数据总数，从服务端得到
+				count: 50 //資料總數，從服務端得到
 			});
 		});
 	</script>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>头像上传</title>
+    <title>頭像上傳</title>
     <link rel="stylesheet" href="../../../component/pear/css/pear.css" />
 </head>
 <body class="pear-container">
@@ -23,10 +23,10 @@
                 <button class="pear-btn pear-btn-sm pear-btn-primary layui-icon layui-icon-left" cropper-event="rotate" data-option="-15" title="左旋15°"></button>
                 <button class="pear-btn pear-btn-sm pear-btn-primary layui-icon layui-icon-right" cropper-event="rotate" data-option="15" title="右旋15°"></button>
                 <button class="pear-btn pear-btn-sm pear-btn-danger layui-icon layui-icon-refresh" cropper-event="reset" title="重置"></button>
-                <label for="uploadPicture" class="pear-btn pear-btn-sm pear-btn-primary layui-icon layui-icon-upload" title="选择图片"></label>
-                <input class="layui-upload-file" id="uploadPicture" type="file" value="选择图片">
+                <label for="uploadPicture" class="pear-btn pear-btn-sm pear-btn-primary layui-icon layui-icon-upload" title="選擇圖片"></label>
+                <input class="layui-upload-file" id="uploadPicture" type="file" value="選擇圖片">
             </div>
-            <div class="layui-form-mid layui-word-aux">建议:图片的尺寸宽高比为1:1,大小在5m以内。</div>
+            <div class="layui-form-mid layui-word-aux">建議:圖片的尺寸寬高比為1:1,大小在5m以內。</div>
         </div>
     </div>
     <script src="../../../component/layui/layui.js"></script>
@@ -38,8 +38,8 @@
             let cropper = layui.cropper;
 
             var options = {
-                aspectRatio: 1 / 1, // 裁剪框比例
-                preview: '#previewImage', // 预览div
+                aspectRatio: 1 / 1, // 裁切框比例
+                preview: '#previewImage', // 預覽div
                 viewmode: 1
             };
             
@@ -47,7 +47,7 @@
             $("#sourceImage").cropper(options);
 
             window.submitForm = function () {
-                $("#sourceImage").crossOrigin = 'anonymous';//解决跨域图片问题
+                $("#sourceImage").crossOrigin = 'anonymous';//解決跨域圖片問題
                 $("#sourceImage").cropper("getCroppedCanvas", {
                     width: 280,
                     height: 140
@@ -88,7 +88,7 @@
 
                     var uploadFileSize = f.size / 1024;
                     if (uploadFileSize > 5120) {
-                        parent.layer.msg("上传文件不得超过5m", { icon: 5 });
+                        parent.layer.msg("上傳文件不得超過5m", { icon: 5 });
                         return false;
                     }
 

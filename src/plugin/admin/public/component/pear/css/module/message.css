@@ -18,7 +18,7 @@
 	text-align: center;
 	border-right: 1px solid whitesmoke;
 }
-/*排除最后一个 li 右边框*/
+/*排除最後一個 li 右邊框*/
 .pear-notice .layui-tab-title li:last-child {
     border-right: none;
 }
@@ -58,7 +58,7 @@
 	line-height: 40px;
 }
 
-/** 滚动条样式 */
+/** 捲軸樣式 */
 .pear-notice *::-webkit-scrollbar {
 	width: 0px;
 	height: 0px;
@@ -81,7 +81,7 @@
 .pear-notice *::-webkit-scrollbar-corner {
 	background: #f6f6f6;
 }
-/** 增加 empty 样式 */
+/** 增加 empty 樣式 */
 .pear-empty {
 	font-size: 14px;
 	line-height: 1.5715;

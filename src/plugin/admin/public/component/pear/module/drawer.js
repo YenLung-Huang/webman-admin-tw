@@ -17,7 +17,7 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 		 * open drawer
 		 * */
 		this.open = function (option) {
-			//	默认使用 legacy 模式
+			//	預設使用 legacy 模式
 			if (option.legacy === undefined) {
 				option.legacy = true;
 			};
@@ -45,8 +45,8 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 
 	/**
 	 *
-	 * 封装 layer.open
-	 * type,anim,move,fixed不可用,其它参数和 layer.open 一致
+	 * 封裝 layer.open
+	 * type,anim,move,fixed不可用,其它參數和 layer.open 一致
 	 * @param {LayerOption} option
 	 * @returns 原生 layer 的 index
 	 */
@@ -60,7 +60,7 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 	}
 
 	/**
-	 * 加载 HTML 片段到 layer content
+	 * 載入 HTML 片段到 layer content
 	 * @param {*} option
 	 */
 	function loadFragment(option) {
@@ -83,7 +83,7 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 	}
 
 	/**
-	 *将 layer 挂载到指定节点
+	 *將 layer 掛載到指定節點
 	 * @param {object} opt
 	 */
 	function appendToTarget(opt) {
@@ -92,7 +92,7 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 		contentDOM.appendTo(targetDOM);
 		opt.skin = getDrawerAnimationClass(opt.offset, true);
 		opt.offset = calcOffset(opt.offset, opt.area, targetDOM);
-		// 处理关闭后偶现 DOM 仍显示的问题，layer 的 BUG
+		// 處理關閉後偶現 DOM 仍顯示的問題，layer 的 BUG
 		opt.end = Aspect(opt.end, function () {
 			contentDOM.css("display", "none");
 		})
@@ -106,9 +106,9 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 	}
 
 	/**
-		* 规格化 layer.open 选项，兼容原版 Drawer 所有选项
-		* @param {LayerOption} option layer.open 的选项
-		* @returns 规格化后的 layer.open 选项
+		* 規格化 layer.open 選項，相容於原版 Drawer 所有選項
+		* @param {LayerOption} option layer.open 的選項
+		* @returns 規格化後的 layer.open 選項
 		*/
 	function normalizeOption(option) {
 		if (option.direction && !option.offset) {
@@ -150,17 +150,17 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 		if (option.shadeClose === undefined) option.shadeClose = true;
 		if (option.skin === undefined) option.skin = getDrawerAnimationClass(option.offset);
 		if (option.resize === undefined) option.resize = false;
-		if (option.success === undefined) option.success = function () { }; // 处理遮罩需要
+		if (option.success === undefined) option.success = function () { }; // 處理遮罩需要
 		if (option.end === undefined) option.end = function () { };
 
 		return option;
 	}
 
 	/**
-	 * 计算抽屉宽高
-	 * @param {string} offset 抽屉方向 l = 左, r = 右, t = 上, b = 下
+	 * 計算抽屜寬高
+	 * @param {string} offset 抽屜方向 l = 左, r = 右, t = 上, b = 下
 	 * @param {string[] | string} drawerArea 抽屉大小,字符串数组格式：[width, height]，字符串格式：百分比或单位 px。
-	 * @returns 抽屉宽高数组
+	 * @returns 抽屜寬高數組
 	 */
 	function calcDrawerArea(offset, drawerArea) {
 		if (drawerArea instanceof Array) {
@@ -178,10 +178,10 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 	}
 
 	/**
-	 * 获取抽屉动画类
-	 * @param {string} offset 抽屉方向
-	 * @param {boolean} 是否 absolute 布局
-	 * @returns 抽屉入场动画类
+	 * 取得抽屜動畫類
+	 * @param {string} offset 抽屜方向
+	 * @param {boolean} 是否 absolute 佈局
+	 * @returns 抽屜入場動畫類
 	 */
 	function getDrawerAnimationClass(offset, isAbsolute) {
 		var positionAbsoluteClass = "position-absolute ";
@@ -204,11 +204,11 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 	}
 
 	/**
-	 * 指定挂载容器重新计算 offset
+	 * 指定掛載容器重新計算 offset
 	 * @param {*} offset 位置
-	 * @param {*} area  范围大小
-	 * @param {*} targetEl 挂载节点
-	 * @returns 包含抽屉位置信息的数组，[top,left]
+	 * @param {*} area  範圍大小
+	 * @param {*} targetEl 掛載節點
+	 * @returns 包含抽屜位置資訊的陣列，[top,left]
 	 */
 	function calcOffset(offset, area, targetEl) {
 		if (offset === undefined || offset === "l" || offset === "t") {
@@ -241,11 +241,11 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 	}
 
 	/**
-	 * 简易的切面
-	 * @param {Function} func 被通知的对象，原函数
+	 * 簡易的切面
+	 * @param {Function} func 被通知的對象，原函數
 	 * @param {Function | undefined} before 前置通知
-	 * @param {Function | undefined} after 后置通知
-	 * @returns 代理函数
+	 * @param {Function | undefined} after 後置通知
+	 * @returns 代理函數
 	 */
 	function Aspect(target, before, after) {
 		function proxyFunc() {
@@ -264,7 +264,7 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 });
 
 /**
- * 源码
+ * 原始碼
  * */
 (function (b, c) {
 	function a(d) {
@@ -305,10 +305,10 @@ layui.define(['jquery', 'element', 'layer', 'loading'], function (exports) {
 		init: function () {
 			var g = this;
 			if (!g.dom) {
-				console.log("未正确绑定弹窗容器");
+				console.log("未正確綁定彈跳窗容器");
 				return
 			}
-			g.dom.style.display = "block";  // 兼容 layer 捕获层
+			g.dom.style.display = "block";  // 相容於 layer 捕獲層
 			var d = document.createElement("div");
 			var e = document.createElement("div");
 			var f = document.createElement("div");

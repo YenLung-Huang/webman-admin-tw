@@ -8,12 +8,12 @@ use Webman\MiddlewareInterface;
 use support\exception\BusinessException;
 
 /**
- * 对外提供的鉴权中间件
+ * 對外提供的鑑權中間件
  */
 class Middleware implements MiddlewareInterface
 {
     /**
-     * 鉴权
+     * 鑑權
      * @param Request $request
      * @param callable $handler
      * @return Response

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>汽泡组件</title>
+    <title>汽泡組件</title>
     <link rel="stylesheet" href="../../component/pear/css/pear.css" />
 </head>
 <body class="pear-container">
@@ -12,16 +12,16 @@
     <div class="layui-row layui-col-space10">
         <div class="layui-col-md12">
             <div class="layui-card">
-                <div class="layui-card-header">开发环境</div>
+                <div class="layui-card-header">開發環境</div>
                 <div class="layui-card-body">
-                    popover 用于 汽泡显示 场景
+                    popover 用於 汽泡顯示 場景
                 </div>
             </div>
         </div>
         <div class="layui-col-md12">
             <div class="layui-collapse">
                 <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">显示代码</h2>
+                    <h2 class="layui-colla-title">顯示代碼</h2>
                     <div class="layui-colla-content">
                         <pre class="layui-code" lay-encode="true">
                             &lt;link rel="stylesheet" href="component/pear/css/pear.css" />
@@ -38,15 +38,15 @@
             <div class="layui-card">
                 <div class="layui-card-header">汽泡控制</div>
                 <div class="layui-card-body">
-                    <button class="popover-show pear-btn pear-btn-primary">显示</button>
-                    <button class="popover-hide pear-btn pear-btn-success">隐藏</button>
+                    <button class="popover-show pear-btn pear-btn-primary">顯示</button>
+                    <button class="popover-hide pear-btn pear-btn-success">隱藏</button>
                 </div>
             </div>
         </div>
         <div class="layui-col-md12">
             <div class="layui-collapse">
                 <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">显示代码</h2>
+                    <h2 class="layui-colla-title">顯示代碼</h2>
                     <div class="layui-colla-content">
 								<pre class="layui-code" lay-encode="true">
 									layui.use(['popover', 'jquery', 'layer', 'code'], function() {
@@ -67,8 +67,8 @@
                     不同方式
                 </div>
                 <div class="layui-card-body">
-                    <button class="toast-top-left-btn pear-btn" id="el1">手动</button>
-                    <button class="toast-top-center-btn pear-btn" id="el2">回调</button>
+                    <button class="toast-top-left-btn pear-btn" id="el1">手動</button>
+                    <button class="toast-top-center-btn pear-btn" id="el2">回呼</button>
                     <button class="toast-top-center-btn pear-btn" id="el3">iframe</button>
                 </div>
             </div>
@@ -76,12 +76,12 @@
         <div class="layui-col-md12">
             <div class="layui-collapse">
                 <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">显示代码</h2>
+                    <h2 class="layui-colla-title">顯示代碼</h2>
                     <div class="layui-colla-content">
 								<pre class="layui-code" lay-encode="true">
 									layui.use(['toast', 'jquery', 'layer', 'code'], function() {
 									    var popover = layui.popover;
-    popover.create('#el1',{title:' hello popover-manual',content:'这里显示内容',trigger:'manual',placement:'auto',
+    popover.create('#el1',{title:' hello popover-manual',content:'這裡顯示內容',trigger:'manual',placement:'auto',
         animation:'pop',
         closeable:true,
         delay: {
@@ -102,17 +102,17 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-header">
-                    隐藏
+                    隱藏
                 </div>
                 <div class="layui-card-body">
-                    <button class="pear-btn" id="closeAll">隐藏全部</button>
+                    <button class="pear-btn" id="closeAll">隱藏全部</button>
                 </div>
             </div>
         </div>
         <div class="layui-col-md12">
             <div class="layui-collapse">
                 <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">显示代码</h2>
+                    <h2 class="layui-colla-title">顯示代碼</h2>
                     <div class="layui-colla-content">
 								<pre class="layui-code" lay-encode="true">
 									layui.use(['popover', 'jquery', 'layer', 'code'], function() {
@@ -150,10 +150,10 @@
             popover.hideAll();
         });
 
-        //html 事件 手动
-        //用法参照  https://github.com/sandywalker/webui-popover
+        //html 事件 手動
+        //用法參照  https://github.com/sandywalker/webui-popover
         //增加功能  opacity [0,1] 可指定 popover 透明度
-        popover.create('#el1',{title:' hello popover-manual',content:'这里显示内容',trigger:'manual',
+        popover.create('#el1',{title:' hello popover-manual',content:'這裡顯示內容',trigger:'manual',
             animation:'pop',
             closeable:true,
             placement:'auto',
@@ -169,18 +169,18 @@
         //html 事件 hover
         popover.create('#el2',{title:' hello popover-hover',content:'<div class="layui-tab layui-tab-brief" lay-filter="test">\n' +
                 '  <ul class="layui-tab-title">\n' +
-                '    <li class="layui-this" lay-id="11">网站设置</li>\n' +
-                '    <li lay-id="22">用户管理</li>\n' +
-                '    <li lay-id="33">权限分配</li>\n' +
+                '    <li class="layui-this" lay-id="11">網站設定</li>\n' +
+                '    <li lay-id="22">用戶管理</li>\n' +
+                '    <li lay-id="33">權限分配</li>\n' +
                 '    <li lay-id="44">商品管理</li>\n' +
-                '    <li lay-id="55">订单管理</li>\n' +
+                '    <li lay-id="55">訂單管理</li>\n' +
                 '  </ul>\n' +
                 '  <div class="layui-tab-content" style="height: 100px;">\n' +
-                '    <div class="layui-tab-item layui-show">内容不一样是要有，因为你可以获得 tab 事件</div>\n' +
-                '    <div class="layui-tab-item">内容2</div>\n' +
-                '    <div class="layui-tab-item">内容3</div>\n' +
-                '    <div class="layui-tab-item">内容4</div>\n' +
-                '    <div class="layui-tab-item">内容5</div>\n' +
+                '    <div class="layui-tab-item layui-show">內容不一樣是要有，因為你可以得到 tab 事件</div>\n' +
+                '    <div class="layui-tab-item">內容2</div>\n' +
+                '    <div class="layui-tab-item">內容3</div>\n' +
+                '    <div class="layui-tab-item">內容4</div>\n' +
+                '    <div class="layui-tab-item">內容5</div>\n' +
                 '  </div>\n' +
                 '</div> ',trigger:'hover',
             animation:'pop',

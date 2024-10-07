@@ -2,23 +2,23 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>数据菜单</title>
+		<title>資料選單</title>
 		<link rel="stylesheet" href="../../component/pear/css/pear.css"/>
 	</head>
 	<body class="pear-container">
 		<div class="layui-row layui-col-space10">
 			<div class="layui-col-md12">
 				<div class="layui-card">
-					<div class="layui-card-header">开发环境</div>
+					<div class="layui-card-header">開發環境</div>
 					<div class="layui-card-body">
-						Menu 数据菜单对普通菜单的深度封装 
+						Menu 資料選單對普通選單的深度封裝 
 					</div>
 				</div>
 			</div>
 			<div class="layui-col-md12">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								&lt;link rel="stylesheet" href="component/pear/css/pear.css" /&gt;
@@ -33,9 +33,9 @@
 			</div>
 			<div class="layui-col-md6">
 				<div class="layui-card">
-					<div class="layui-card-header">实例</div>
+					<div class="layui-card-header">實例</div>
 					<div class="layui-card-body">
-						<button id="collapse" class="pear-btn">隐藏</button>
+						<button id="collapse" class="pear-btn">隱藏</button>
 						<br/>
 						<br/>
 						<div id="sideMenu"></div>
@@ -45,7 +45,7 @@
 			<div class="layui-col-md6">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content layui-show">
 							<pre class="layui-code" lay-encode="true">
 								
@@ -60,13 +60,13 @@
 								    url: "../../demos/data/menu.json",
 								    parseData: false,
 								    done: function() {
-								        layer.msg("加载完成")
+								        layer.msg("載入完成")
 								    }
 								});
 								
 								sideMenu.click(function(dom, data) {
 								    
-									layer.msg("菜单点击 : " + JSON.stringify(data));
+									layer.msg("菜單點擊 : " + JSON.stringify(data));
 								})
 						</pre>
 						</div>
@@ -99,12 +99,12 @@
 				url: "../../demos/data/dataMenu.json",
 				parseData: false,
 				done: function() {
-					layer.msg("加载完成")
+					layer.msg("載入完成")
 				}
 			});
 			
 			sideMenu.click(function(dom, data) {
-				layer.msg("菜单点击 : " + JSON.stringify(data));
+				layer.msg("菜單點擊 : " + JSON.stringify(data));
 			})
 			
 			$("#collapse").click(function(){

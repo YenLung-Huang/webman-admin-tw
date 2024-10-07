@@ -11,7 +11,7 @@ use support\Response;
 use Throwable;
 
 /**
- * 用户管理 
+ * 用戶管理 
  */
 class UserController extends Crud
 {
@@ -22,7 +22,7 @@ class UserController extends Crud
     protected $model = null;
 
     /**
-     * 构造函数
+     * 建構子
      * @return void
      */
     public function __construct()
@@ -31,7 +31,7 @@ class UserController extends Crud
     }
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */

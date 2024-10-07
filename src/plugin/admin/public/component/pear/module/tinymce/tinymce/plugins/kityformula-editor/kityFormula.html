@@ -42,7 +42,7 @@
 <body>
     <div id="kfEditorContainer" class="kf-editor">
         <div id="tips" class="tips">
-            sorry! Beta版本仅支持IE9及以上版本的浏览器，正式版本将会支持低版本浏览器，谢谢您的关注！
+            sorry! Beta版本僅支援IE9以上版本的瀏覽器，正式版本將會支援低版瀏覽器，謝謝您的關注！
         </div>
     </div>
 
@@ -52,7 +52,7 @@
 <script src="kityformula/js/kity-formula-parser.all.min.js"></script>
 <script src="kityformula/js/kityformula-editor.all.min.js"></script>
 <script>
-//获取url地址栏传参
+//取得url網址列傳參
 function getQueryVariable(variable){
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -62,7 +62,7 @@ function getQueryVariable(variable){
     }
     return(false);
 }
-//处理TinyMCE编辑器的事件
+//處理TinyMCE編輯器的事件
 window.addEventListener('message', function (event) {
   if (typeof kfe === 'undefined') {
     return;
@@ -81,10 +81,10 @@ window.addEventListener('message', function (event) {
         });
   }
 });
-//实例化编辑器
+//實例化編輯器
 jQuery( function ($) {
     if ( document.body.addEventListener ) {
-        $( "#tips").html('<div id="loading"><img src="kityformula/loading.gif" alt="loading" /><p>正在加载，请耐心等待...</p></div>' );
+        $( "#tips").html('<div id="loading"><img src="kityformula/loading.gif" alt="loading" /><p>正在加載，請耐心等待...</p></div>' );
         var factory = kf.EditorFactory.create( $( "#kfEditorContainer" )[ 0 ], {
             render: {
                 fontsize: 24
@@ -95,7 +95,7 @@ jQuery( function ($) {
         } );
         factory.ready( function ( KFEditor ) {
             $( "#tips").remove();
-            //处理地址栏的参数并加载到编辑器中
+            //處理網址列的參數並載入到編輯器中
             var c=getQueryVariable("c")
             if(c){
                 this.execCommand( "render",decodeURIComponent(c) );

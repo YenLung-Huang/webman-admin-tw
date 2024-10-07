@@ -16,7 +16,7 @@ option = {
     legend: {
         top:'5%',
         right:'10%',
-        data: ['猕猴桃', '香蕉'],
+        data: ['奇異果', '香蕉'],
         fontSize:12,
         color:'#808080',
         icon:'rect'
@@ -41,11 +41,11 @@ option = {
             margin:21,
             fontWeight:'bold'
         },
-        data: ['第一周', '第二周', '第三周', '第四周'],
+        data: ['第一週', '第二週', '第三週', '第四週'],
     
     }],
     yAxis: [{
-        name:'单位：万',
+        name:'單位：萬',
         nameTextStyle:{
             color:'#808080',
             fontSize:12,
@@ -76,7 +76,7 @@ option = {
     }],
     series: [
         {
-            name: '猕猴桃',
+            name: '奇異果',
             type: 'bar',
             label:{
                 show:true,
@@ -93,9 +93,9 @@ option = {
                 x2: 0,
                 y2: 1,
                 colorStops: [{
-                    offset: 0, color: '#3DC3F0' // 0% 处的颜色
+                    offset: 0, color: '#3DC3F0' // 0% 處的顏色
                 }, {
-                    offset: 1, color: '#CCF2FF' // 100% 处的颜色
+                    offset: 1, color: '#CCF2FF' // 100% 處的顏色
                 }]
             },            
             data: [60, 110, 180, 100]
@@ -118,9 +118,9 @@ option = {
                 x2: 0,
                 y2: 1,
                 colorStops: [{
-                    offset: 0, color: '#3D8BF0' // 0% 处的颜色
+                    offset: 0, color: '#3D8BF0' // 0% 處的顏色
                 }, {
-                    offset: 1, color: '#CCE2FF' // 100% 处的颜色
+                    offset: 1, color: '#CCE2FF' // 100% 處的顏色
                 }]
             },            
             data: [90, 130, 170, 130]

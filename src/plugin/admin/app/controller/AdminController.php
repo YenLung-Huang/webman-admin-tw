@@ -11,12 +11,12 @@ use support\Response;
 use Throwable;
 
 /**
- * 管理员列表 
+ * 管理者清單 
  */
 class AdminController extends Crud
 {
     /**
-     * 不需要鉴权的方法
+     * 不需要鑑權的方法
      * @var array
      */
     protected $noNeedAuth = ['select'];
@@ -27,19 +27,19 @@ class AdminController extends Crud
     protected $model = null;
 
     /**
-     * 开启auth数据限制
+     * 開啟auth資料限制
      * @var string
      */
     protected $dataLimit = 'auth';
 
     /**
-     * 以id为数据限制字段
+     * 以id為資料限製字段
      * @var string
      */
     protected $dataLimitField = 'id';
 
     /**
-     * 构造函数
+     * 建構子
      * @return void
      */
     public function __construct()
@@ -48,7 +48,7 @@ class AdminController extends Crud
     }
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */
@@ -58,7 +58,7 @@ class AdminController extends Crud
     }
 
     /**
-     * 查询
+     * 查詢
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -102,10 +102,10 @@ class AdminController extends Crud
             $role_ids = $request->post('roles');
             $role_ids = $role_ids ? explode(',', $role_ids) : [];
             if (!$role_ids) {
-                return $this->json(1, '至少选择一个角色组');
+                return $this->json(1, '至少選擇一個角色群組');
             }
             if (!Auth::isSuperAdmin() && array_diff($role_ids, Auth::getScopeRoleIds())) {
-                return $this->json(1, '角色超出权限范围');
+                return $this->json(1, '角色超出權限範圍');
             }
             AdminRole::where('admin_id', $admin_id)->delete();
             foreach ($role_ids as $id) {
@@ -132,7 +132,7 @@ class AdminController extends Crud
             [$id, $data] = $this->updateInput($request);
             $admin_id = $request->post('id');
             if (!$admin_id) {
-                return $this->json(1, '缺少参数');
+                return $this->json(1, '缺少參數');
             }
 
             // 不能禁用自己
@@ -144,7 +144,7 @@ class AdminController extends Crud
             $role_ids = $request->post('roles');
             if ($role_ids !== null) {
                 if (!$role_ids) {
-                    return $this->json(1, '至少选择一个角色组');
+                    return $this->json(1, '至少選擇一個角色群組');
                 }
                 $role_ids = explode(',', $role_ids);
 
@@ -152,16 +152,16 @@ class AdminController extends Crud
                 $exist_role_ids = AdminRole::where('admin_id', $admin_id)->pluck('role_id')->toArray();
                 $scope_role_ids = Auth::getScopeRoleIds();
                 if (!$is_supper_admin && !array_intersect($exist_role_ids, $scope_role_ids)) {
-                    return $this->json(1, '无权限更改该记录');
+                    return $this->json(1, '無權限更改該記錄');
                 }
                 if (!$is_supper_admin && array_diff($role_ids, $scope_role_ids)) {
-                    return $this->json(1, '角色超出权限范围');
+                    return $this->json(1, '角色超出權限範圍');
                 }
 
-                // 删除账户角色
+                // 刪除帳號角色
                 $delete_ids = array_diff($exist_role_ids, $role_ids);
                 AdminRole::whereIn('role_id', $delete_ids)->where('admin_id', $admin_id)->delete();
-                // 添加账户角色
+                // 新增帳戶角色
                 $add_ids = array_diff($role_ids, $exist_role_ids);
                 foreach ($add_ids as $role_id) {
                     $admin_role = new AdminRole;
@@ -179,7 +179,7 @@ class AdminController extends Crud
     }
 
     /**
-     * 删除
+     * 刪除
      * @param Request $request
      * @return Response
      */
@@ -192,10 +192,10 @@ class AdminController extends Crud
         }
         $ids = (array)$ids;
         if (in_array(admin_id(), $ids)) {
-            return $this->json(1, '不能删除自己');
+            return $this->json(1, '不能刪除自己');
         }
         if (!Auth::isSuperAdmin() && array_diff($ids, Auth::getScopeAdminIds())) {
-            return $this->json(1, '无数据权限');
+            return $this->json(1, '無資料權限');
         }
         $this->model->whereIn($primary_key, $ids)->each(function (Admin $admin) {
             $admin->delete();

@@ -78,7 +78,7 @@
 	right: 10px;
 }
 
-/** 实 现 菜 单 隐 藏 */
+/** 實 現 菜 單 隱 藏 */
 .pear-nav-mini {
 	overflow: hidden;
 }
@@ -126,7 +126,7 @@
 	width: 150px;
 }
 
-/** 隐 藏 后 子 级 悬 浮 菜 单 */
+/** 隱 藏 後 子 級 懸 浮 菜 單 */
 .pear-nav-tree .layui-nav-hover {
 	position: fixed;
 	min-width: 130px;
@@ -166,7 +166,7 @@
 	padding-top: 0;
 	padding-bottom: 0;
 }
-/** 亮 样 式*/
+/** 亮 樣 式*/
 .dark-theme .layui-nav-tree{
 	background-color: #001529!important; 
 }
@@ -209,7 +209,7 @@
 	
 }
 
-/** 下 拉 图 标 */
+/** 下 拉 圖 標籤 */
 .pear-nav-tree.arrow .layui-nav-more {
 	font-family: layui-icon !important;
 	font-size: 10px;

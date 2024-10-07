@@ -2,14 +2,14 @@
 
 return [
     [
-        'title' => '数据库',
+        'title' => '資料庫',
         'key' => 'database',
         'icon' => 'layui-icon-template-1',
         'weight' => 1000,
         'type' => 0,
         'children' => [
             [
-                'title' => '所有表',
+                'title' => '所有表格',
                 'key' => 'plugin\\admin\\app\\controller\\TableController',
                 'href' => '/app/admin/table/index',
                 'type' => 1,
@@ -18,14 +18,14 @@ return [
         ]
     ],
     [
-        'title' => '权限管理',
+        'title' => '權限管理',
         'key' => 'auth',
         'icon' => 'layui-icon-vercode',
         'weight' => 900,
         'type' => 0,
         'children' => [
             [
-                'title' => '账户管理',
+                'title' => '帳戶管理',
                 'key' => 'plugin\\admin\\app\\controller\\AdminController',
                 'href' => '/app/admin/admin/index',
                 'type' => 1,
@@ -39,7 +39,7 @@ return [
                 'weight' => 900,
             ],
             [
-                'title' => '菜单管理',
+                'title' => '選單管理',
                 'key' => 'plugin\\admin\\app\\controller\\RuleController',
                 'href' => '/app/admin/rule/index',
                 'type' => 1,
@@ -48,14 +48,14 @@ return [
         ]
     ],
     [
-        'title' => '会员管理',
+        'title' => '會員管理',
         'key' => 'user',
         'icon' => 'layui-icon-username',
         'weight' => 800,
         'type' => 0,
         'children' => [
             [
-                'title' => '用户',
+                'title' => '用戶',
                 'key' => 'plugin\\admin\\app\\controller\\UserController',
                 'href' => '/app/admin/user/index',
                 'type' => 1,
@@ -64,14 +64,14 @@ return [
         ]
     ],
     [
-        'title' => '通用设置',
+        'title' => '通用設定',
         'key' => 'common',
         'icon' => 'layui-icon-set',
         'weight' => 700,
         'type' => 0,
         'children' => [
             [
-                'title' => '个人资料',
+                'title' => '個人資料',
                 'key' => 'plugin\\admin\\app\\controller\\AccountController',
                 'href' => '/app/admin/account/index',
                 'type' => 1,
@@ -85,14 +85,14 @@ return [
                 'weight' => 700,
             ],
             [
-                'title' => '字典设置',
+                'title' => '字典設定',
                 'key' => 'plugin\\admin\\app\\controller\\DictController',
                 'href' => '/app/admin/dict/index',
                 'type' => 1,
                 'weight' => 600,
             ],
             [
-                'title' => '系统设置',
+                'title' => '系統設定',
                 'key' => 'plugin\\admin\\app\\controller\\ConfigController',
                 'href' => '/app/admin/config/index',
                 'type' => 1,
@@ -101,14 +101,14 @@ return [
         ]
     ],
     [
-        'title' => '插件管理',
+        'title' => '外掛程式管理',
         'key' => 'plugin',
         'icon' => 'layui-icon-app',
         'weight' => 600,
         'type' => 0,
         'children' => [
             [
-                'title' => '应用插件',
+                'title' => '應用程式插件',
                 'key' => 'plugin\\admin\\app\\controller\\PluginController',
                 'href' => '/app/admin/plugin/index',
                 'weight' => 800,
@@ -117,14 +117,14 @@ return [
         ]
     ],
     [
-        'title' => '开发辅助',
+        'title' => '開發輔助',
         'key' => 'dev',
         'icon' => 'layui-icon-fonts-code',
         'weight' => 500,
         'type' => 0,
         'children' => [
             [
-                'title' => '表单构建',
+                'title' => '表單建置',
                 'key' => 'plugin\\admin\\app\\controller\\DevController',
                 'href' => '/app/admin/dev/form-build',
                 'weight' => 800,
@@ -133,7 +133,7 @@ return [
         ]
     ],
     [
-        'title' => '示例页面',
+        'title' => '範例頁面',
         'key' => 'demos',
         'icon' => 'layui-icon-templeate-1',
         'weight' => 400,
@@ -141,20 +141,20 @@ return [
         'children' => [
             [
                 'key' => 'demo1',
-                'title' => '工作空间',
+                'title' => '工作空間',
                 'type' => 0,
                 'icon' => 'layui-icon-console',
                 'href' => '',
                 'children' => [
                     [
                         'key' => 'demo10',
-                        'title' => '控制后台',
+                        'title' => '控制後台',
                         'icon' => 'layui-icon-console',
                         'type' => 1,
                         'href' => '/app/admin/demos/console/console1.html'
                     ], [
                         'key' => 'demo13',
-                        'title' => '数据分析',
+                        'title' => '數據分析',
                         'icon' => 'layui-icon-console',
                         'type' => 1,
                         'href' => '/app/admin/demos/console/console2.html'
@@ -166,7 +166,7 @@ return [
                         'href' => 'http://www.baidu.com'
                     ], [
                         'key' => 'demo15',
-                        'title' => '主题预览',
+                        'title' => '主題預覽',
                         'icon' => 'layui-icon-console',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/theme.html'
@@ -175,110 +175,110 @@ return [
             ],
             [
                 'key' => 'demo20',
-                'title' => '常用组件',
+                'title' => '常用組件',
                 'icon' => 'layui-icon-component',
                 'type' => 0,
                 'href' => '',
                 'children' => [
                     [
                         'key' => 'demo2011',
-                        'title' => '功能按钮',
+                        'title' => '功能按鈕',
                         'icon' => 'layui-icon-face-smile',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/button.html'
                     ], [
                         'key' => 'demo2014',
-                        'title' => '表单集合',
+                        'title' => '表單集合',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/form.html'
                     ], [
                         'key' => 'demo2010',
-                        'title' => '字体图标',
+                        'title' => '字體圖示',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/icon.html'
                     ], [
                         'key' => 'demo2012',
-                        'title' => '多选下拉',
+                        'title' => '多選下拉',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/select.html'
                     ], [
                         'key' => 'demo2013',
-                        'title' => '动态标签',
+                        'title' => '動態標籤',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/tag.html'
                     ], [
                         'key' => 'demo2031',
-                        'title' => '数据表格',
+                        'title' => '資料表格',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/table.html'
                     ], [
                         'key' => 'demo2032',
-                        'title' => '分布表单',
+                        'title' => '分佈表單',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/step.html'
                     ], [
                         'key' => 'demo2033',
-                        'title' => '树形表格',
+                        'title' => '樹狀表格',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/treetable.html'
                     ], [
                         'key' => 'demo2034',
-                        'title' => '树状结构',
+                        'title' => '樹狀結構',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/dtree.html'
                     ], [
                         'key' => 'demo2035',
-                        'title' => '文本编辑',
+                        'title' => '文字編輯',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/tinymce.html'
                     ], [
                         'key' => 'demo2036',
-                        'title' => '卡片组件',
+                        'title' => '卡片組件',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/card.html'
                     ], [
                         'key' => 'demo2021',
-                        'title' => '抽屉组件',
+                        'title' => '抽屜組件',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/drawer.html'
                     ], [
                         'key' => 'demo2022',
-                        'title' => '消息通知',
+                        'title' => '訊息通知',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/notice.html'
                     ], [
                         'key' => 'demo2024',
-                        'title' => '加载组件',
+                        'title' => '載入元件',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/loading.html'
                     ], [
                         'key' => 'demo2023',
-                        'title' => '弹层组件',
+                        'title' => '彈層組件',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/popup.html'
                     ], [
                         'key' => 'demo60131',
-                        'title' => '多选项卡',
+                        'title' => '多選項卡',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/tab.html'
                     ], [
                         'key' => 'demo60132',
-                        'title' => '数据菜单',
+                        'title' => '資料選單',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/menu.html'
@@ -290,25 +290,25 @@ return [
                         'href' => '/app/admin/demos/document/encrypt.html'
                     ], [
                         'key' => 'demo2042',
-                        'title' => '图标选择',
+                        'title' => '圖示選擇',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/iconPicker.html'
                     ], [
                         'key' => 'demo2043',
-                        'title' => '省市级联',
+                        'title' => '省市級聯',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/area.html'
                     ], [
                         'key' => 'demo2044',
-                        'title' => '数字滚动',
+                        'title' => '數字滾動',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/count.html'
                     ], [
                         'key' => 'demo2045',
-                        'title' => '顶部返回',
+                        'title' => '頂部返回',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/document/topBar.html'
@@ -317,7 +317,7 @@ return [
             ],
             [
                 'key' => 'demo666',
-                'title' => '结果页面',
+                'title' => '結果頁面',
                 'icon' => 'layui-icon-auz',
                 'type' => 0,
                 'href' => '',
@@ -330,7 +330,7 @@ return [
                         'href' => '/app/admin/demos/result/success.html'
                     ], [
                         'key' => 'demo668',
-                        'title' => '失败',
+                        'title' => '失敗',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/result/error.html'
@@ -339,7 +339,7 @@ return [
             ],
             [
                 'key' => 'demo-error',
-                'title' => '错误页面',
+                'title' => '錯誤頁面',
                 'icon' => 'layui-icon-face-cry',
                 'type' => 0,
                 'href' => '',
@@ -368,14 +368,14 @@ return [
             ],
             [
                 'key' => 'demo-system',
-                'title' => '系统管理',
+                'title' => '系統管理',
                 'icon' => 'layui-icon-set-fill',
                 'type' => 0,
                 'href' => '',
                 'children' => [
                     [
                         'key' => 'demo601',
-                        'title' => '用户管理',
+                        'title' => '用戶管理',
                         'icon' => 'layui-icon-face-smile',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/user.html'
@@ -387,25 +387,25 @@ return [
                         'href' => '/app/admin/demos/system/role.html'
                     ], [
                         'key' => 'demo603',
-                        'title' => '权限管理',
+                        'title' => '權限管理',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/power.html'
                     ], [
                         'key' => 'demo604',
-                        'title' => '部门管理',
+                        'title' => '部門管理',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/deptment.html'
                     ], [
                         'key' => 'demo605',
-                        'title' => '行为日志',
+                        'title' => '行為日誌',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/log.html'
                     ], [
                         'key' => 'demo606',
-                        'title' => '数据字典',
+                        'title' => '資料字典',
                         'icon' => 'layui-icon-face-cry',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/dict.html'
@@ -414,14 +414,14 @@ return [
             ],
             [
                 'key' => 'demo-common',
-                'title' => '常用页面',
+                'title' => '常用頁面',
                 'icon' => 'layui-icon-template-1',
                 'type' => 0,
                 'href' => '',
                 'children' => [
                     [
                         'key' => 'demo702',
-                        'title' => '空白页面',
+                        'title' => '空白頁',
                         'icon' => 'layui-icon-face-smile',
                         'type' => 1,
                         'href' => '/app/admin/demos/system/space.html'

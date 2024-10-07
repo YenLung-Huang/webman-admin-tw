@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>全屏组件</title>
+  <title>全螢幕組件</title>
   <link rel="stylesheet" href="../../component/pear/css/pear.css" />
 </head>
 <style type="text/css">
@@ -12,16 +12,16 @@
 <div class="layui-row layui-col-space10" id="homeid">
   <div class="layui-col-md12">
     <div class="layui-card">
-      <div class="layui-card-header">开发环境</div>
+      <div class="layui-card-header">開發環境</div>
       <div class="layui-card-body">
-        fullscreen 用于控制页面或元素全屏
+        fullscreen 用於控制頁面或元素全螢幕
       </div>
     </div>
   </div>
   <div class="layui-col-md12">
     <div class="layui-collapse">
       <div class="layui-colla-item">
-        <h2 class="layui-colla-title">显示代码</h2>
+        <h2 class="layui-colla-title">顯示代碼</h2>
         <div class="layui-colla-content">
             <pre class="layui-code" lay-encode="true">
                 &lt;link rel="stylesheet" href="component/pear/css/pear.css" /&gt;
@@ -36,18 +36,18 @@
   </div>
   <div class="layui-col-md12">
     <div class="layui-card">
-      <div class="layui-card-header">全屏控制</div>
+      <div class="layui-card-header">全螢幕控制</div>
       <div class="layui-card-body">
-        <button class="fullstart pear-btn pear-btn-primary">全屏</button>
-        <button class="fullclose pear-btn pear-btn-danger">退出全屏</button>
-        <button class="fulltarg pear-btn pear-btn-warming">指定目标全屏</button>
+        <button class="fullstart pear-btn pear-btn-primary">全螢幕</button>
+        <button class="fullclose pear-btn pear-btn-danger">退出全螢幕</button>
+        <button class="fulltarg pear-btn pear-btn-warming">指定目標全螢幕</button>
       </div>
     </div>
   </div>
   <div class="layui-col-md12">
     <div class="layui-collapse">
       <div class="layui-colla-item">
-        <h2 class="layui-colla-title">显示代码</h2>
+        <h2 class="layui-colla-title">顯示代碼</h2>
         <div class="layui-colla-content">
 			<pre class="layui-code" lay-encode="true">
 				layui.use(['fullscreen'], function() {
@@ -65,7 +65,7 @@
   </div>
   <div class="layui-col-md12">
     <div class="layui-card">
-      <div class="layui-card-header">指定容器全屏</div>
+      <div class="layui-card-header">指定容器全螢幕</div>
       <div class="layui-card-body">
         <div id="fulltarget"
              style="width: 600px;
@@ -78,7 +78,7 @@
 								display: flex;
 								justify-content: space-around;
 								align-items: center">
-          <button class="fullclose pear-btn pear-btn-danger">退出全屏</button>
+          <button class="fullclose pear-btn pear-btn-danger">退出全螢幕</button>
 
         </div>
       </div>
@@ -96,8 +96,8 @@
     var fullscreen=layui.fullscreen;
     layui.code();
     fullscreen.onFullchange(function(){
-        //增加全屏状态回调，可针对不同浏览器做后续处理
-        console.log("当前全屏状态:",fullscreen.isFullscreen());
+        //增加全螢幕狀態回調，可針對不同瀏覽器做後續處理
+        console.log("目前全螢幕狀態:",fullscreen.isFullscreen());
         var document = fullscreen.isFullscreen();
         if(document){
             $("#fulltarget").addClass('pear-full-screen');

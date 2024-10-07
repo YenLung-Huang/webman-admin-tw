@@ -1,6 +1,6 @@
 /**
  * name: formSelects
- * 基于Layui Select多选
+ * 基於Layui Select多選
  * version: 4.0.0.0910
  * http://sun.faysunshine.com/layui/formSelects-v4/dist/formSelects-v4.js
  */
@@ -9,7 +9,7 @@
 		module.exports = factory();
 	} else if(typeof define === 'function' && define.amd) { // 支持 AMD
 		define(factory);
-	} else if(window.layui && layui.define) { //layui加载
+	} else if(window.layui && layui.define) { //layui載入
 		layui.define(['jquery'], function(exports) {
 			exports('select', factory());
 		});
@@ -55,7 +55,7 @@
 		FORM_TEAM_PID = 'XM_PID_VALUE',
 		CZ = 'xm-cz',
 		CZ_GROUP = 'xm-cz-group',
-		TIPS = '请选择',
+		TIPS = '請選擇',
 		data = {},
 		events = {
 			on: {},
@@ -101,16 +101,16 @@
 			}
 		},
 		quickBtns = [
-			{icon: 'xm-iconfont icon-quanxuan', name: '全选', click: function(id, cm){
+			{icon: 'xm-iconfont icon-quanxuan', name: '全選', click: function(id, cm){
 				cm.selectAll(id, true, true);
 			}},
 			{icon: 'xm-iconfont icon-qingkong', name: '清空', click: function(id, cm){
 				cm.removeAll(id, true, true);
 			}},
-			{icon: 'xm-iconfont icon-fanxuan', name: '反选', click: function(id, cm){
+			{icon: 'xm-iconfont icon-fanxuan', name: '反選', click: function(id, cm){
 				cm.reverse(id, true, true);
 			}},
-			{icon: 'xm-iconfont icon-pifu', name: '换肤', click: function(id, cm){
+			{icon: 'xm-iconfont icon-pifu', name: '換膚', click: function(id, cm){
 				cm.skin(id);
 			}}
 		],
@@ -133,8 +133,8 @@
 						ipt.removeAttr('style');
 					}, 300);
 				},
-				init: null, //初始化的选择值,
-				on: null, //select值发生变化
+				init: null, //初始化的選擇值,
+				on: null, //select值發生變化
 				opened: null,
 				closed: null,
 				filter: (id, inputVal, val, isDisabled) => {
@@ -171,14 +171,14 @@
  			}
 		};
 	
-	//一些简单的处理方法
+	//一些簡單的處理方法
 	let Common = function(){
 		this.appender();
 		this.on();
 		this.onreset();
 	};
 	
-	Common.prototype.appender = function(){//针对IE做的一些拓展
+	Common.prototype.appender = function(){//針對IE做的一些拓展
 		//拓展Array map方法
 		if(!Array.prototype.map){Array.prototype.map=function(i,h){var b,a,c,e=Object(this),f=e.length>>>0;if(h){b=h}a=new Array(f);c=0;while(c<f){var d,g;if(c in e){d=e[c];g=i.call(b,d,c,e);a[c]=g}c++}return a}};
 		
@@ -190,7 +190,7 @@
 	}
 	
 	Common.prototype.init = function(target){
-		//初始化页面上已有的select
+		//初始化頁面上已有的select
 		$((target ? target : `select[${NAME}]`)).each((index, select) => {
 			let othis = $(select),
 				id = othis.attr(NAME),
@@ -214,7 +214,7 @@
  					searchType: othis.attr(SEARCH_TYPE) == 'dl' ? 1 : 0,
  					showCount: othis.attr(SHOW_COUNT) - 0,
  				},
-				value = othis.find('option[selected]').toArray().map((option) => {//获取已选中的数据
+				value = othis.find('option[selected]').toArray().map((option) => {//取得已選取的資料
 					return {
 						name: option.innerHTML,
 						value: option.value,
@@ -245,11 +245,11 @@
 
 			data[id] = fs;
 
-			//先取消layui对select的渲染
+			//先取消layui對select的渲染
 			hasLayuiRender[0] && hasLayuiRender.remove();
 			hasRender[0] && hasRender.remove();
 
-			//构造渲染div
+			//構造渲染div
 			let dinfo = this.renderSelect(id, fs.config.placeholder, select); 
 			let heightStyle = !fs.config.height || fs.config.height == 'auto' ? '' : `xm-hg style="height: 34px;"`;
 			let inputHtml = [
@@ -280,16 +280,16 @@
  			othis.removeAttr('name') && othis.attr('_name', fs.config.formname);
  			othis.removeAttr('lay-verify') && othis.attr('_lay-verify', fs.config.layverify);
 			
-			//如果可搜索, 加上事件
+			//如果可搜尋, 加上事件
 			if(fs.config.isSearch){
 				ajaxs[id] = $.extend({}, ajax, {searchUrl: fs.config.searchUrl}, ajaxs[id]);
 				$(document).on('input', `div.${PNAME}[FS_ID="${id}"] .${INPUT}`, (e) => {
 					this.search(id, e, fs.config.searchUrl);
 				});
-				if(fs.config.searchUrl){//触发第一次请求事件
+				if(fs.config.searchUrl){//觸發第一次請求事件
 					this.triggerSearch(reElem, true);
 				}
-			}else{//隐藏第二个dl
+			}else{//隱藏第二個dl
 				reElem.find(`dl dd.${FORM_DL_INPUT}`).css('display', 'none');
 			}
 		});
@@ -307,7 +307,7 @@
 			}
 		}
 		let inputValue = $.trim(input.value);
-		//过滤一下tips
+		//過濾一下tips
 		this.changePlaceHolder($(input));
 		
 		let ajaxConfig = ajaxs[id] ? ajaxs[id] : ajax;
@@ -315,7 +315,7 @@
 		let fs = data[id],
 			isCreate = fs.config.isCreate,
 			reElem = $(`dl[xid="${id}"]`).parents(`.${FORM_SELECT}`);
-		//如果开启了远程搜索
+		//如果開啟了遠端搜尋
 		if(searchUrl){
 			if(ajaxConfig.searchVal){
 				inputValue = ajaxConfig.searchVal;
@@ -330,13 +330,13 @@
 				clearTimeout(fs.clearid);
 				fs.clearid = setTimeout(() => {
 					reElem.find(`dl > *:not(.${FORM_SELECT_TIPS})`).remove();
-					reElem.find(`dd.${FORM_NONE}`).addClass(FORM_EMPTY).text('请求中');
+					reElem.find(`dd.${FORM_NONE}`).addClass(FORM_EMPTY).text('請求中');
 					this.ajax(id, searchUrl, inputValue, false, null, true);
 				}, delay);
 			}
 		}else{
 			reElem.find(`dl .${DD_HIDE}`).removeClass(DD_HIDE);
-			//遍历选项, 选择可以显示的值
+			//遍歷選項, 選擇可以顯示的值
 			reElem.find(`dl dd:not(.${FORM_SELECT_TIPS})`).each((idx, item) => {
 				let _item = $(item);
 				let searchFun = events.filter[id] || data[id].config.filter;
@@ -344,17 +344,17 @@
 					_item.addClass(DD_HIDE);
 				}
 			});
-			//控制分组名称
+			//控制分組名稱
 			reElem.find('dl dt').each((index, item) => {
 				if(!$(item).nextUntil('dt', `:not(.${DD_HIDE})`).length) {
 					$(item).addClass(DD_HIDE);
 				}
 			});
-			//动态创建
+			//動態建立
 			this.create(id, isCreate, inputValue);
 			let shows = reElem.find(`dl dd:not(.${FORM_SELECT_TIPS}):not(.${DD_HIDE})`);
 			if(!shows.length){
-				reElem.find(`dd.${FORM_NONE}`).addClass(FORM_EMPTY).text('无匹配项');
+				reElem.find(`dd.${FORM_NONE}`).addClass(FORM_EMPTY).text('無匹配項');
 			}else{
 				reElem.find(`dd.${FORM_NONE}`).removeClass(FORM_EMPTY);
 			}
@@ -389,7 +389,7 @@
 		let ajaxConfig = ajaxs[id] ? ajaxs[id] : ajax;
 		let ajaxData = $.extend(true, {}, ajaxConfig.data);
 		ajaxData[ajaxConfig.searchName] = inputValue;
-		//是否需要对ajax添加随机时间
+		//是否需要對ajax添加隨機時間
 		//ajaxData['_'] = Date.now();
 		$.ajax({
 			type: ajaxConfig.type,
@@ -420,14 +420,14 @@
 			},
 			error: (err) => {
 				reElem.find(`dd[lay-value]:not(.${FORM_SELECT_TIPS})`).remove();
-				reElem.find(`dd.${FORM_NONE}`).addClass(FORM_EMPTY).text('服务异常');
+				reElem.find(`dd.${FORM_NONE}`).addClass(FORM_EMPTY).text('服務異常');
 				ajaxConfig.error && ajaxConfig.error instanceof Function && ajaxConfig.error(id, searchUrl, inputValue, err);
 			}
 		});
 	}
 	
 	Common.prototype.renderData = function(id, dataArr, linkage, linkageWidth, isSearch, isReplace){
-		if(linkage){//渲染多级联动
+		if(linkage){//渲染多級連動
 			this.renderLinkage(id, dataArr, linkageWidth);
 			return;
 		}
@@ -459,7 +459,7 @@
 
 		let label = reElem.find(`.${LABEL}`);
 		let dl = reElem.find('dl[xid]');
-		if(isSearch){//如果是远程搜索, 这里需要判重
+		if(isSearch){//如果是遠端搜尋, 這裡需要判重
 			let oldVal = data[id].values;
 			oldVal.forEach((item, index) => {
 				dl.find(`dd[lay-value="${item.value}"]`).addClass(THIS);
@@ -523,7 +523,7 @@
 		html.push('<div style="clear: both; height: 288px;"></div>');
 		html.push('</div>');
 		reElem.find('dl').html(html.join(''));
-		reElem.find(`.${INPUT}`).css('display', 'none');//联动暂时不支持搜索
+		reElem.find(`.${INPUT}`).css('display', 'none');//連動暫時不支援搜尋
 	}
 	
 	Common.prototype.renderReplace = function(id, dataArr){
@@ -549,7 +549,7 @@
 		dl.find(`dt[style]`).after($(html));
 	}
 
-	Common.prototype.exchangeData = function(id, arr){//这里处理树形结构
+	Common.prototype.exchangeData = function(id, arr){//這裡處理樹形結構
 	    let ajaxConfig = ajaxs[id] ? ajaxs[id] : ajax;
 	    let childrenName = ajaxConfig['keyChildren'];
 	    let disabledName = ajaxConfig['keyDis'];
@@ -596,7 +596,7 @@
 					tdd = item;
 				}
 			});
-			if(!tdd){//如果不存在, 则创建
+			if(!tdd){//如果不存在, 則創建
 				let val = fs.config.create(id, inputValue);
 				if(temp[0]){
 					temp.attr('lay-value', val);
@@ -669,7 +669,7 @@
 				`</dd>`,
 				`<dd lay-value="" class="${FORM_SELECT_TIPS} ${FORM_DL_INPUT}" style="background-color: #FFF!important;">`,
 					`<i class="xm-iconfont icon-sousuo"></i>`,
-					`<input type="text" class="${FORM_INPUT} ${INPUT}" placeholder="请搜索"/>`,
+					`<input type="text" class="${FORM_INPUT} ${INPUT}" placeholder="請搜尋"/>`,
 				`</dd>`
 			].join(''));
 		}else{
@@ -698,11 +698,11 @@
 			});
 		}
 		arr.push('<dt style="display:none;"> </dt>');
-		arr.push(`<dd class="${FORM_SELECT_TIPS} ${FORM_NONE} ${arr.length === 2 ? FORM_EMPTY:''}">没有选项</dd>`);
+		arr.push(`<dd class="${FORM_SELECT_TIPS} ${FORM_NONE} ${arr.length === 2 ? FORM_EMPTY:''}">沒有選項</dd>`);
 		return arr.join('');
 	}
 	
-	Common.prototype.on = function(){//事件绑定
+	Common.prototype.on = function(){//事件綁定
 		this.one();
 		
 		$(document).on('click', (e) => {
@@ -729,7 +729,7 @@
     	let left = label[0].offsetLeft;
     	if(!label.find('span').length){
     		left = 0;
-    	}else if(call){//校正归位
+    	}else if(call){//校正歸位
     		let span = label.find('span:last');
     		span.css('display') == 'none' ? (span = span.prev()[0]) : (span = span[0]);
 			let spos = this.getPosition(span);
@@ -761,7 +761,7 @@
     	label.css('left', left + 'px');
 	}
 	
-	Common.prototype.one = function(target){//一次性事件绑定
+	Common.prototype.one = function(target){//一次性事件綁定
 		$(target ? target : document).off('click', `.${FORM_TITLE}`).on('click', `.${FORM_TITLE}`, (e) => {
 			let othis = $(e.target),
 				title = othis.is(FORM_TITLE) ? othis : othis.parents(`.${FORM_TITLE}`),
@@ -778,12 +778,12 @@
 			if(title.hasClass(DIS)){
 				return false;
 			}
-			//如果点击的是右边的三角或者只读的input
+			//如果點擊的是右邊的三角形或唯讀的input
 			if(othis.is(`.${SANJIAO}`) || othis.is(`.${INPUT}[readonly]`)){
 				this.changeShow(title, !title.parents(`.${FORM_SELECT}`).hasClass(FORM_SELECTED));
 				return false;
 			}
-			//如果点击的是input的右边, focus一下
+			//如果點擊的是input的右邊, focus一下
 			if(title.find(`.${INPUT}:not(readonly)`)[0]){
 				let input = title.find(`.${INPUT}`),
 					epos = {x: e.pageX, y: e.pageY},
@@ -799,16 +799,16 @@
 				}
 			}
 			
-			//如果点击的是可搜索的input
+			//如果點擊的是可搜尋的input
 			if(othis.is(`.${INPUT}`)){
 				this.changeShow(title, true);
 				return false;
 			}
-			//如果点击的是x按钮
+			//如果點擊的是x按鈕
 			if(othis.is(`i[fsw="${NAME}"]`)){
 				let val = this.getItem(id, othis),
 				dd = dl.find(`dd[lay-value='${val.value}']`);
-				if(dd.hasClass(DISABLED)){//如果是disabled状态, 不可选, 不可删
+				if(dd.hasClass(DISABLED)){//如果是disabled狀態, 不可選, 不可刪
 					return false;
 				}
 				this.handlerLabel(id, dd, false, val);
@@ -820,22 +820,22 @@
 		});
 		$(target ? target : document).off('click', `dl.${DL}`).on('click', `dl.${DL}`, (e) => {
 			let othis = $(e.target);
-			if(othis.is(`.${LINKAGE}`) || othis.parents(`.${LINKAGE}`)[0]){//linkage的处理
+			if(othis.is(`.${LINKAGE}`) || othis.parents(`.${LINKAGE}`)[0]){//linkage的處理
 				othis = othis.is('li') ? othis : othis.parents('li[xm-value]');
 				let group = othis.parents('.xm-select-linkage-group'),
 					id = othis.parents('dl').attr('xid');
 				if(!id){
 					return false;
 				}
-				//激活li
+				//啟用設定li
 				group.find('.xm-select-active').removeClass('xm-select-active');
 				othis.addClass('xm-select-active');
-				//激活下一个group, 激活前显示对应数据
+				//啟動下一個group, 啟動前顯示對應資料
 				group.nextAll('.xm-select-linkage-group').addClass('xm-select-linkage-hide');
 				let nextGroup = group.next('.xm-select-linkage-group');
 				nextGroup.find('li').addClass('xm-select-linkage-hide');
 				nextGroup.find(`li[pid="${othis.attr('xm-value')}"]`).removeClass('xm-select-linkage-hide');
-				//如果没有下一个group, 或没有对应的值
+				//如果沒有下一個group, 或沒有對應的值
 				if(!nextGroup[0] || nextGroup.find(`li:not(.xm-select-linkage-hide)`).length == 0){
 					let vals = [],
 						index = 0,
@@ -884,11 +884,11 @@
 			let dd = othis.is('dd') ? othis : othis.parents('dd');
 			let id = dd.parent('dl').attr('xid');
 			
-			if(dd.hasClass(DISABLED)){//被禁用选项的处理
+			if(dd.hasClass(DISABLED)){//被停用選項的處理
 				return false;
 			}
 			
-			//菜单功效
+			//菜單功效
 			if(othis.is('i.icon-caidan')){
 				let opens = [], closes = [];
 				othis.parents('dl').find('dd[tree-folder="true"]').each((index, item) => {
@@ -898,10 +898,10 @@
 				arr.forEach(item => item.click());
 				return false;
 			}
-			//树状结构的选择
+			//樹狀結構的選擇
 			let treeId = dd.attr('tree-id');
 			if(treeId){
-				//忽略右边的图标
+				//忽略右邊的圖示
 				if(othis.is('i:not(.icon-expand)')){
 					this.handlerLabel(id, dd, !dd.hasClass(THIS));
 					return false;
@@ -946,7 +946,7 @@
 				}
 			}
 			
-			if(dd.hasClass(FORM_SELECT_TIPS)){//tips的处理
+			if(dd.hasClass(FORM_SELECT_TIPS)){//tips的處理
 				let btn = othis.is(`.${CZ}`) ? othis : othis.parents(`.${CZ}`);
 				if(!btn[0]){
 					return false;
@@ -1050,12 +1050,12 @@
 			return ;
 		}
 		this.checkHideSpan(key, label);
-		//计算input的提示语
+		//計算input的提示語
 		this.changePlaceHolder(label);
-		//计算高度
+		//計算高度
 		this.retop(label.parents(`.${FORM_SELECT}`));
 		this.calcLabelLeft(label, 0, true);
-		//表单默认值
+		//表單預設值
 		this.setHidnVal(key, label);
 		//title值
 		label.parents(`.${FORM_TITLE} .${NAME}`).attr('title', data[key].values.map((val) => {
@@ -1138,14 +1138,14 @@
 			this.remove(vals, val)
 		);
 		if(!div[0]) return ;
-		//单选选完后直接关闭选择域
+		//單選完後直接關閉選擇域
 		if(fs.config.radio){
 			this.changeShow(div, false);
 		}
-		//移除表单验证的红色边框
+		//移除表單驗證的紅色邊框
 		div.parents(`.${FORM_TITLE}`).prev().removeClass('layui-form-danger');
 		
-		//清空搜索值
+		//清空搜尋值
 		fs.config.clearInput && this.clearInput(id);
 		
 		this.commonHandler(id, div);
@@ -1194,7 +1194,7 @@
 		prefix[0] && prefix.before($(`<span style="padding-right: 6px;" fsw="${NAME}"> + ${div.find('span').length - count}</span>`))
 	}
 	
-	Common.prototype.retop = function(div){//计算dl显示的位置
+	Common.prototype.retop = function(div){//計算dl顯示的位置
 		let dl = div.find('dl'),
 			top = div.offset().top + div.outerHeight() + 5 - $win.scrollTop(),
             dlHeight = dl.outerHeight();
@@ -1223,7 +1223,7 @@
 		}
 	}
 	
-	Common.prototype.changeShow = function(children, isShow){//显示于隐藏
+	Common.prototype.changeShow = function(children, isShow){//顯示於隱藏
 		$('.layui-form-selected').removeClass('layui-form-selected');
 		let top = children.parents(`.${FORM_SELECT}`),
 			realShow = top.hasClass(FORM_SELECTED),
@@ -1242,7 +1242,7 @@
 			top.find(`dl .${FORM_EMPTY}`).removeClass(FORM_EMPTY);
 			top.find(`dl dd.${DD_HIDE}`).removeClass(DD_HIDE);
 			top.find(`dl dd.${TEMP}`).remove();
-			//计算ajax数据是否为空, 然后重新请求数据
+			//計算ajax資料是否為空, 然後重新請求資料
 			if(id && data[id] && data[id].config.isEmpty){
 				this.triggerSearch(top);
 			}
@@ -1256,8 +1256,8 @@
 		}
 	}
 	
-	Common.prototype.changePlaceHolder = function(div){//显示于隐藏提示语
-		//调整pane模式下的高度
+	Common.prototype.changePlaceHolder = function(div){//顯示於隱藏提示語
+		//調整pane模式下的高度
 		let title = div.parents(`.${FORM_TITLE}`);
 		title[0] || (title = div.parents(`dl`).prev());
 		if(!title[0]){
@@ -1265,12 +1265,12 @@
 		}
 		
 		let id = div.parents(`.${PNAME}`).find(`dl[xid]`).attr('xid');
-		if(data[id] && data[id].config.height){//既然固定高度了, 那就看着办吧
+		if(data[id] && data[id].config.height){//既然固定高度了, 那就看著辦吧
 						
 		}else{
 			let height = title.find(`.${NAME}`)[0].clientHeight;
 			title.css('height' , (height > 36 ? height + 4 : height) + 'px');
-			//如果是layui pane模式, 处理label的高度
+			//如果是layui pane模式, 處理label的高度
 			let label = title.parents(`.${PNAME}`).parent().prev();
 			if(label.is('.layui-form-label') && title.parents('.layui-form-pane')[0]){
 				height = height > 36 ? height + 4 : height;
@@ -1333,7 +1333,7 @@
 		if(!dl[0]){
 			return ;
 		}
-		if(dl.find('.xm-select-linkage')[0]){//针对多级联动的处理
+		if(dl.find('.xm-select-linkage')[0]){//針對多級連動的處理
 			data[id].values.concat([]).forEach((item, idx) => {
 				let vs = item.value.split('/');
 				let pid, li, index = 0;
@@ -1386,7 +1386,7 @@
         return { x: x, y: y };
 	};
 	
-	Common.prototype.onreset = function(){//监听reset按钮, 然后重置多选
+	Common.prototype.onreset = function(){//監聽reset按鈕, 然後重置多選
 		$(document).on('click', '[type=reset]', (e) => {
 			$(e.target).parents('form').find(`.${PNAME} dl[xid]`).each((index, item) => {
 				let id = item.getAttribute('xid'),
@@ -1487,11 +1487,11 @@
 				temp = {},
 				dd,
 				isAdd = true;
-			if(isAppend == false){//删除传入的数组
+			if(isAppend == false){//刪除傳入的陣列
 				isAdd = false;
 			}else if(isAppend == true){//追加模式
 				isAdd = true;
-			}else{//删除原有的数据
+			}else{//刪除原有的資料
 				common.removeAll(id);
 			}
 			if(isAdd){

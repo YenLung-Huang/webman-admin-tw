@@ -17,8 +17,8 @@ layui.use(['echarts'], function() {
 		color: ['#fed46b','#2194ff', ],
 		tooltip: {
 			trigger: 'axis',
-			axisPointer: { // 坐标轴指示器，坐标轴触发有效
-				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+			axisPointer: { // 座標軸指示器，座標軸觸發有效
+				type: 'shadow' // 預設為直線，可選為：'line' | 'shadow'
 			}
 		},
 		grid: {

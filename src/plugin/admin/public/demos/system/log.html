@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>行为日志</title>
+    <title>行為日誌</title>
     <link rel="stylesheet" href="../../component/pear/css/pear.css" />
 </head>
 <body class="pear-container">
@@ -10,8 +10,8 @@
     <div class="layui-card-body">
         <div class="layui-tab layui-tab-card">
             <ul class="layui-tab-title">
-                <li class="layui-this">登录日志</li>
-                <li>操作日志</li>
+                <li class="layui-this">登入日誌</li>
+                <li>操作日誌</li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
@@ -32,7 +32,7 @@
         成功</button>
     {{# }else if(d.success == false){ }}
     <button class="pear-btn pear-btn-sm pear-btn-danger" lay-event="error"><i class="layui-icon layui-icon-help"></i>
-        异常</button>
+        異常</button>
     {{# } }}
 </script>
 
@@ -52,15 +52,15 @@
 
         let cols = [
             [
-                {title: '模块', field: 'title', align:'center'},
-                {title: '请求方式', field: 'requestMethod', align:'center'},
+                {title: '模組', field: 'title', align:'center'},
+                {title: '請求方式', field: 'requestMethod', align:'center'},
                 {title: '接口', field: 'method', align:'center'},
-                {title: '浏览器', field: 'browser', align:'center'},
+                {title: '瀏覽器', field: 'browser', align:'center'},
                 {title: '操作地址', field: 'operateAddress',align:'center'},
-                {title: '操作系统', field: 'systemOs', align:'center'},
-                {title: '访问时间', field: 'createTime',templet:'#log-createTime', align:'center'},
+                {title: '作業系統', field: 'systemOs', align:'center'},
+                {title: '訪問時間', field: 'createTime',templet:'#log-createTime', align:'center'},
                 {title: '操作人', field: 'operateName', align:'center'},
-                {title: '访问状态', toolbar: '#log-bar', align:'center', width:150}
+                {title: '存取狀態', toolbar: '#log-bar', align:'center', width:150}
             ]
         ]
 
@@ -90,7 +90,7 @@
         window.error = function(obj){
             layer.open({
                 type: 1,
-                title: '异常信息',
+                title: '異常訊息',
                 shade: 0,
                 area: ['450px', '350px'],
                 content: '<div class="pear-container"><div class="layui-card"><div class="layui-card-body">'+obj.data['error']+'</div></div></div>'

@@ -45,7 +45,7 @@ layui.define(['layer', 'table'], function (exports) {
                     tt.id = tt[param.treeIdName];
                 }
                 if (!tt.pid) {
-                    tt.pid = tt[param.treePidName] || 0; //变更
+                    tt.pid = tt[param.treePidName] || 0; //變更
                 }
             }
 
@@ -63,7 +63,7 @@ layui.define(['layer', 'table'], function (exports) {
             };
             sort(param.treeSpid, tNodes);*/
 
-            var map = {}; // 变更
+            var map = {}; // 變更
             for (var k in data) {
                 map[data[k].id] = data[k];
             }
@@ -157,7 +157,7 @@ layui.define(['layer', 'table'], function (exports) {
 			var $tds = $(elem).next('.treeTable').find('.layui-table-body tbody tr td');
 			if (!keyword) {
 			    $tds.css('background-color', 'transparent');
-			    layer.msg("请输入关键字", {icon: 5});
+			    layer.msg("請輸入關鍵字", {icon: 5});
 			    return;
 			}
 			var searchCount = 0;
@@ -173,7 +173,7 @@ layui.define(['layer', 'table'], function (exports) {
 			    }
 			});
 			if (searchCount == 0) {
-			    layer.msg("没有匹配结果", {icon: 5});
+			    layer.msg("沒有匹配結果", {icon: 5});
 			} else {
 			    treetable.expandAll(elem);
 			}
@@ -193,7 +193,7 @@ layui.define(['layer', 'table'], function (exports) {
             }
             return num + treetable.getEmptyNum(tPid, data);
         },
-        // 展开/折叠行
+        // 展開/折疊行
         toggleRows: function ($dom, linkage) {
             var type = $dom.attr('lay-ttype');
             if ('file' == type) {
@@ -226,30 +226,30 @@ layui.define(['layer', 'table'], function (exports) {
                 }
             });
         },
-        // 检查参数
+        // 檢查參數
         checkParam: function (param) {
             /*if (!param.treeSpid && param.treeSpid != 0) {
-                layer.msg('参数treeSpid不能为空', {icon: 5});
+                layer.msg('參數treeSpid不能為空', {icon: 5});
                 return false;
             }*/
 
             if (!param.treeIdName) {
-                layer.msg('参数treeIdName不能为空', {icon: 5});
+                layer.msg('參數treeIdName不能為空白', {icon: 5});
                 return false;
             }
 
             if (!param.treePidName) {
-                layer.msg('参数treePidName不能为空', {icon: 5});
+                layer.msg('參數treePidName不能為空', {icon: 5});
                 return false;
             }
 
             if (!param.treeColIndex && param.treeColIndex != 0) {
-                layer.msg('参数treeColIndex不能为空', {icon: 5});
+                layer.msg('參數treeColIndex不能為空', {icon: 5});
                 return false;
             }
             return true;
         },
-        // 展开所有
+        // 展開所有
         expandAll: function (dom) {
             $(dom).next('.treeTable').find('.layui-table-body tbody tr').each(function () {
                 var $ti = $(this).find('.treeTable-icon');
@@ -260,7 +260,7 @@ layui.define(['layer', 'table'], function (exports) {
                 }
             });
         },
-        // 折叠所有
+        // 折疊所有
         foldAll: function (dom) {
             $(dom).next('.treeTable').find('.layui-table-body tbody tr').each(function () {
                 var $ti = $(this).find('.treeTable-icon');
@@ -273,7 +273,7 @@ layui.define(['layer', 'table'], function (exports) {
         }
     };
 
-    // 给图标列绑定事件
+    // 給圖示列綁定事件
     $('body').on('click', '.treeTable .treeTable-icon', function () {
         var treeLinkage = $(this).parents('.treeTable').attr('treeLinkage');
         if ('true' == treeLinkage) {

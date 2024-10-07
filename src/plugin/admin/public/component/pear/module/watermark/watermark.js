@@ -22,9 +22,9 @@ layui.define(['jquery', 'element'], function(exports) {
         watermark._container.style.cssText = 'display: block; pointer-events: none;';
         watermark._container.setAttribute('aria-hidden', true);
         _parentEle = document.querySelector(watermark.options.appendTo) || document.body;
-        //获取页面最大宽度
+        //取得頁面最大寬度
         _windowsWidth = Math.min(_parentEle.scrollWidth, _parentEle.clientWidth);
-        //获取页面最大高度
+        //取得頁面最大高度
         _windowsHeight = Math.min(_parentEle.scrollHeight, _parentEle.clientHeight);
         _parentEle.appendChild(watermark._container);
     };
@@ -127,9 +127,9 @@ layui.define(['jquery', 'element'], function(exports) {
     var _addResizeListener = function (watermark) {
         _resizeHandler = function () {
 
-            //获取页面最大宽度
+            //取得頁面最大寬度
             var _windowsWidth_n = Math.max(_parentEle.scrollWidth, _parentEle.clientWidth);
-            //获取页面最大高度
+            //取得頁面最大高度
             var _windowsHeight_n = Math.max(_parentEle.scrollHeight, _parentEle.clientHeight);
 
 

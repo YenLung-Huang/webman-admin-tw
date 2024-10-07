@@ -81,9 +81,9 @@
 		position: 'topCenter', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
 		target: '',
 		targetFirst: true,
-		timeout: 3000, // 默认3秒
+		timeout: 3000, // 預設3秒
 		rtl: false,
-		animateInside: false, // 动画效果
+		animateInside: false, // 動畫效果
 		drag: true,
 		pauseOnHover: true,
 		resetOnHover: false,

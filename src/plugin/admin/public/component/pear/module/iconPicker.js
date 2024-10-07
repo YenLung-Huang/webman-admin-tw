@@ -10,36 +10,36 @@ layui.define(['laypage', 'form'], function(exports) {
 		laypage = layui.laypage,
 		form = layui.form,
 		BODY = 'body',
-		TIPS = '请选择图标';
+		TIPS = '請選擇圖示';
 
 	/**
-	 * 渲染组件
+	 * 渲染元件
 	 */
 	IconPicker.prototype.render = function(options) {
 		var opts = options,
-			// DOM选择器
+			// DOM選擇器
 			elem = opts.elem,
-			// 数据类型：fontClass/unicode
+			// 資料型別：fontClass/unicode
 			type = opts.type == null ? 'fontClass' : opts.type,
-			// 是否分页：true/false
+			// 是否分頁：true/false
 			page = opts.page == null ? true : opts.page,
-			// 每页显示数量
+			// 每頁顯示數量
 			limit = opts.limit == null ? 12 : opts.limit,
-			// 是否开启搜索：true/false
+			// 是否開啟搜尋：true/false
 			search = opts.search == null ? true : opts.search,
-			// 每个图标格子的宽度：'43px'或'20%'
+			// 每個圖示格子的寬度：'43px'或'20%'
 			cellWidth = opts.cellWidth,
-			// 点击回调
+			// 點擊回呼
 			click = opts.click,
-			// 渲染成功后的回调
+			// 渲染成功後的回呼
 			success = opts.success,
-			// json数据
+			// json數據
 			data = {},
-			// 唯一标识
+			// 唯一識別
 			tmp = new Date().getTime(),
-			// 是否使用的class数据
+			// 是否使用的class資料
 			isFontClass = opts.type === 'fontClass',
-			// 初始化时input的值
+			// 初始化時input的值
 			ORIGINAL_ELEM_VALUE = $(elem).val(),
 			TITLE = 'layui-select-title',
 			TITLE_ID = 'layui-select-title-' + tmp,
@@ -74,19 +74,19 @@ layui.define(['laypage', 'form'], function(exports) {
 				return d;
 			},
 			/**
-			 * 隐藏elem
+			 * 隱藏elem
 			 */
 			hideElem: function() {
 				$(elem).hide();
 				return a;
 			},
 			/**
-			 * 绘制select下拉选择框
+			 * 繪製select下拉選擇框
 			 */
 			createSelect: function() {
 				var oriIcon = '<i class="layui-icon">';
 
-				// 默认图标
+				// 預設圖示
 				if (ORIGINAL_ELEM_VALUE === '') {
 					if (isFontClass) {
 						ORIGINAL_ELEM_VALUE = 'layui-icon-circle-dot';
@@ -120,7 +120,7 @@ layui.define(['laypage', 'form'], function(exports) {
 				return a;
 			},
 			/**
-			 * 展开/折叠下拉框
+			 * 展開/折疊下拉框
 			 */
 			toggleSelect: function() {
 				var item = '#' + TITLE_ID + ' .layui-iconpicker-item,#' + TITLE_ID +
@@ -130,9 +130,9 @@ layui.define(['laypage', 'form'], function(exports) {
 					if ($icon.hasClass(selected)) {
 						$icon.removeClass(selected).addClass(unselect);
 					} else {
-						// 隐藏其他picker
+						// 隱藏其他picker
 						$('.layui-form-select').removeClass(selected);
-						// 显示当前picker
+						// 顯示當前picker
 						$icon.addClass(selected).removeClass(unselect);
 					}
 					e.stopPropagation();
@@ -140,10 +140,10 @@ layui.define(['laypage', 'form'], function(exports) {
 				return a;
 			},
 			/**
-			 * 绘制主体部分
+			 * 繪製主體部分
 			 */
 			createBody: function() {
-				// 获取数据
+				// 取得資料
 				var searchHtml = '';
 
 				if (search) {
@@ -153,7 +153,7 @@ layui.define(['laypage', 'form'], function(exports) {
 						'</div>';
 				}
 
-				// 组合dom
+				// 組合dom
 				var bodyHtml = '<div class="layui-iconpicker-body" id="' + PICKER_BODY + '">' +
 					searchHtml +
 					'<div class="' + LIST_BOX + '"></div> ' +
@@ -164,8 +164,8 @@ layui.define(['laypage', 'form'], function(exports) {
 				return a;
 			},
 			/**
-			 * 绘制图标列表
-			 * @param text 模糊查询关键字
+			 * 繪製圖示清單
+			 * @param text 模糊查詢關鍵字
 			 * @returns {string}
 			 */
 			createList: function(text) {
@@ -175,29 +175,29 @@ layui.define(['laypage', 'form'], function(exports) {
 					listHtml = $(
 					'<div class="layui-iconpicker-list">') //'<div class="layui-iconpicker-list">';
 
-				// 计算分页数据
-				var _limit = limit, // 每页显示数量
-					_pages = l % _limit === 0 ? l / _limit : parseInt(l / _limit + 1), // 总计多少页
+				// 計算分頁資料
+				var _limit = limit, // 每頁顯示數量
+					_pages = l % _limit === 0 ? l / _limit : parseInt(l / _limit + 1), // 總計多少頁
 					_id = PAGE_ID;
 
-				// 图标列表
+				// 圖示清單
 				var icons = [];
 
 				for (var i = 0; i < l; i++) {
 					var obj = d[i];
 
-					// 判断是否模糊查询
+					// 判斷是否模糊查詢
 					if (text && obj.indexOf(text) === -1) {
 						continue;
 					}
 
-					// 是否自定义格子宽度
+					// 是否自訂格子寬度
 					var style = '';
 					if (cellWidth !== null) {
 						style += ' style="width:' + cellWidth + '"';
 					}
 
-					// 每个图标dom
+					// 每個圖示dom
 					var icon = '<div class="layui-iconpicker-icon-item" title="' + obj + '" ' +
 						style + '>';
 					if (isFontClass) {
@@ -210,11 +210,11 @@ layui.define(['laypage', 'form'], function(exports) {
 					icons.push(icon);
 				}
 
-				// 查询出图标后再分页
+				// 查詢出圖示後再分頁
 				l = icons.length;
 				_pages = l % _limit === 0 ? l / _limit : parseInt(l / _limit + 1);
 				for (var i = 0; i < _pages; i++) {
-					// 按limit分块
+					// 按limit分塊
 					var lm = $(
 						'<div class="layui-iconpicker-icon-limit" id="layui-iconpicker-icon-limit-' +
 						tmp + (i + 1) + '">');
@@ -226,12 +226,12 @@ layui.define(['laypage', 'form'], function(exports) {
 					listHtml.append(lm);
 				}
 
-				// 无数据
+				// 無數據
 				if (l === 0) {
-					listHtml.append('<p class="layui-iconpicker-tips">无数据</p>');
+					listHtml.append('<p class="layui-iconpicker-tips">無數據</p>');
 				}
 
-				// 判断是否分页
+				// 判斷是否分頁
 				if (page) {
 					$('#' + PICKER_BODY).addClass('layui-iconpicker-body-page');
 					pageHtml = '<div class="layui-iconpicker-page" id="' + PAGE_ID + '">' +
@@ -254,7 +254,7 @@ layui.define(['laypage', 'form'], function(exports) {
 					listHtml).append(pageHtml);
 				return a;
 			},
-			// 阻止Layui的一些默认事件
+			// 阻止Layui的一些預設事件
 			preventEvent: function() {
 				var item = '#' + ICON_BODY + ' .layui-anim';
 				a.event('click', item, function(e) {
@@ -262,7 +262,7 @@ layui.define(['laypage', 'form'], function(exports) {
 				});
 				return a;
 			},
-			// 分页
+			// 分頁
 			page: function() {
 				var icon = '#' + PAGE_ID + ' .layui-iconpicker-page-operate .layui-icon';
 
@@ -271,13 +271,13 @@ layui.define(['laypage', 'form'], function(exports) {
 					var elem = e.currentTarget,
 						total = parseInt($('#' + PAGE_ID + '-pages').html()),
 						isPrev = $(elem).attr('prev') !== undefined,
-						// 按钮上标的页码
+						// 按鈕上標的頁碼
 						index = parseInt($(elem).attr('data-index')),
 						$cur = $('#' + PAGE_ID + '-current'),
-						// 点击时正在显示的页码
+						// 點擊時正在顯示的頁碼
 						current = parseInt($cur.html());
 
-					// 分页数据
+					// 分頁資料
 					if (isPrev && current > 1) {
 						current = current - 1;
 						$(icon + '[prev]').attr('data-index', current);
@@ -287,7 +287,7 @@ layui.define(['laypage', 'form'], function(exports) {
 					}
 					$cur.html(current);
 
-					// 图标数据
+					// 圖示資料
 					$('#' + ICON_BODY + ' .layui-iconpicker-icon-limit').hide();
 					$('#layui-iconpicker-icon-limit-' + tmp + current).show();
 					e.stopPropagation();
@@ -295,7 +295,7 @@ layui.define(['laypage', 'form'], function(exports) {
 				return a;
 			},
 			/**
-			 * 搜索
+			 * 搜尋
 			 */
 			search: function() {
 				var item = '#' + PICKER_BODY + ' .layui-iconpicker-search .layui-input';
@@ -307,7 +307,7 @@ layui.define(['laypage', 'form'], function(exports) {
 				return a;
 			},
 			/**
-			 * 点击选中图标
+			 * 點選選取圖示
 			 */
 			check: function() {
 				var item = '#' + PICKER_BODY + ' .layui-iconpicker-icon-item';
@@ -329,7 +329,7 @@ layui.define(['laypage', 'form'], function(exports) {
 
 					$('#' + ICON_BODY).removeClass(selected).addClass(unselect);
 					$(elem).val(icon).attr('value', icon);
-					// 回调
+					// 回呼
 					if (click) {
 						click({
 							icon: icon
@@ -339,7 +339,7 @@ layui.define(['laypage', 'form'], function(exports) {
 				});
 				return a;
 			},
-			// 监听原始input数值改变
+			// 監聽原始input數值改變
 			inputListen: function() {
 				var el = $(elem);
 				a.event('change', elem, function() {
@@ -357,7 +357,7 @@ layui.define(['laypage', 'form'], function(exports) {
 
 		var common = {
 			/**
-			 * 加载样式表
+			 * 載入樣式表
 			 */
 			loadCss: function() {
 				var css =
@@ -368,7 +368,7 @@ layui.define(['laypage', 'form'], function(exports) {
 				}
 			},
 			/**
-			 * 获取数据
+			 * 取得資料
 			 */
 			getData: {
 				fontClass: function() {
@@ -469,9 +469,9 @@ layui.define(['laypage', 'form'], function(exports) {
 	};
 
 	/**
-	 * 选中图标
+	 * 選取圖示
 	 * @param filter lay-filter
-	 * @param iconName 图标名称，自动识别fontClass/unicode
+	 * @param iconName 圖示名稱，自動識別fontClass/unicode
 	 */
 	IconPicker.prototype.checkIcon = function(filter, iconName) {
 		var el = $('*[lay-filter=' + filter + ']'),
