@@ -6,34 +6,34 @@ layui.define(['table', 'laypage','jquery', 'element'], function(exports) {
 		element = layui.element,
 		laypage = layui.laypage;
 		
-	var _instances = {};  // 记录所有实例
+	var _instances = {};  // 記錄所有實例
 	
 	var defaultOption = {
-		elem: "#currentTableId",// 构建的模型
-		url: "",// 数据 url 连接
-		loading: true,//是否加载
-		limit: 0, //每页数量默认是每行数量的双倍
-		linenum: 4, //每行数量 2,3,4,6
-		currentPage: 1,//当前页
-		data:[],       //静态数据
-		limits:[],     //页码
-		page: true, //是否分页
-		layout: ['count', 'prev', 'page', 'next','limit', 'skip'],//分页控件
+		elem: "#currentTableId",// 建構的模型
+		url: "",// 數據 url 連線
+		loading: true,//是否載入
+		limit: 0, //每頁數量預設是每行數量的雙倍
+		linenum: 4, //每行數量 2,3,4,6
+		currentPage: 1,//當前頁
+		data:[],       //靜態資料
+		limits:[],     //頁碼
+		page: true, //是否分頁
+		layout: ['count', 'prev', 'page', 'next','limit', 'skip'],//分頁控制項
 		request: {
-			pageName: 'page' //页码的参数名称，默认：page
-			, limitName: 'limit' //每页数据量的参数名，默认：limit
-			, idName: 'id'       //主键名称，默认：id
-			, titleName: 'title' //标题名称，默认：title
-			, imageName: 'image' //图片地址，默认：image
-			, remarkName: 'remark' //备注名称，默认：remark
-			, timeName: 'time' //时间名称，默认：time
+			pageName: 'page' //頁碼的參數名稱，預設：page
+			, limitName: 'limit' //每頁資料量的參數名，預設：limit
+			, idName: 'id'       //主鍵名稱，預設：id
+			, titleName: 'title' //標題名稱，預設：title
+			, imageName: 'image' //圖片地址，預設：image
+			, remarkName: 'remark' //備註名稱，預設：remark
+			, timeName: 'time' //時間名稱，預設：time
 		},
 		response: {
-			statusName: 'code' //规定数据状态的字段名称，默认：code
-			, statusCode: 0 //规定成功的状态码，默认：0
-			, msgName: 'msg' //规定状态信息的字段名称，默认：msg
-			, countName: 'count' //规定数据总数的字段名称，默认：count
-			, dataName: 'data' //规定数据列表的字段名称，默认：data
+			statusName: 'code' //規定資料狀態的欄位名稱，預設：code
+			, statusCode: 0 //規定成功的狀態碼，預設：0
+			, msgName: 'msg' //規定狀態資訊的欄位名稱，預設：msg
+			, countName: 'count' //規定資料總數的欄位名稱，預設：count
+			, dataName: 'data' //規定資料列表的欄位名稱，預設：data
 		},
 		clickItem: function(data){},
 		done: function () {
@@ -95,7 +95,7 @@ layui.define(['table', 'laypage','jquery', 'element'], function(exports) {
 					html += "<div id='cardpage'></div>";
 				}
 				else {
-					html = "<p>没有数据</p>";
+					html = "<p>沒有資料</p>";
 				}
 				$(option.elem).html(html);
 				if (option.page) {
@@ -131,7 +131,7 @@ layui.define(['table', 'laypage','jquery', 'element'], function(exports) {
 				html += "<div id='cardpage'></div>";
 			}
 			else {
-				html = "<p>没有数据</p>";
+				html = "<p>沒有資料</p>";
 			}
 			$(option.elem).html(html);
 			if (option.page) {
@@ -220,7 +220,7 @@ layui.define(['table', 'laypage','jquery', 'element'], function(exports) {
 		_instances[elem.id].option.clickItem(item);
 	}
 	
-	/** 对外提供的方法 */
+	/** 對外提供的方法 */
 	var tt = {
 		
 		render: function (options) {

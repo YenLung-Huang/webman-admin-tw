@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>新增页面</title>
+        <title>新增頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
@@ -14,7 +14,7 @@
                 <div class="main-container mr-5">
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">父级</label>
+                        <label class="layui-form-label">父級</label>
                         <div class="layui-input-block">
                             <div name="pid" id="pid" value="1" ></div>
                         </div>
@@ -28,7 +28,7 @@
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">权限</label>
+                        <label class="layui-form-label">權限</label>
                         <div class="layui-input-block">
                             <div name="rules" id="rules" value="" ></div>
                         </div>
@@ -57,10 +57,10 @@
         
         <script>
 
-            // 相关接口
+            // 相關介面
             const INSERT_API = "/app/admin/role/insert";
             
-            // 字段 权限 rules
+            // 字段 權限 rules
             layui.use(["jquery", "xmSelect", "popup"], function() {
                 layui.$.ajax({
                     url: "/app/admin/role/rules?id=1",
@@ -80,7 +80,7 @@
                 });
             });
             
-            // 字段 父级 pid
+            // 字段 父級 pid
             layui.use(["jquery", "xmSelect", "popup"], function() {
                 layui.$.ajax({
                     url: "/app/admin/role/select?format=tree",
@@ -92,7 +92,7 @@
                             el: "#pid",
                             name: "pid",
                             initValue: initValue,
-                            tips: "请选择",
+                            tips: "請選擇",
                             data: res.data,
                             value: "0",
                             model: {"icon":"hidden","label":{"type":"text"}},

@@ -8,19 +8,19 @@ class Layui
 {
 
     /**
-     * 生成的html代码
+     * 產生的html代碼
      * @var string
      */
     protected $htmlContent = '';
 
     /**
-     * 生成的js代码
+     * 產生的js程式碼
      * @var string
      */
     protected $jsContent = '';
 
     /**
-     * 获取生成的html代码
+     * 取得產生的html代碼
      * @param $indent
      * @return string
      */
@@ -30,7 +30,7 @@ class Layui
     }
 
     /**
-     * 获取生成的js代码
+     * 取得產生的js程式碼
      * @param $indent
      * @return string
      */
@@ -40,7 +40,7 @@ class Layui
     }
 
     /**
-     * 获取控件及相关参数
+     * 取得控制項及相關參數
      * @param $options
      * @return array
      */
@@ -66,7 +66,7 @@ class Layui
     }
 
     /**
-     * input输入框
+     * input輸入框
      * @param $options
      * @return void
      */
@@ -92,7 +92,7 @@ EOF;
     }
 
     /**
-     * input数字输入框
+     * input數字輸入框
      * @param $options
      * @return void
      */
@@ -103,7 +103,7 @@ EOF;
     }
 
     /**
-     * 输入框范围
+     * 輸入框範圍
      * @param $options
      * @return void
      */
@@ -118,9 +118,9 @@ EOF;
     $label
     <div class="$class">
         <div class="layui-input-block">
-            <input type="$type" autocomplete="off" name="{$field}[]" class="layui-input inline-block" placeholder="开始">
+            <input type="$type" autocomplete="off" name="{$field}[]" class="layui-input inline-block" placeholder="開始">
             -
-            <input type="$type" autocomplete="off" name="{$field}[]" class="layui-input inline-block" placeholder="结束">
+            <input type="$type" autocomplete="off" name="{$field}[]" class="layui-input inline-block" placeholder="結束">
         </div>
     </div>
 </div>
@@ -129,7 +129,7 @@ EOF;
     }
 
     /**
-     * 输入框模糊查询
+     * 輸入框模糊查詢
      * @param $options
      * @return void
      */
@@ -154,7 +154,7 @@ EOF;
     }
 
     /**
-     * 数字输入框范围
+     * 數字輸入框範圍
      * @param $options
      * @return void
      */
@@ -165,7 +165,7 @@ EOF;
     }
 
     /**
-     * 数字输入框模糊查询
+     * 數位輸入框模糊查詢
      * @param $options
      * @return void
      */
@@ -176,7 +176,7 @@ EOF;
     }
 
     /**
-     * 密码输入框
+     * 密碼輸入框
      * @param $options
      * @return void
      */
@@ -187,7 +187,7 @@ EOF;
     }
 
     /**
-     * 文本域
+     * 文字域
      * @param $options
      * @return void
      */
@@ -257,7 +257,7 @@ EOF;
     }
 
     /**
-     * json编辑框
+     * json編輯框
      * @param $options
      * @return void
      */
@@ -293,7 +293,7 @@ EOF;
     }
 
     /**
-     * 上传组件
+     * 上傳組件
      * @param $options
      * @return void
      */
@@ -319,10 +319,10 @@ EOF;
         <span>$value</span>
         <input type="text" style="display:none" name="$field" value="$value" />
         <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="$id" permission="app.admin.upload.file">
-            <i class="layui-icon layui-icon-upload"></i>上传文件
+            <i class="layui-icon layui-icon-upload"></i>上傳文件
         </button>
         <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="attachment-choose-$id" permission="app.admin.upload.attachment">
-            <i class="layui-icon layui-icon-align-left"></i>选择文件
+            <i class="layui-icon layui-icon-align-left"></i>選擇檔案
         </button>
     </div>
 </div>
@@ -337,7 +337,7 @@ layui.use(["upload", "layer", "popup", "util"], function() {
     layui.$("#attachment-choose-$id").on("click", function() {
         parent.layer.open({
             type: 2,
-            title: "选择附件",
+            title: "選擇附件",
             content: "/app/admin/upload/attachment",
             area: ["95%", "90%"],
             success: function (layero, index) {
@@ -360,7 +360,7 @@ EOF;
     }
 
     /**
-     * 图片上传组件
+     * 圖片上傳組件
      * @param $options
      * @return void
      */
@@ -385,10 +385,10 @@ EOF;
         <img class="img-3" src=""/>
         <input type="text" style="display:none" name="$field" value="$value" />
         <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="$id"  permission="app.admin.upload.image">
-            <i class="layui-icon layui-icon-upload"></i>上传图片
+            <i class="layui-icon layui-icon-upload"></i>上傳圖片
         </button>
         <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="attachment-choose-$id"  permission="app.admin.upload.attachment">
-            <i class="layui-icon layui-icon-align-left"></i>选择图片
+            <i class="layui-icon layui-icon-align-left"></i>選擇圖片
         </button>
     </div>
 </div>
@@ -403,7 +403,7 @@ layui.use(["upload", "layer"], function() {
     layui.$("#attachment-choose-$id").on("click", function() {
         parent.layer.open({
             type: 2,
-            title: "选择附件",
+            title: "選擇附件",
             content: "/app/admin/upload/attachment?ext=jpg,jpeg,png,gif,bmp",
             area: ["95%", "90%"],
             success: function (layero, index) {
@@ -427,7 +427,7 @@ EOF;
     }
 
     /**
-     * 日期时间选择组件
+     * 日期時間選擇組件
      * @param $options
      * @return void
      */
@@ -438,7 +438,7 @@ EOF;
     }
 
     /**
-     * 日期选择组件
+     * 日期選擇組件
      * @param $options
      * @return void
      */
@@ -475,7 +475,7 @@ EOF;
     }
 
     /**
-     * 日期时间范围选择组件
+     * 日期時間範圍選擇組件
      * @param $options
      * @return void
      */
@@ -486,7 +486,7 @@ EOF;
     }
 
     /**
-     * 日期范围选择组件
+     * 日期範圍選擇組件
      * @param $options
      * @return void
      */
@@ -509,9 +509,9 @@ EOF;
     $label
     <div class="$class">
         <div class="layui-input-block" id="$id">
-            <input type="text" autocomplete="off" name="{$field}[]" id="$id_start" class="layui-input inline-block" placeholder="开始时间">
+            <input type="text" autocomplete="off" name="{$field}[]" id="$id_start" class="layui-input inline-block" placeholder="開始時間">
             -
-            <input type="text" autocomplete="off" name="{$field}[]" id="$id_end" class="layui-input inline-block" placeholder="结束时间">
+            <input type="text" autocomplete="off" name="{$field}[]" id="$id_end" class="layui-input inline-block" placeholder="結束時間">
         </div>
     </div>
 </div>
@@ -531,7 +531,7 @@ EOF;
     }
 
     /**
-     * 创建id
+     * 創建id
      * @param $field
      * @return mixed
      */
@@ -541,7 +541,7 @@ EOF;
     }
 
     /**
-     * 图标选择组件
+     * 圖示選擇組件
      * @param $options
      * @return void
      */
@@ -582,7 +582,7 @@ EOF;
     }
 
     /**
-     * switch组件
+     * switch組件
      * @param $options
      * @return void
      */
@@ -624,7 +624,7 @@ EOF;
     }
 
     /**
-     * 下拉选择组件
+     * 下拉選擇組件
      * @return void
      */
     public function select($options)
@@ -641,7 +641,7 @@ EOF;
     }
 
     /**
-     * 下拉多选组件
+     * 下拉多重選擇組件
      * @return void
      */
     public function selectMulti($options)
@@ -654,7 +654,7 @@ EOF;
     }
 
     /**
-     * 树单选组件
+     * 樹單選組件
      * @return void
      */
     public function treeSelect($options)
@@ -678,7 +678,7 @@ EOF;
     }
 
     /**
-     * 树多选组件
+     * 樹多選組件
      * @return void
      */
     public function treeSelectMulti($options)
@@ -693,7 +693,7 @@ EOF;
     }
 
     /**
-     * 选择框，支持单选、多选、树形选择
+     * 選擇框，支援單選、多選、樹形選擇
      * @see https://maplemei.gitee.io/xm-select/
      * @param $options
      * @return void
@@ -780,7 +780,7 @@ EOF;
     }
 
     /**
-     * 构建表单
+     * 建構表單
      * @param $table
      * @param string $type
      * @return Layui
@@ -806,7 +806,7 @@ EOF;
             $default = $columns[$key]['default'];
             $control = strtolower($info['control']);
             $auto_increment = $columns[$key]['auto_increment'];
-            // 搜索框里上传组件替换为input
+            // 搜尋框上傳元件替換為input
             if ($type == 'search' && in_array($control, ['upload', 'uploadimg'])) {
                 $control = 'input';
                 $info['control_args'] = '';
@@ -821,25 +821,25 @@ EOF;
             }
 
             $props = Util::getControlProps($control, $info['control_args']);
-            // 增加修改记录验证必填项
+            // 增加修改記錄驗證必填項
             if ($filter == 'form_show' && !$columns[$key]['nullable'] && $default === null && ($field !== 'password' || $type === 'insert')) {
                 if (!isset($props['lay-verify'])) {
                     $props['lay-verify'] = 'required';
-                // 非类似字符串类型不允许传空
+                // 非類似字串型別不允許傳空
                 } elseif (!in_array($columns[$key]['type'], ['string', 'text', 'mediumText', 'longText', 'char', 'binary', 'json'])
                     && strpos($props['lay-verify'], 'required') === false) {
                     $props['lay-verify'] = 'required|' . $props['lay-verify'];
                 }
             }
-            // 增加记录显示默认值
+            // 增加記錄顯示預設值
             if ($type === 'insert' && !isset($props['value']) && $default !== null) {
                 $props['value'] = $default;
             }
-            // 主键是自增字段或者表单是更新类型不显示主键
+            // 主鍵是自增欄位或表單是更新類型不顯示主鍵
             if ($primary_key && $field == $primary_key && (($type == 'insert' && $auto_increment) || $type == 'update')) {
                 continue;
             }
-            // 查询类型
+            // 查詢類型
             if ($type == 'search') {
                 if ($info['search_type'] == 'between' && method_exists($form, "{$control}Range")) {
                     $control = "{$control}Range";
@@ -847,7 +847,7 @@ EOF;
                     $control = "{$control}Like";
                 }
             }
-            // 查询类型移除lay-verify
+            // 查詢類型移除lay-verify
             if ($type == 'search' && !empty($props['lay-verify'])) {
                 $props['lay-verify'] = '';
             }
@@ -864,7 +864,7 @@ EOF;
     }
 
     /**
-     * 构建表格
+     * 建構表格
      * @param $table
      * @param int $indent
      * @return array|string|string[]
@@ -992,7 +992,7 @@ EOF;
 
         $cols = <<<EOF
 
-// 表头参数
+// 表頭參數
 let cols = [
 	{
 		type: "checkbox",
@@ -1009,17 +1009,17 @@ let cols = [
 EOF;
         if (!$api && $api_result) {
             $codes = <<<EOF
-// 获取表格中下拉或树形组件数据
+// 取得表格中下拉或樹狀元件資料
 let apiResults = {};$api_result
 EOF;
         } else if ($api && !$api_result) {
             $codes = <<<EOF
-// 获取表格中下拉或树形组件数据
+// 取得表格中下拉或樹狀元件資料
 let apis = [];$api
 EOF;
         } else if ($api && $api_result) {
             $codes = <<<EOF
-// 获取表格中下拉或树形组件数据
+// 取得表格中下拉或樹狀元件資料
 let apis = [];$api
 let apiResults = {};$api_result
 EOF;
@@ -1041,7 +1041,7 @@ function render()
         toolbar: "#table-toolbar",
         autoSort: false,
         defaultToolbar: [{
-            title: "刷新",
+            title: "重新整理",
             layEvent: "refresh",
             icon: "layui-icon-refresh",
         }, "filter", "print", "exports"],
@@ -1100,7 +1100,7 @@ table.render({
     toolbar: "#table-toolbar",
     autoSort: false,
     defaultToolbar: [{
-        title: "刷新",
+        title: "重新整理",
         layEvent: "refresh",
         icon: "layui-icon-refresh",
     }, "filter", "print", "exports"],
@@ -1119,7 +1119,7 @@ EOF;
     }
 
     /**
-     * 预处理props
+     * 預處理props
      */
     private function prepareProps($props)
     {

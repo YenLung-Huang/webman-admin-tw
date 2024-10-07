@@ -16,19 +16,19 @@ class IndexController
 {
 
     /**
-     * 无需登录的方法
+     * 無需登入的方法
      * @var string[]
      */
     protected $noNeedLogin = ['index'];
 
     /**
-     * 不需要鉴权的方法
+     * 不需要鑑權的方法
      * @var string[]
      */
     protected $noNeedAuth = ['dashboard'];
 
     /**
-     * 后台主页
+     * 後台首頁
      * @param Request $request
      * @return Response
      * @throws BusinessException|Throwable
@@ -52,20 +52,20 @@ class IndexController
     }
 
     /**
-     * 仪表板
+     * 儀表板
      * @param Request $request
      * @return Response
      * @throws Throwable
      */
     public function dashboard(Request $request): Response
     {
-        // 今日新增用户数
+        // 今日新增使用者數
         $today_user_count = User::where('created_at', '>', date('Y-m-d') . ' 00:00:00')->count();
-        // 7天内新增用户数
+        // 7天內新增使用者數
         $day7_user_count = User::where('created_at', '>', date('Y-m-d H:i:s', time() - 7 * 24 * 60 * 60))->count();
-        // 30天内新增用户数
+        // 30天內新增使用者數
         $day30_user_count = User::where('created_at', '>', date('Y-m-d H:i:s', time() - 30 * 24 * 60 * 60))->count();
-        // 总用户数
+        // 總用戶數
         $user_count = User::count();
         // mysql版本
         $version = Util::db()->select('select VERSION() as version');

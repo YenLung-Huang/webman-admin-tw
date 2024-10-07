@@ -1,4 +1,4 @@
-/* formSelects多选css */
+/* formSelects多選css */
 select[xm-select] {
 	display: none !important;
 }
@@ -6,7 +6,7 @@ select[xm-select] {
 .xm-select-parent * {
 	margin: 0;
 	padding: 0;
-	font-family: "Helvetica Neue", Helvetica, "PingFang SC", 微软雅黑, Tahoma, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", 微軟雅黑, Tahoma, Arial, sans-serif;
 	box-sizing: initial;
 }
 
@@ -398,7 +398,7 @@ div[xm-hg] .xm-select-label {
 	padding-left: 10px;
 }
 
-/* 颜色相关 */
+/* 顏色相關 */
 div[xm-select-skin] .xm-select-title div.xm-select-label>span {
 	border: 1px solid #67c23a
 }
@@ -535,7 +535,7 @@ div[xm-select-skin=danger].xm-form-selected .xm-select:hover {
 }
 
 
-/* 多选联动  */
+/* 多選聯動  */
 .xm-select-parent .layui-form-danger+.xm-select-title .xm-select {
 	border-color: #f56c6c!important
 }

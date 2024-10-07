@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>更新页面</title>
+        <title>更新頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
@@ -14,7 +14,7 @@
                 <div class="main-container mr-5">
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label" style="width:inherit">类别</label>
+                        <label class="layui-form-label" style="width:inherit">類別</label>
                         <div class="layui-input-block" style="margin-left:60px;">
                             <div name="category" id="category" value="" ></div>
                         </div>
@@ -41,12 +41,12 @@
         <script src="/app/admin/admin/js/permission.js"></script>
         <script>
 
-            // 相关接口
+            // 相關介面
             const PRIMARY_KEY = "id";
             const SELECT_API = "/app/admin/upload/select" + location.search;
             const UPDATE_API = "/app/admin/upload/update";
 
-            // 获取数据库记录
+            // 取得資料庫記錄
             layui.use(["form", "util", "popup"], function () {
                 let $ = layui.$;
                 $.ajax({
@@ -54,7 +54,7 @@
                     dataType: "json",
                     success: function (res) {
                         
-                        // 给表单初始化数据
+                        // 給表單初始化資料
                         layui.each(res.data[0], function (key, value) {
                             let obj = $('*[name="'+key+'"]');
                             if (typeof obj[0] === "undefined" || !obj[0].nodeName) return;
@@ -77,7 +77,7 @@
                             });
                         });
                         
-                        // 字段 类别 category
+                        // 字段 類別 category
                         layui.use(["jquery", "xmSelect", "popup"], function() {
                             layui.$.ajax({
                                 url: "/app/admin/dict/get/upload",
@@ -101,7 +101,7 @@
                             });
                         });
 
-                        // ajax产生错误
+                        // ajax產生錯誤
                         if (res.code) {
                             layui.popup.failure(res.msg);
                         }

@@ -17,7 +17,7 @@ use Throwable;
 class RoleController extends Crud
 {
     /**
-     * 不需要鉴权的方法
+     * 不需要鑑權的方法
      * @var array
      */
     protected $noNeedAuth = ['select'];
@@ -28,7 +28,7 @@ class RoleController extends Crud
     protected $model = null;
 
     /**
-     * 构造函数
+     * 建構子
      */
     public function __construct()
     {
@@ -36,7 +36,7 @@ class RoleController extends Crud
     }
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */
@@ -46,7 +46,7 @@ class RoleController extends Crud
     }
 
     /**
-     * 查询
+     * 查詢
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -60,7 +60,7 @@ class RoleController extends Crud
         if (!$id) {
             $where['id'] = ['in', $role_ids];
         } elseif (!in_array($id, $role_ids)) {
-            throw new BusinessException('无权限');
+            throw new BusinessException('無權限');
         }
         $query = $this->doSelect($where, $field, $order);
         return $this->doFormat($query, $format, $limit);
@@ -79,10 +79,10 @@ class RoleController extends Crud
             $data = $this->insertInput($request);
             $pid = $data['pid'] ?? null;
             if (!$pid) {
-                return $this->json(1, '请选择父级角色组');
+                return $this->json(1, '請選擇父級角色組');
             }
             if (!Auth::isSuperAdmin() && !in_array($pid, Auth::getScopeRoleIds(true))) {
-                return $this->json(1, '父级角色组超出权限范围');
+                return $this->json(1, '父級角色群組超出權限範圍');
             }
             $this->checkRules($pid, $data['rules'] ?? '');
 
@@ -107,16 +107,16 @@ class RoleController extends Crud
         $is_supper_admin = Auth::isSuperAdmin();
         $descendant_role_ids = Auth::getScopeRoleIds();
         if (!$is_supper_admin && !in_array($id, $descendant_role_ids)) {
-            return $this->json(1, '无数据权限');
+            return $this->json(1, '無資料權限');
         }
 
         $role = Role::find($id);
         if (!$role) {
-            return $this->json(1, '数据不存在');
+            return $this->json(1, '資料不存在');
         }
         $is_supper_role = $role->rules === '*';
 
-        // 超级角色组不允许更改rules pid 字段
+        // 超級角色群組不允許更改rules pid 欄位
         if ($is_supper_role) {
             unset($data['rules'], $data['pid']);
         }
@@ -124,13 +124,13 @@ class RoleController extends Crud
         if (key_exists('pid', $data)) {
             $pid = $data['pid'];
             if (!$pid) {
-                return $this->json(1, '请选择父级角色组');
+                return $this->json(1, '請選擇父級角色組');
             }
             if ($pid == $id) {
-                return $this->json(1, '父级不能是自己');
+                return $this->json(1, '父級不能是自己');
             }
             if (!$is_supper_admin && !in_array($pid, Auth::getScopeRoleIds(true))) {
-                return $this->json(1, '父级超出权限范围');
+                return $this->json(1, '父級超出權限範圍');
             }
         } else {
             $pid = $role->pid;
@@ -142,7 +142,7 @@ class RoleController extends Crud
 
         $this->doUpdate($id, $data);
 
-        // 删除所有子角色组中已经不存在的权限
+        // 刪除所有子角色群組中已經不存在的權限
         if (!$is_supper_role) {
             $tree = new Tree(Role::select(['id', 'pid'])->get());
             $descendant_roles = $tree->getDescendant([$id]);
@@ -161,7 +161,7 @@ class RoleController extends Crud
     }
 
     /**
-     * 删除
+     * 刪除
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -170,10 +170,10 @@ class RoleController extends Crud
     {
         $ids = $this->deleteInput($request);
         if (in_array(1, $ids)) {
-            return $this->json(1, '无法删除超级管理员角色');
+            return $this->json(1, '無法刪除超級管理員角色');
         }
         if (!Auth::isSuperAdmin() && array_diff($ids, Auth::getScopeRoleIds())) {
-            return $this->json(1, '无删除权限');
+            return $this->json(1, '無刪除權限');
         }
         $tree = new Tree(Role::get());
         $descendants = $tree->getDescendant($ids);
@@ -185,7 +185,7 @@ class RoleController extends Crud
     }
 
     /**
-     * 获取角色权限
+     * 取得角色權限
      * @param Request $request
      * @return Response
      */
@@ -196,7 +196,7 @@ class RoleController extends Crud
             return $this->json(0, 'ok', []);
         }
         if (!Auth::isSuperAdmin() && !in_array($role_id, Auth::getScopeRoleIds(true))) {
-            return $this->json(1, '角色组超出权限范围');
+            return $this->json(1, '角色群組超出權限範圍');
         }
         $rule_id_string = Role::where('id', $role_id)->value('rules');
         if ($rule_id_string === '') {
@@ -221,7 +221,7 @@ class RoleController extends Crud
     }
 
     /**
-     * 检查权限字典是否合法
+     * 檢查權限字典是否合法
      * @param int $role_id
      * @param $rule_ids
      * @return void
@@ -232,22 +232,22 @@ class RoleController extends Crud
         if ($rule_ids) {
             $rule_ids = explode(',', $rule_ids);
             if (in_array('*', $rule_ids)) {
-                throw new BusinessException('非法数据');
+                throw new BusinessException('非法資料');
             }
             $rule_exists = Rule::whereIn('id', $rule_ids)->pluck('id');
             if (count($rule_exists) != count($rule_ids)) {
-                throw new BusinessException('权限不存在');
+                throw new BusinessException('權限不存在');
             }
             $rule_id_string = Role::where('id', $role_id)->value('rules');
             if ($rule_id_string === '') {
-                throw new BusinessException('数据超出权限范围');
+                throw new BusinessException('資料超出權限範圍');
             }
             if ($rule_id_string === '*') {
                 return;
             }
             $legal_rule_ids = explode(',', $rule_id_string);
             if (array_diff($rule_ids, $legal_rule_ids)) {
-                throw new BusinessException('数据超出权限范围');
+                throw new BusinessException('資料超出權限範圍');
             }
         }
     }

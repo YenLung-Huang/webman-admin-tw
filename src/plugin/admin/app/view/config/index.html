@@ -19,51 +19,51 @@
 
                 <div class="layui-tab layui-tab-brief">
                 <ul class="layui-tab-title">
-                    <li class="layui-this">基本信息</li>
-                    <li>菜单配置</li>
-                    <li>页面配置</li>
+                    <li class="layui-this">基本資訊</li>
+                    <li>選單配置</li>
+                    <li>頁面配置</li>
                 </ul>
                 <div class="layui-tab-content">
 
-                    <!-- 基本信息 -->
+                    <!-- 基本資訊 -->
                     <div class="layui-tab-item layui-show">
 
                         <form class="layui-form" lay-filter="baseInfo">
                             <div class="layui-form-item">
-                                <label class="layui-form-label">网站名称</label>
+                                <label class="layui-form-label">網站名稱</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入网站名称" autocomplete="off" class="layui-input">
+                                    <input type="text" name="title" required  lay-verify="required" placeholder="請輸入網站名稱" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">网站Logo</label>
+                                <label class="layui-form-label">網站Logo</label>
                                 <div class="layui-input-block">
                                     <img class="img-3" src=""/>
                                     <input type="text" style="display:none" name="image" value="/app/admin/avatar.png" />
                                     <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="image" permission="app.admin.upload.avatar">
-                                        <i class="layui-icon layui-icon-upload"></i>上传图片
+                                        <i class="layui-icon layui-icon-upload"></i>上傳圖片
                                     </button>
                                     <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="attachment-choose-image" permission="app.admin.upload.attachment">
-                                        <i class="layui-icon layui-icon-align-left"></i>选择图片
+                                        <i class="layui-icon layui-icon-align-left"></i>選擇圖片
                                     </button>
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">ICP备案号</label>
+                                <label class="layui-form-label">ICP備案號碼</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="icp"  placeholder="请输入ICP备案号" autocomplete="off" class="layui-input">
+                                    <input type="text" name="icp"  placeholder="請輸入ICP備案號碼" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">公安网备</label>
+                                <label class="layui-form-label">公安網備</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="beian" placeholder="请输入公安网备号" autocomplete="off" class="layui-input">
+                                    <input type="text" name="beian" placeholder="請輸入公安網備號" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">其它</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="footer_txt" placeholder="其它展示在页面底部的内容" autocomplete="off" class="layui-input">
+                                    <input type="text" name="footer_txt" placeholder="其它展示在頁面底部的內容" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
@@ -78,30 +78,30 @@
 
                     </div>
 
-                    <!-- 菜单设置 -->
+                    <!-- 選單設定 -->
                     <div class="layui-tab-item">
 
                         <form class="layui-form" lay-filter="menuInfo">
                             <div class="layui-form-item">
-                                <label class="layui-form-label">菜单url</label>
+                                <label class="layui-form-label">菜單url</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="data" required  lay-verify="required" placeholder="请输入菜单url" autocomplete="off" class="layui-input">
+                                    <input type="text" name="data" required  lay-verify="required" placeholder="請輸入選單url" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">默认菜单ID</label>
+                                <label class="layui-form-label">預設選單ID</label>
                                 <div class="layui-input-block">
-                                    <input type="number" name="select" required  lay-verify="required" placeholder="请输入默认菜单ID" autocomplete="off" class="layui-input">
+                                    <input type="number" name="select" required  lay-verify="required" placeholder="請輸入預設選單ID" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">开启手风琴</label>
+                                <label class="layui-form-label">開啟手風琴</label>
                                 <div class="layui-input-block">
                                     <input type="checkbox" name="accordion" id="accordion" lay-skin="switch" />
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">折叠菜单</label>
+                                <label class="layui-form-label">折疊菜單</label>
                                 <div class="layui-input-block">
                                     <input type="checkbox" id="collapse" name="collapse" lay-skin="switch" />
                                 </div>
@@ -118,53 +118,53 @@
 
                     </div>
 
-                    <!-- tab设置 -->
+                    <!-- tab設定 -->
                     <div class="layui-tab-item">
 
                         <form class="layui-form" lay-filter="tabInfo">
 
                             <div class="layui-form-item">
-                                <label class="layui-form-label">保持标签</label>
+                                <label class="layui-form-label">保持標籤</label>
                                 <div class="layui-input-block">
                                     <input type="checkbox" name="keepState" lay-skin="switch" />
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">记住标签</label>
+                                <label class="layui-form-label">記得標籤</label>
                                 <div class="layui-input-block">
                                     <input type="checkbox" name="session" lay-skin="switch" />
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">预加载标签</label>
+                                <label class="layui-form-label">預先載入標籤</label>
                                 <div class="layui-input-block">
                                     <input type="checkbox" name="preload" lay-skin="switch" />
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
-                                <label class="layui-form-label">最大标签数</label>
+                                <label class="layui-form-label">最大標籤數</label>
                                 <div class="layui-input-block">
-                                    <input type="number" name="max" required  lay-verify="required" placeholder="请输入最大标签数" autocomplete="off" class="layui-input">
+                                    <input type="number" name="max" required  lay-verify="required" placeholder="請輸入最大標籤數" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
-                                <label class="layui-form-label">主标签标题</label>
+                                <label class="layui-form-label">主標籤標題</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入主页标签标题" autocomplete="off" class="layui-input">
+                                    <input type="text" name="title" required  lay-verify="required" placeholder="請輸入主頁標籤標題" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">主标签URL</label>
+                                <label class="layui-form-label">主標籤URL</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="href" required  lay-verify="required" placeholder="请输入菜单url" autocomplete="off" class="layui-input">
+                                    <input type="text" name="href" required  lay-verify="required" placeholder="請輸入選單url" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">主标签ID</label>
+                                <label class="layui-form-label">主標籤ID</label>
                                 <div class="layui-input-block">
-                                    <input type="number" name="id" required  lay-verify="required" placeholder="请输入主页标签ID" autocomplete="off" class="layui-input">
+                                    <input type="number" name="id" required  lay-verify="required" placeholder="請輸入主頁標籤ID" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
@@ -191,7 +191,7 @@
         <script src="/app/admin/admin/js/permission.js"></script>
         <script>
 
-            // 基础设置
+            // 基礎設定
             layui.use(["upload", "layer", "popup"], function() {
                 let $ = layui.$;
                 let form = layui.form;
@@ -202,7 +202,7 @@
                 layui.$("#attachment-choose-image").on("click", function() {
                     parent.layer.open({
                         type: 2,
-                        title: "选择附件",
+                        title: "選擇附件",
                         content: "/app/admin/upload/attachment?ext=jpg,jpeg,png,gif,bmp",
                         area: ["95%", "90%"],
                         success: function (layero, index) {
@@ -242,7 +242,7 @@
                 });
             });
 
-            // 菜单设置
+            // 選單設定
             layui.use(["upload", "layer", "popup"], function() {
                 let $ = layui.$;
                 let form = layui.form;
@@ -264,7 +264,7 @@
                 });
             });
 
-            // 标签设置
+            // 標籤設定
             layui.use(["upload", "layer", "popup"], function() {
                 let $ = layui.$;
                 let form = layui.form;
@@ -289,7 +289,7 @@
                             return layui.popup.success("操作成功");
                         }
                     });
-                    // 删除sessionStorage缓存
+                    // 刪除sessionStorage快取
                     sessionStorage.clear();
                     return false;
                 });

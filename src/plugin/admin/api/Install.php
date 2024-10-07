@@ -5,26 +5,26 @@ namespace plugin\admin\api;
 class Install
 {
     /**
-     * 安装
+     * 安裝
      *
      * @param $version
      * @return void
      */
     public static function install($version)
     {
-        // 导入菜单
+        // 導入選單
         Menu::import(static::getMenus());
     }
 
     /**
-     * 卸载
+     * 解除安裝
      *
      * @param $version
      * @return void
      */
     public static function uninstall($version)
     {
-        // 删除菜单
+        // 刪除選單
         foreach (static::getMenus() as $menu) {
             Menu::delete($menu['name']);
         }
@@ -40,16 +40,16 @@ class Install
      */
     public static function update($from_version, $to_version, $context = null)
     {
-        // 删除不用的菜单
+        // 刪除不用的選單
         if (isset($context['previous_menus'])) {
             static::removeUnnecessaryMenus($context['previous_menus']);
         }
-        // 导入新菜单
+        // 匯入新選單
         Menu::import(static::getMenus());
     }
 
     /**
-     * 更新前数据收集等
+     * 更新前資料收集等
      *
      * @param $from_version
      * @param $to_version
@@ -57,12 +57,12 @@ class Install
      */
     public static function beforeUpdate($from_version, $to_version)
     {
-        // 在更新之前获得老菜单，通过context传递给 update
+        // 在更新前取得舊選單，透過context傳遞給 update
         return ['previous_menus' => static::getMenus()];
     }
 
     /**
-     * 获取菜单
+     * 取得選單
      *
      * @return array|mixed
      */
@@ -77,7 +77,7 @@ class Install
     }
 
     /**
-     * 删除不需要的菜单
+     * 刪除不需要的選單
      *
      * @param $previous_menus
      * @return void

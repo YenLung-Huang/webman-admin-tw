@@ -3,19 +3,19 @@
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8">
-        <title>浏览页面</title>
+        <title>瀏覽頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
     <body class="pear-container">
     
-        <!-- 顶部查询表单 -->
+        <!-- 頂部查詢表單 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <form class="layui-form top-search-from">
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">名称</label>
+                        <label class="layui-form-label">名稱</label>
                         <div class="layui-input-block">
                             <input type="text" name="name" value="" class="layui-input">
                         </div>
@@ -24,41 +24,41 @@
                     <div class="layui-form-item layui-inline">
                         <label class="layui-form-label"></label>
                         <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="table-query">
-                            <i class="layui-icon layui-icon-search"></i>查询
+                            <i class="layui-icon layui-icon-search"></i>查詢
                         </button>
                         <button type="reset" class="pear-btn pear-btn-md" lay-submit lay-filter="table-reset">
                             <i class="layui-icon layui-icon-refresh"></i>重置
                         </button>
                     </div>
                     <div class="toggle-btn">
-                        <a class="layui-hide">展开<i class="layui-icon layui-icon-down"></i></a>
+                        <a class="layui-hide">展開<i class="layui-icon layui-icon-down"></i></a>
                         <a class="layui-hide">收起<i class="layui-icon layui-icon-up"></i></a>
                     </div>
                 </form>
             </div>
         </div>
         
-        <!-- 数据表格 -->
+        <!-- 資料表格 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <table id="data-table" lay-filter="data-table"></table>
             </div>
         </div>
 
-        <!-- 表格顶部工具栏 -->
+        <!-- 表格頂部工具列 -->
         <script type="text/html" id="table-toolbar">
             <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add" permission="app.admin.dict.insert">
                 <i class="layui-icon layui-icon-add-1"></i>新增
             </button>
             <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove" permission="app.admin.dict.delete">
-                <i class="layui-icon layui-icon-delete"></i>删除
+                <i class="layui-icon layui-icon-delete"></i>刪除
             </button>
         </script>
 
-        <!-- 表格行工具栏 -->
+        <!-- 表格列工具列 -->
         <script type="text/html" id="table-bar">
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.dict.update">编辑</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.dict.delete">删除</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.dict.update">編輯</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.dict.delete">刪除</button>
         </script>
 
         <script src="/app/admin/component/layui/layui.js?v=2.8.12"></script>
@@ -67,7 +67,7 @@
         <script src="/app/admin/admin/js/common.js"></script>
         <script>
 
-            // 相关接口
+            // 相關介面
             const SELECT_API = "/app/admin/dict/select";
             const UPDATE_API = "/app/admin/dict/update";
             const DELETE_API = "/app/admin/dict/delete";
@@ -82,12 +82,12 @@
                 let common = layui.common;
                 let util = layui.util;
                 
-				// 表头参数
+				// 表頭參數
 				let cols = [
           {
             type: "checkbox",
           }, {
-            title  : "名称",
+            title  : "名稱",
             field  : "name",
             width  : 200,
             templet: function (d) {
@@ -109,12 +109,12 @@
               return dicts.map(dict => `<span class="layui-badge layui-bg-blue">${dict.name}: ${dict.value}</span>`).join(' ');
             },
           }, {
-            title: "创建时间",
+            title: "創建時間",
             field: "created_at",
             width: 180,
             hide : true,
           }, {
-            title: "更新时间",
+            title: "更新時間",
             field: "updated_at",
             width: 180,
             hide : true,
@@ -177,7 +177,7 @@
 				        toolbar: "#table-toolbar",
 				        autoSort: false,
 				        defaultToolbar: [{
-				            title: "刷新",
+				            title: "重新整理",
 				            layEvent: "refresh",
 				            icon: "layui-icon-refresh",
 				        }, "filter", "print", "exports"]
@@ -185,7 +185,7 @@
 				}
                 render();
 
-                // 编辑或删除行事件
+                // 編輯或刪除行事件
                 table.on("tool(data-table)", function(obj) {
                     if (obj.event === "remove") {
                         remove(obj);
@@ -194,7 +194,7 @@
                     }
                 });
 
-                // 表格顶部工具栏事件
+                // 表格頂部工具列事件
                 table.on("toolbar(data-table)", function(obj) {
                     if (obj.event === "add") {
                         add();
@@ -205,7 +205,7 @@
                     }
                 });
 
-                // 表格顶部搜索事件
+                // 表格頂部搜尋事件
                 form.on("submit(table-query)", function(data) {
                     table.reload("data-table", {
                         page: {
@@ -216,7 +216,7 @@
                     return false;
                 });
                 
-                // 表格顶部搜索重置事件
+                // 表格頂部搜尋重置事件
                 form.on("submit(table-reset)", function(data) {
                     table.reload("data-table", {
                         where: []
@@ -235,7 +235,7 @@
                     });
                 });
 
-                // 表格新增数据
+                // 表格新增資料
                 let add = function() {
                     layer.open({
                         type: 2,
@@ -246,7 +246,7 @@
                     });
                 }
 
-                // 表格编辑数据
+                // 表格編輯資料
                 let edit = function(obj) {
                     let value = obj.data["name"];
                     layer.open({
@@ -258,26 +258,26 @@
                     });
                 }
 
-                // 删除一行
+                // 刪除一行
                 let remove = function(obj) {
                     return doRemove(obj.data["name"]);
                 }
 
-                // 删除多行
+                // 刪除多行
                 let batchRemove = function(obj) {
                     let checkIds = common.checkField(obj, "name");
                     if (checkIds === "") {
-                        layui.popup.warning("未选中数据");
+                        layui.popup.warning("未選取資料");
                         return false;
                     }
                     doRemove(checkIds.split(","));
                 }
 
-                // 执行删除
+                // 執行刪除
                 let doRemove = function (ids) {
                     let data = {};
                     data["name"] = ids;
-                    layer.confirm("确定删除?", {
+                    layer.confirm("確定刪除?", {
                         icon: 3,
                         title: "提示"
                     }, function(index) {
@@ -299,7 +299,7 @@
                     });
                 }
 
-                // 刷新表格数据
+                // 重新整理表格資料
                 window.refreshTable = function() {
                     table.reloadData("data-table", {
                         scrollPos: "fixed",

@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>登录</title>
-        <!-- 样 式 文 件 -->
+        <title>登入</title>
+        <!-- 樣 式 文 件 -->
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/pages/login.css" />
     </head>
-    <!-- 代 码 结 构 -->
+    <!-- 代 碼 結 構 -->
     <body background="/app/admin/admin/images/background.svg" style="background-size: cover;">
         <form class="layui-form">
             <div class="layui-form-item">
@@ -16,13 +16,13 @@
                 <div class="title pear-text"><?=$title?></div>
             </div>
             <div class="layui-form-item">
-                <input lay-verify="required" hover class="layui-input" type="text" name="username" value="" placeholder="用户名" />
+                <input lay-verify="required" hover class="layui-input" type="text" name="username" value="" placeholder="使用者名稱" />
             </div>
             <div class="layui-form-item">
-                <input lay-verify="required" hover class="layui-input" type="password" name="password" value="" placeholder="密码" />
+                <input lay-verify="required" hover class="layui-input" type="password" name="password" value="" placeholder="密碼" />
             </div>
             <div class="layui-form-item">
-                <input hover  lay-verify="required" class="code layui-input layui-input-inline" name="captcha" placeholder="验证码" />
+                <input hover  lay-verify="required" class="code layui-input layui-input-inline" name="captcha" placeholder="驗證碼" />
                 <img class="codeImage" width="120px"/>
             </div>
             <div class="layui-form-item">
@@ -39,7 +39,7 @@
                 localStorage.setItem("theme-color-second", "#ecf5ff");
             }
         </script>
-        <!-- 资 源 引 入 -->
+        <!-- 資 源 引 入 -->
         <script src="/app/admin/component/layui/layui.js?v=2.8.12"></script>
         <script src="/app/admin/component/pear/pear.js"></script>
         <script>
@@ -50,7 +50,7 @@
                     $('.codeImage').attr("src", "/app/admin/account/captcha/login?v=" + new Date().getTime());
                 }
                 switchCaptcha();
-                // 登 录 提 交
+                // 登 錄 提 交
                 form.on('submit(login)', function (data) {
                     layer.load();
                     $.ajax({
@@ -60,7 +60,7 @@
                         success: function (res) {
                             layer.closeAll('loading');
                             if (!res.code) {
-                                layui.popup.success('登录成功', function () {
+                                layui.popup.success('登入成功', function () {
                                     location.reload();
                                 })
                             } else {

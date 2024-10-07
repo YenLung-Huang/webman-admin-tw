@@ -7,7 +7,7 @@ use plugin\admin\app\model\Admin;
 use plugin\admin\app\model\AdminRole;
 
 /**
- * 当前管理员id
+ * 目前管理員id
  * @return integer|null
  */
 function admin_id(): ?int
@@ -16,7 +16,7 @@ function admin_id(): ?int
 }
 
 /**
- * 当前管理员
+ * 目前管理員
  * @param null|array|string $fields
  * @return array|mixed|null
  * @throws Exception
@@ -42,7 +42,7 @@ function admin($fields = null)
 
 
 /**
- * 刷新当前管理员session
+ * 刷新目前管理者session
  * @param bool $force
  * @return void
  * @throws Exception
@@ -55,7 +55,7 @@ function refresh_admin_session(bool $force = false)
     }
     $admin_id = $admin_session['id'];
     $time_now = time();
-    // session在2秒内不刷新
+    // session2秒內不刷新
     $session_ttl = 2;
     $session_last_update_time = session('admin.session_last_update_time', 0);
     if (!$force && $time_now - $session_last_update_time < $session_ttl) {
@@ -74,7 +74,7 @@ function refresh_admin_session(bool $force = false)
         $session->forget('admin');
         return null;
     }
-    // 账户被禁用
+    // 帳戶已停用
     if ($admin['status'] != 0) {
         $session->forget('admin');
         return;

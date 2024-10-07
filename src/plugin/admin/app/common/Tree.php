@@ -6,29 +6,29 @@ class Tree
 {
 
     /**
-     * 获取完整的树结构，包含祖先节点
+     * 取得完整的樹狀結構，包含祖先節點
      */
     const INCLUDE_ANCESTORS = 1;
 
     /**
-     * 获取部分树，不包含祖先节点
+     * 取得部分樹，不包含祖先節點
      */
     const EXCLUDE_ANCESTORS = 0;
 
     /**
-     * 数据
+     * 數據
      * @var array
      */
     protected $data = [];
 
     /**
-     * 哈希树
+     * 哈希樹
      * @var array
      */
     protected $hashTree = [];
 
     /**
-     * 父级字段名
+     * 父級欄位名稱
      * @var string
      */
     protected $pidName = 'pid';
@@ -55,7 +55,7 @@ class Tree
     }
 
     /**
-     * 获取子孙节点
+     * 獲取子孫節點
      * @param array $include
      * @param bool $with_self
      * @return array
@@ -84,7 +84,7 @@ class Tree
     }
 
     /**
-     * 获取哈希树
+     * 取得哈希樹
      * @param array $data
      * @return array
      */
@@ -104,7 +104,7 @@ class Tree
     }
 
     /**
-     * 获取树
+     * 取得樹
      * @param array $include
      * @param int $type
      * @return array|null
@@ -163,7 +163,7 @@ class Tree
     }
 
     /**
-     * 递归重建数组下标
+     * 遞歸重建數組下標
      * @param $array
      * @return array
      */

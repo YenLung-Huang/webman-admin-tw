@@ -11,16 +11,16 @@
 		<div class="layui-row layui-col-space10">
 			<div class="layui-col-md12">
 				<div class="layui-card">
-					<div class="layui-card-header">开发环境</div>
+					<div class="layui-card-header">開發環境</div>
 					<div class="layui-card-body">
-						IconPicker 提供图标选择功能
+						IconPicker 提供圖示選擇功能
 					</div>
 				</div>
 			</div>
 			<div class="layui-col-md12">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								&lt;link rel="stylesheet" href="component/pear/css/pear.css" /&gt;
@@ -36,7 +36,7 @@
 			<div class="layui-col-md12">
 				<div class="layui-card">
 					<div class="layui-card-header">
-						默认图标
+						預設圖示
 					</div>
 					<div class="layui-card-body">
 						<div class="layui-form">
@@ -52,7 +52,7 @@
 			<div class="layui-col-md12">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								layui.use(['iconPicker'], function() {
@@ -80,7 +80,7 @@
 			</div>
 			<div class="layui-col-md12">
 				<div class="layui-card">
-					<div class="layui-card-header">默认选中</div>
+					<div class="layui-card-header">預設選取</div>
 					<div class="layui-card-body">
 						<div class="layui-form">
 							<div class="layui-form-item">
@@ -95,7 +95,7 @@
 			<div class="layui-col-md12">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								layui.use(['iconPicker'], function() {
@@ -123,7 +123,7 @@
 			</div>
 			<div class="layui-col-md12">
 				<div class="layui-card">
-					<div class="layui-card-header">不分页</div>
+					<div class="layui-card-header">不分頁</div>
 					<div class="layui-card-body">
 						<div class="layui-form">
 							<div class="layui-form-item">
@@ -138,7 +138,7 @@
 			<div class="layui-col-md12">
 				<div class="layui-collapse">
 					<div class="layui-colla-item">
-						<h2 class="layui-colla-title">显示代码</h2>
+						<h2 class="layui-colla-title">顯示代碼</h2>
 						<div class="layui-colla-content">
 							<pre class="layui-code" lay-encode="true">
 								layui.use(['iconPicker'], function() {
@@ -177,63 +177,63 @@
 				layui.code();
 
 				iconPicker.render({
-					// 选择器，推荐使用input
+					// 選擇器，推薦使用input
 					elem: '#iconPicker',
-					// 数据类型：fontClass/unicode，推荐使用fontClass
+					// 資料類型：fontClass/unicode，建議使用fontClass
 					type: 'fontClass',
-					// 是否开启搜索：true/false，默认true
+					// 是否開啟搜尋：true/false，預設true
 					search: true,
-					// 是否开启分页：true/false，默认true
+					// 是否開啟分頁：true/false，預設true
 					page: true,
-					// 每页显示数量，默认12
+					// 每頁顯示數量，預設12
 					limit: 16,
-					// 点击回调
+					// 點擊回呼
 					click: function(data) {
 						console.log(data);
 					},
-					// 渲染成功后的回调
+					// 渲染成功後的回呼
 					success: function(d) {
 						console.log(d);
 					}
 				});
 
 				iconPicker.render({
-					// 选择器，推荐使用input
+					// 選擇器，推薦使用input
 					elem: '#iconPicker2',
-					// 数据类型：fontClass/unicode，推荐使用fontClass
+					// 資料類型：fontClass/unicode，建議使用fontClass
 					type: 'fontClass',
-					// 是否开启搜索：true/false
+					// 是否開啟搜尋：true/false
 					search: true,
-					// 是否开启分页
+					// 是否開啟分頁
 					page: true,
-					// 每页显示数量，默认12
+					// 每頁顯示數量，預設12
 					limit: 16,
-					// 点击回调
+					// 點擊回呼
 					click: function(data) {
 						console.log(data);
 					},
-					// 渲染成功后的回调
+					// 渲染成功後的回呼
 					success: function(d) {
 						console.log(d);
 					}
 				});
 
 				iconPicker.render({
-					// 选择器，推荐使用input
+					// 選擇器，推薦使用input
 					elem: '#iconPicker3',
-					// 数据类型：fontClass/unicode，推荐使用fontClass
+					// 資料類型：fontClass/unicode，建議使用fontClass
 					type: 'fontClass',
-					// 是否开启搜索：true/false
+					// 是否開啟搜尋：true/false
 					search: true,
-					// 是否开启分页
+					// 是否開啟分頁
 					page: false,
-					// 每页显示数量，默认12
+					// 每頁顯示數量，預設12
 					limit: 16,
-					// 点击回调
+					// 點擊回呼
 					click: function(data) {
 						console.log(data);
 					},
-					// 渲染成功后的回调
+					// 渲染成功後的回呼
 					success: function(d) {
 						console.log(d);
 					}

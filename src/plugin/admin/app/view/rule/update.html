@@ -3,7 +3,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>更新页面</title>
+        <title>更新頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
         <style>
@@ -21,21 +21,21 @@
                 <div class="main-container mr-5">
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label required">标题</label>
+                        <label class="layui-form-label required">標題</label>
                         <div class="layui-input-block">
                             <input type="text" name="title" required lay-verify="required" value="" class="layui-input">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label required">标识</label>
+                        <label class="layui-form-label required">標識</label>
                         <div class="layui-input-block">
                             <input type="text" name="key" required lay-verify="required" value="" class="layui-input">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">上级菜单</label>
+                        <label class="layui-form-label">上級選單</label>
                         <div class="layui-input-block">
                             <div name="pid" id="pid" value="0" ></div>
                         </div>
@@ -49,14 +49,14 @@
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">图标</label>
+                        <label class="layui-form-label">圖示</label>
                         <div class="layui-input-block">
                             <input name="icon" id="icon" />
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">类型</label>
+                        <label class="layui-form-label">類型</label>
                         <div class="layui-input-block">
                             <div name="type" id="type" value="1" ></div>
                         </div>
@@ -89,12 +89,12 @@
         <script src="/app/admin/admin/js/permission.js"></script>
         <script>
 
-            // 相关接口
+            // 相關介面
             let PRIMARY_KEY = "id";
             const SELECT_API = "/app/admin/rule/select" + location.search;
             const UPDATE_API = "/app/admin/rule/update";
 
-            // 获取行数据
+            // 取得行資料
             layui.use(["form", "util", "popup"], function () {
                 let $ = layui.$;
                 $.ajax({
@@ -102,11 +102,11 @@
                     dataType: "json",
                     success: function (res) {
 
-                        // 赋值表单
+                        // 賦值表單
                         layui.each(res.data[0], function (key, value) {
                             let obj = $('*[name="'+key+'"]');
                             if (key === "password") {
-                                obj.attr("placeholder", "不更新密码请留空");
+                                obj.attr("placeholder", "不更新密碼請留空");
                                 return;
                             }
                             if (typeof obj[0] === "undefined" || !obj[0].nodeName) return;
@@ -117,7 +117,7 @@
                             }
                         });
 
-                        // 图标选择
+                        // 圖示選擇
                         layui.use(["iconPicker"], function() {
                             layui.iconPicker.render({
                                 elem: "#icon",
@@ -126,7 +126,7 @@
                             });
                         });
 
-                        // 获取上级菜单
+                        // 取得上級選單
                         layui.use(["jquery", "xmSelect", "popup"], function() {
                             layui.$.ajax({
                                 url: "/app/admin/rule/select?format=tree&type=0,1",
@@ -153,7 +153,7 @@
                             });
                         });
 
-                        // 菜单类型下拉选择
+                        // 選單類型下拉選擇
                         layui.use(["jquery", "xmSelect"], function() {
                             let value = layui.$("#type").attr("value");
                             let initValue = value ? value.split(",") : [];
@@ -161,14 +161,14 @@
                                 el: "#type",
                                 name: "type",
                                 initValue: initValue,
-                                data: [{"value":"0","name":"目录"},{"value":"1","name":"菜单"},{"value":"2","name":"权限"}],
+                                data: [{"value":"0","name":"目錄"},{"value":"1","name":"選單"},{"value":"2","name" :"權限"}],
                                 model: {"icon":"hidden","label":{"type":"text"}},
                                 clickClose: true,
                                 radio: true,
                             })
                         });
 
-                        // ajax产生错误
+                        // ajax產生錯誤
                         if (res.code) {
                             layui.popup.failure(res.msg);
                         }

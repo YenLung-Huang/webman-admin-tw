@@ -3,61 +3,61 @@
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8">
-        <title>浏览页面</title>
+        <title>瀏覽頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
     <body class="pear-container">
     
-        <!-- 顶部查询表单 -->
+        <!-- 頂部查詢表單 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <form class="layui-form top-search-from">
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">主键</label>
+                        <label class="layui-form-label">主鍵</label>
                         <div class="layui-input-block">
                             <input type="number" name="id" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">用户名</label>
+                        <label class="layui-form-label">使用者名稱</label>
                         <div class="layui-input-block">
                             <input type="text" name="username" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">昵称</label>
+                        <label class="layui-form-label">暱稱</label>
                         <div class="layui-input-block">
                             <input type="text" name="nickname" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">性别</label>
+                        <label class="layui-form-label">性別</label>
                         <div class="layui-input-block">
                             <div name="sex" id="sex" value="" ></div>
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">邮箱</label>
+                        <label class="layui-form-label">信箱</label>
                         <div class="layui-input-block">
                             <input type="text" name="email" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">手机</label>
+                        <label class="layui-form-label">智慧型手機</label>
                         <div class="layui-input-block">
                             <input type="text" name="mobile" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">等级</label>
+                        <label class="layui-form-label">等級</label>
                         <div class="layui-input-block">
                             <input type="number" name="level" value="" class="layui-input">
                         </div>
@@ -67,58 +67,58 @@
                         <label class="layui-form-label">生日</label>
                         <div class="layui-input-block">
                             <div class="layui-input-block" id="birthday">
-                                <input type="text" autocomplete="off" name="birthday[]" id="birthday-date-start" class="layui-input inline-block" placeholder="开始时间">
+                                <input type="text" autocomplete="off" name="birthday[]" id="birthday-date-start" class="layui-input inline-block" placeholder="開始時間">
                                 -
-                                <input type="text" autocomplete="off" name="birthday[]" id="birthday-date-end" class="layui-input inline-block" placeholder="结束时间">
+                                <input type="text" autocomplete="off" name="birthday[]" id="birthday-date-end" class="layui-input inline-block" placeholder="結束時間">
                             </div>
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">余额(元)</label>
+                        <label class="layui-form-label">餘額(元)</label>
                         <div class="layui-input-block">
                             <input type="number" name="money" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">积分</label>
+                        <label class="layui-form-label">積分</label>
                         <div class="layui-input-block">
                             <input type="number" name="score" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">登录时间</label>
+                        <label class="layui-form-label">登入時間</label>
                         <div class="layui-input-block">
                             <div class="layui-input-block" id="last_time">
-                                <input type="text" autocomplete="off" name="last_time[]" id="last_time-date-start" class="layui-input inline-block" placeholder="开始时间">
+                                <input type="text" autocomplete="off" name="last_time[]" id="last_time-date-start" class="layui-input inline-block" placeholder="開始時間">
                                 -
-                                <input type="text" autocomplete="off" name="last_time[]" id="last_time-date-end" class="layui-input inline-block" placeholder="结束时间">
+                                <input type="text" autocomplete="off" name="last_time[]" id="last_time-date-end" class="layui-input inline-block" placeholder="結束時間">
                             </div>
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">登录ip</label>
+                        <label class="layui-form-label">登入ip</label>
                         <div class="layui-input-block">
                             <input type="text" name="last_ip" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">注册时间</label>
+                        <label class="layui-form-label">註冊時間</label>
                         <div class="layui-input-block">
                             <div class="layui-input-block" id="join_time">
-                                <input type="text" autocomplete="off" name="join_time[]" id="join_time-date-start" class="layui-input inline-block" placeholder="开始时间">
+                                <input type="text" autocomplete="off" name="join_time[]" id="join_time-date-start" class="layui-input inline-block" placeholder="開始時間">
                                 -
-                                <input type="text" autocomplete="off" name="join_time[]" id="join_time-date-end" class="layui-input inline-block" placeholder="结束时间">
+                                <input type="text" autocomplete="off" name="join_time[]" id="join_time-date-end" class="layui-input inline-block" placeholder="結束時間">
                             </div>
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">注册ip</label>
+                        <label class="layui-form-label">註冊ip</label>
                         <div class="layui-input-block">
                             <input type="text" name="join_ip" value="" class="layui-input">
                         </div>
@@ -127,41 +127,41 @@
                     <div class="layui-form-item layui-inline">
                         <label class="layui-form-label"></label>
                         <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="table-query">
-                            <i class="layui-icon layui-icon-search"></i>查询
+                            <i class="layui-icon layui-icon-search"></i>查詢
                         </button>
                         <button type="reset" class="pear-btn pear-btn-md" lay-submit lay-filter="table-reset">
                             <i class="layui-icon layui-icon-refresh"></i>重置
                         </button>
                     </div>
                     <div class="toggle-btn">
-                        <a class="layui-hide">展开<i class="layui-icon layui-icon-down"></i></a>
+                        <a class="layui-hide">展開<i class="layui-icon layui-icon-down"></i></a>
                         <a class="layui-hide">收起<i class="layui-icon layui-icon-up"></i></a>
                     </div>
                 </form>
             </div>
         </div>
         
-        <!-- 数据表格 -->
+        <!-- 資料表格 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <table id="data-table" lay-filter="data-table"></table>
             </div>
         </div>
 
-        <!-- 表格顶部工具栏 -->
+        <!-- 表格頂部工具列 -->
         <script type="text/html" id="table-toolbar">
             <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add" permission="app.admin.user.insert">
                 <i class="layui-icon layui-icon-add-1"></i>新增
             </button>
             <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove" permission="app.admin.user.delete">
-                <i class="layui-icon layui-icon-delete"></i>删除
+                <i class="layui-icon layui-icon-delete"></i>刪除
             </button>
         </script>
 
-        <!-- 表格行工具栏 -->
+        <!-- 表格列工具列 -->
         <script type="text/html" id="table-bar">
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.user.update">编辑</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.user.delete">删除</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.user.update">編輯</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.user.delete">刪除</button>
         </script>
 
         <script src="/app/admin/component/layui/layui.js?v=2.8.12"></script>
@@ -170,7 +170,7 @@
         <script src="/app/admin/admin/js/common.js"></script>
         <script>
 
-            // 相关常量
+            // 相關常數
             const PRIMARY_KEY = "id";
             const SELECT_API = "/app/admin/user/select";
             const UPDATE_API = "/app/admin/user/update";
@@ -178,7 +178,7 @@
             const INSERT_URL = "/app/admin/user/insert";
             const UPDATE_URL = "/app/admin/user/update";
             
-            // 字段 性别 sex
+            // 字段 性別 sex
             layui.use(["jquery", "xmSelect", "popup"], function() {
                 layui.$.ajax({
                     url: "/app/admin/dict/get/sex",
@@ -210,7 +210,7 @@
                 });
             })
             
-            // 字段 登录时间 last_time
+            // 字段 登入時間 last_time
             layui.use(["laydate"], function() {
                 layui.laydate.render({
                     elem: "#last_time",
@@ -219,7 +219,7 @@
                 });
             })
             
-            // 字段 注册时间 join_time
+            // 字段 註冊時間 join_time
             layui.use(["laydate"], function() {
                 layui.laydate.render({
                     elem: "#join_time",
@@ -236,26 +236,26 @@
                 let common = layui.common;
                 let util = layui.util;
                 
-				// 表头参数
+				// 表頭參數
 				let cols = [
 					{
 						type: "checkbox"
 					},{
-						title: "主键",
+						title: "主鍵",
 						field: "id",
 						sort: true,
 					},{
-						title: "用户名",
+						title: "使用者名稱",
 						field: "username",
 					},{
-						title: "昵称",
+						title: "暱稱",
 						field: "nickname",
 					},{
-						title: "密码",
+						title: "密碼",
 						field: "password",
 						hide: true,
 					},{
-						title: "性别",
+						title: "性別",
 						field: "sex",
 						templet: function (d) {
 							let field = "sex";
@@ -267,19 +267,19 @@
 							return util.escape(items.join(","));
 						}
 					},{
-						title: "头像",
+						title: "頭像",
 						field: "avatar",
 						templet: function (d) {
 							return '<img src="'+encodeURI(d['avatar'])+'" style="max-width:32px;max-height:32px;" alt="" />'
 						}
 					},{
-						title: "邮箱",
+						title: "信箱",
 						field: "email",
 					},{
-						title: "手机",
+						title: "智慧型手機",
 						field: "mobile",
 					},{
-						title: "等级",
+						title: "等級",
 						field: "level",
 						hide: true,
 					},{
@@ -287,27 +287,27 @@
 						field: "birthday",
 						hide: true,
 					},{
-						title: "余额(元)",
+						title: "餘額(元)",
 						field: "money",
 						hide: true,
 					},{
-						title: "积分",
+						title: "積分",
 						field: "score",
 						hide: true,
 					},{
-						title: "登录时间",
+						title: "登入時間",
 						field: "last_time",
 						hide: true,
 					},{
-						title: "登录ip",
+						title: "登入ip",
 						field: "last_ip",
 						hide: true,
 					},{
-						title: "注册时间",
+						title: "註冊時間",
 						field: "join_time",
 						hide: true,
 					},{
-						title: "注册ip",
+						title: "註冊ip",
 						field: "join_ip",
 						hide: true,
 					},{
@@ -315,11 +315,11 @@
 						field: "token",
 						hide: true,
 					},{
-						title: "创建时间",
+						title: "創建時間",
 						field: "created_at",
 						hide: true,
 					},{
-						title: "更新时间",
+						title: "更新時間",
 						field: "updated_at",
 						hide: true,
 					},{
@@ -372,7 +372,7 @@
 				        toolbar: "#table-toolbar",
 				        autoSort: false,
 				        defaultToolbar: [{
-				            title: "刷新",
+				            title: "重新整理",
 				            layEvent: "refresh",
 				            icon: "layui-icon-refresh",
 				        }, "filter", "print", "exports"],
@@ -382,7 +382,7 @@
 				    });
 				}
 				
-				// 获取表格中下拉或树形组件数据
+				// 取得表格中下拉或樹狀元件資料
 				let apis = [];
 				apis.push(["sex", "/app/admin/dict/get/sex"]);
 				let apiResults = {};
@@ -419,7 +419,7 @@
 				    render();
 				}
 				
-                // 编辑或删除行事件
+                // 編輯或刪除行事件
                 table.on("tool(data-table)", function(obj) {
                     if (obj.event === "remove") {
                         remove(obj);
@@ -428,7 +428,7 @@
                     }
                 });
 
-                // 表格顶部工具栏事件
+                // 表格頂部工具列事件
                 table.on("toolbar(data-table)", function(obj) {
                     if (obj.event === "add") {
                         add();
@@ -439,7 +439,7 @@
                     }
                 });
 
-                // 表格顶部搜索事件
+                // 表格頂部搜尋事件
                 form.on("submit(table-query)", function(data) {
                     table.reload("data-table", {
                         page: {
@@ -450,7 +450,7 @@
                     return false;
                 });
                 
-                // 表格顶部搜索重置事件
+                // 表格頂部搜尋重置事件
                 form.on("submit(table-reset)", function(data) {
                     table.reload("data-table", {
                         where: []
@@ -469,7 +469,7 @@
                     });
                 });
 
-                // 表格新增数据
+                // 表格新增資料
                 let add = function() {
                     layer.open({
                         type: 2,
@@ -480,7 +480,7 @@
                     });
                 }
 
-                // 表格编辑数据
+                // 表格編輯資料
                 let edit = function(obj) {
                     let value = obj.data[PRIMARY_KEY];
                     layer.open({
@@ -492,26 +492,26 @@
                     });
                 }
 
-                // 删除一行
+                // 刪除一行
                 let remove = function(obj) {
                     return doRemove(obj.data[PRIMARY_KEY]);
                 }
 
-                // 删除多行
+                // 刪除多行
                 let batchRemove = function(obj) {
                     let checkIds = common.checkField(obj, PRIMARY_KEY);
                     if (checkIds === "") {
-                        layui.popup.warning("未选中数据");
+                        layui.popup.warning("未選取資料");
                         return false;
                     }
                     doRemove(checkIds.split(","));
                 }
 
-                // 执行删除
+                // 執行刪除
                 let doRemove = function (ids) {
                     let data = {};
                     data[PRIMARY_KEY] = ids;
-                    layer.confirm("确定删除?", {
+                    layer.confirm("確定刪除?", {
                         icon: 3,
                         title: "提示"
                     }, function(index) {
@@ -533,7 +533,7 @@
                     });
                 }
 
-                // 刷新表格数据
+                // 重新整理表格資料
                 window.refreshTable = function() {
                     table.reloadData("data-table", {
                         scrollPos: "fixed",

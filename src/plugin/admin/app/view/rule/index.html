@@ -9,27 +9,27 @@
     </head>
     <body class="pear-container">
 
-        <!-- 数据表格 -->
+        <!-- 資料表格 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <table id="data-table" lay-filter="data-table"></table>
             </div>
         </div>
 
-        <!-- 表格顶部工具栏 -->
+        <!-- 表格頂部工具列 -->
         <script type="text/html" id="table-toolbar">
             <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add" permission="app.admin.rule.insert">
                 <i class="layui-icon layui-icon-add-1"></i>新增
             </button>
             <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove" permission="app.admin.rule.delete">
-                <i class="layui-icon layui-icon-delete"></i>删除
+                <i class="layui-icon layui-icon-delete"></i>刪除
             </button>
         </script>
 
-        <!-- 表格行工具栏 -->
+        <!-- 表格列工具列 -->
         <script type="text/html" id="table-bar">
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.rule.update">编辑</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.rule.delete">删除</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.rule.update">編輯</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.rule.delete">刪除</button>
         </script>
 
         <script src="/app/admin/component/layui/layui.js?v=2.8.12"></script>
@@ -39,7 +39,7 @@
 
         <script>
 
-            // 相关常量
+            // 相關常數
             const PRIMARY_KEY = "id";
             const SELECT_API = "/app/admin/rule/select?limit=5000";
             const DELETE_API = "/app/admin/rule/delete";
@@ -56,28 +56,28 @@
                 let treeTable = layui.treetable;
                 let util = layui.util;
 
-                // 表格头部列数据
+                // 表格頭部列資料
                 let cols = [
                     {
                         type: "checkbox"
                     },{
-                        title: "标题",
+                        title: "標題",
                         field: "title",
                     },{
-                        title: "图标",
+                        title: "圖示",
                         field: "icon",
                         templet: function (d) {
                             return '<i class="layui-icon ' + util.escape(d["icon"]) + '"></i>';
                         }
                     },{
-                        title: "主键",
+                        title: "主鍵",
                         field: "id",
                         hide: true,
                     },{
                         title: "key",
                         field: "key",
                     },{
-                        title: "上级菜单",
+                        title: "上級選單",
                         field: "pid",
                         hide: true,
                         templet: function (d) {
@@ -90,24 +90,24 @@
                             return util.escape(items.join(","));
                         }
                     },{
-                        title: "创建时间",
+                        title: "創建時間",
                         field: "created_at",
                         hide: true,
                     },{
-                        title: "更新时间",
+                        title: "更新時間",
                         field: "updated_at",
                         hide: true,
                     },{
                         title: "url",
                         field: "href",
                     },{
-                        title: "类型",
+                        title: "類型",
                         field: "type",
                         width: 80,
                         templet: function (d) {
                             let field = "type";
                             let value = apiResults["type"][d["type"]] || d["type"];
-                            let css = {"目录":"layui-bg-blue", "菜单": "layui-bg-green", "权限": "layui-bg-orange"}[value];
+                            let css = {"目錄":"layui-bg-blue", "選單": "layui-bg-green", "權限": "layui-bg-orange"}[value];
                             return '<span class="layui-badge '+css+'">'+util.escape(value)+'</span>';
                         }
                     },{
@@ -138,19 +138,19 @@
                         size: "lg",
                         toolbar: "#table-toolbar",
                         defaultToolbar: [{
-                            title: "刷新",
+                            title: "重新整理",
                             layEvent: "refresh",
                             icon: "layui-icon-refresh",
                         }, "filter", "print", "exports"]
                     });
                 }
 
-                // 获取下拉菜单及树形组件数据
+                // 取得下拉式選單及樹形組件資料
                 let apis = [];
                 let apiResults = {};
                 apiResults["pid"] = [];
                 apis.push(["pid", "/app/admin/rule/select?format=tree&type=0,1"]);
-                apiResults["type"] = ["目录","菜单","权限"];
+                apiResults["type"] = ["目錄","選單","權限"];
                 let count = apis.length;
                 layui.each(apis, function (k, item) {
                     let [field, url] = item;
@@ -183,7 +183,7 @@
                     render();
                 }
 
-                // 删除或编辑行事件
+                // 刪除或編輯行事件
                 table.on("tool(data-table)", function(obj) {
                     if (obj.event === "remove") {
                         remove(obj);
@@ -192,7 +192,7 @@
                     }
                 });
 
-                // 添加 批量删除 刷新事件
+                // 新增 批次刪除 重新整理事件
                 table.on("toolbar(data-table)", function(obj) {
                     if (obj.event === "add") {
                         add();
@@ -203,7 +203,7 @@
                     }
                 });
 
-                // 添加行
+                // 新增行
                 let add = function() {
                     layer.open({
                         type: 2,
@@ -214,7 +214,7 @@
                     });
                 }
 
-                // 编辑行
+                // 編輯行
                 let edit = function(obj) {
                     let value = obj.data[PRIMARY_KEY];
                     layer.open({
@@ -226,26 +226,26 @@
                     });
                 }
 
-                // 删除行
+                // 刪除行
                 let remove = function(obj) {
                     return doRemove(obj.data[PRIMARY_KEY], obj);
                 }
 
-                // 删除多行
+                // 刪除多行
                 let batchRemove = function(obj) {
                     let checkIds = common.checkField(obj, PRIMARY_KEY);
                     if (checkIds === "") {
-                        layui.popup.warning("未选中数据");
+                        layui.popup.warning("未選取資料");
                         return false;
                     }
                     doRemove(checkIds.split(","));
                 }
 
-                // 执行删除
+                // 執行刪除
                 let doRemove = function (ids, obj) {
                     let data = {};
                     data[PRIMARY_KEY] = ids;
-                    layer.confirm("确定删除?", {
+                    layer.confirm("確定刪除?", {
                         icon: 3,
                         title: "提示"
                     }, function(index) {
@@ -269,7 +269,7 @@
                     });
                 }
 
-                // 刷新表格
+                // 重新整理表格
                 window.refreshTable = function() {
                     table.reloadData("data-table", {
                         scrollPos: "fixed",

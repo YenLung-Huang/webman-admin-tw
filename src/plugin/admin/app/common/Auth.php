@@ -10,7 +10,7 @@ use plugin\admin\app\model\Rule;
 class Auth
 {
     /**
-     * 获取权限范围内的所有角色id
+     * 取得權限範圍內的所有角色id
      * @param bool $with_self
      * @return array
      */
@@ -32,7 +32,7 @@ class Auth
     }
 
     /**
-     * 获取权限范围内的所有管理员id
+     * 取得權限範圍內的所有管理者id
      * @param bool $with_self
      * @return array
      */
@@ -47,7 +47,7 @@ class Auth
     }
 
     /**
-     * 兼容旧版本
+     * 相容舊版
      * @param int $admin_id
      * @deprecated
      * @return bool
@@ -59,7 +59,7 @@ class Auth
     }
 
     /**
-     * 是否是超级管理员
+     * 是否為超級管理員
      * @param int $admin_id
      * @return bool
      */

@@ -3,37 +3,37 @@
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8">
-        <title>浏览页面</title>
+        <title>瀏覽頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
     <body class="pear-container">
     
-        <!-- 顶部查询表单 -->
+        <!-- 頂部查詢表單 -->
         
         
-        <!-- 数据表格 -->
+        <!-- 資料表格 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <table id="data-table" lay-filter="data-table"></table>
             </div>
         </div>
 
-        <!-- 表格顶部工具栏 -->
+        <!-- 表格頂部工具列 -->
         <script type="text/html" id="table-toolbar">
             <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add" permission="app.admin.role.insert">
                 <i class="layui-icon layui-icon-add-1"></i>新增
             </button>
             <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove" permission="app.admin.role.delete">
-                <i class="layui-icon layui-icon-delete"></i>删除
+                <i class="layui-icon layui-icon-delete"></i>刪除
             </button>
         </script>
 
-        <!-- 表格行工具栏 -->
+        <!-- 表格列工具列 -->
         <script type="text/html" id="table-bar">
             {{# if(d.id!==1&&d.pid&&!d.isRoot){ }}
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.role.update">编辑</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.role.delete">删除</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.role.update">編輯</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.role.delete">刪除</button>
             {{# } }}
         </script>
 
@@ -44,7 +44,7 @@
         
         <script>
 
-            // 相关常量
+            // 相關常數
             const PRIMARY_KEY = "id";
             const SELECT_API = "/app/admin/role/select";
             const UPDATE_API = "/app/admin/role/update";
@@ -61,18 +61,18 @@
                 let common = layui.common;
                 let util = layui.util;
                 
-				// 表头参数
+				// 表頭參數
 				let cols = [
 					{
 						type: "checkbox"
 					},{
-                        title: "角色组",
+                        title: "角色群組",
                         field: "name",
                     },{
-						title: "主键",
+						title: "主鍵",
 						field: "id",
 					},{
-						title: "权限",
+						title: "權限",
 						field: "rules",
 						templet: function (d) {
 							let field = "rules";
@@ -85,13 +85,13 @@
 						},
                         hide: true,
 					},{
-						title: "创建时间",
+						title: "創建時間",
 						field: "created_at",
 					},{
-						title: "更新时间",
+						title: "更新時間",
 						field: "updated_at",
 					},{
-						title: "父级",
+						title: "父級",
 						field: "pid",
 						templet: function (d) {
 							let field = "pid";
@@ -127,14 +127,14 @@
                         size: "lg",
                         toolbar: "#table-toolbar",
                         defaultToolbar: [{
-                            title: "刷新",
+                            title: "重新整理",
                             layEvent: "refresh",
                             icon: "layui-icon-refresh",
                         }, "filter", "print", "exports"]
 				    });
 				}
 				
-				// 获取表格中下拉或树形组件数据
+				// 取得表格中下拉或樹狀元件資料
 				let apis = [];
 				apis.push(["rules", "/app/admin/rule/get?type=0,1,2"]);
 				apis.push(["pid", "/app/admin/role/select?format=tree"]);
@@ -173,7 +173,7 @@
 				    render();
 				}
 				
-                // 编辑或删除行事件
+                // 編輯或刪除行事件
                 table.on("tool(data-table)", function(obj) {
                     if (obj.event === "remove") {
                         remove(obj);
@@ -182,7 +182,7 @@
                     }
                 });
 
-                // 表格顶部工具栏事件
+                // 表格頂部工具列事件
                 table.on("toolbar(data-table)", function(obj) {
                     if (obj.event === "add") {
                         add();
@@ -193,7 +193,7 @@
                     }
                 });
 
-                // 表格顶部搜索事件
+                // 表格頂部搜尋事件
                 form.on("submit(table-query)", function(data) {
                     table.reload("data-table", {
                         page: {
@@ -204,7 +204,7 @@
                     return false;
                 });
                 
-                // 表格顶部搜索重置事件
+                // 表格頂部搜尋重置事件
                 form.on("submit(table-reset)", function(data) {
                     table.reload("data-table", {
                         where: []
@@ -223,7 +223,7 @@
                     });
                 });
 
-                // 表格新增数据
+                // 表格新增資料
                 let add = function() {
                     layer.open({
                         type: 2,
@@ -234,7 +234,7 @@
                     });
                 }
 
-                // 表格编辑数据
+                // 表格編輯資料
                 let edit = function(obj) {
                     let value = obj.data[PRIMARY_KEY];
                     layer.open({
@@ -246,26 +246,26 @@
                     });
                 }
 
-                // 删除一行
+                // 刪除一行
                 let remove = function(obj) {
                     return doRemove(obj.data[PRIMARY_KEY]);
                 }
 
-                // 删除多行
+                // 刪除多行
                 let batchRemove = function(obj) {
                     let checkIds = common.checkField(obj, PRIMARY_KEY);
                     if (checkIds === "") {
-                        layui.popup.warning("未选中数据");
+                        layui.popup.warning("未選取資料");
                         return false;
                     }
                     doRemove(checkIds.split(","));
                 }
 
-                // 执行删除
+                // 執行刪除
                 let doRemove = function (ids) {
                     let data = {};
                     data[PRIMARY_KEY] = ids;
-                    layer.confirm("确定删除?", {
+                    layer.confirm("確定刪除?", {
                         icon: 3,
                         title: "提示"
                     }, function(index) {
@@ -287,7 +287,7 @@
                     });
                 }
 
-                // 刷新表格数据
+                // 重新整理表格資料
                 window.refreshTable = function() {
                     table.reloadData("data-table", {
                         scrollPos: "fixed",

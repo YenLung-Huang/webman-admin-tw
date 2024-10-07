@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>新增页面</title>
+        <title>新增頁面</title>
         <link rel="stylesheet" href="/app/admin/component/layui/css/layui.css?v=2.8.12" />
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
@@ -49,7 +49,7 @@
                                 <input type="text" name="table" required lay-verify="required" autocomplete="off" class="layui-input">
                                 <input type="hidden" name="old_table"  value="<?=htmlspecialchars($table)?>">
                             </div>
-                            <label class="layui-form-label">注释</label>
+                            <label class="layui-form-label">註釋</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="table_comment" required lay-verify="required" autocomplete="off" class="layui-input">
                             </div>
@@ -58,15 +58,15 @@
 
                     <div class="layui-tab layui-tab-brief" lay-filter="create-table-tab">
                         <ul class="layui-tab-title">
-                            <li class="layui-this">字段属性</li>
-                            <li>表单属性</li>
+                            <li class="layui-this">字段屬性</li>
+                            <li>表單屬性</li>
                             <li>索引</li>
                         </ul>
                         <div class="layui-tab-content">
 
                             <div class="layui-tab-item layui-show">
 
-                                <!-- 字段属性 -->
+                                <!-- 字段屬性 -->
                                 <table id="column-table" lay-filter="column-table"></table>
 
                                 <script type="text/html" id="column-toolbar">
@@ -74,26 +74,26 @@
                                         <i class="layui-icon layui-icon-add-1"></i>新增
                                     </button>
                                     <button type="button" class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
-                                        <i class="layui-icon layui-icon-delete"></i>删除
+                                        <i class="layui-icon layui-icon-delete"></i>刪除
                                     </button>
                                 </script>
 
                                 <script type="text/html" id="col-field">
-                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][field]" placeholder="字段名称" autocomplete="off" class="layui-input" value="{{ d.field }}">
+                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][field]" placeholder="字段名稱" autocomplete="off" class="layui-input" value="{{ d.field }}">
                                     <input type="hidden" name="columns[{{ d.LAY_NUM-1 }}][_field_id]" value="{{ d._field_id }}">
                                     <input type="hidden" name="columns[{{ d.LAY_NUM-1 }}][old_field]" value="{{ d.old_field }}">
                                 </script>
 
                                 <script type="text/html" id="col-comment">
-                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][comment]" placeholder="备注" autocomplete="off" class="layui-input" value="{{ d.comment }}">
+                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][comment]" placeholder="備註" autocomplete="off" class="layui-input" value="{{ d.comment }}">
                                 </script>
 
                                 <script type="text/html" id="col-length">
-                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][length]" placeholder="长度/值" autocomplete="off" class="layui-input" value="{{ d.length }}">
+                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][length]" placeholder="長度/值" autocomplete="off" class="layui-input" value="{{ d.length }}">
                                 </script>
 
                                 <script type="text/html" id="col-default">
-                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][default]" placeholder="默认值" autocomplete="off" class="layui-input" value="{{ d.default }}">
+                                    <input type="text" name="columns[{{ d.LAY_NUM-1 }}][default]" placeholder="預設值" autocomplete="off" class="layui-input" value="{{ d.default }}">
                                 </script>
 
                                 <script type="text/html" id="col-type">
@@ -120,7 +120,7 @@
 
 
 
-                            <!-- 表单属性 -->
+                            <!-- 表單屬性 -->
                             <div class="layui-tab-item">
 
                                 <table id="form-table" lay-filter="form-table"></table>
@@ -143,7 +143,7 @@
                                 </script>
 
                                 <script type="text/html" id="form-control_args">
-                                    <input type="text" name="forms[{{ d.LAY_NUM-1 }}][control_args]" placeholder="控件参数" autocomplete="off" class="layui-input" value="{{ d.control_args }}">
+                                    <input type="text" name="forms[{{ d.LAY_NUM-1 }}][control_args]" placeholder="控制項參數" autocomplete="off" class="layui-input" value="{{ d.control_args }}">
                                 </script>
 
                                 <script type="text/html" id="form-form_show">
@@ -179,7 +179,7 @@
                                     <table id="key-table" lay-filter="key-table"></table>
 
                                     <script type="text/html" id="key-name">
-                                        <input type="text" name="keys[{{ d.LAY_NUM-1 }}][name]" placeholder="字段名称" autocomplete="off" class="layui-input" value="{{ d.name }}">
+                                        <input type="text" name="keys[{{ d.LAY_NUM-1 }}][name]" placeholder="字段名稱" autocomplete="off" class="layui-input" value="{{ d.name }}">
                                     </script>
 
                                     <script type="text/html" id="key-columns">
@@ -237,11 +237,11 @@
                             return layui.popup.failure(res.msg);
                         }
 
-                        // 表信息
+                        // 表格資訊
                         $('input[name="table"]').val(res.data.table.name);
                         $('input[name="table_comment"]').val(res.data.table.comment);
 
-                        // 字段 表单 索引信息
+                        // 欄位 表單 索引資訊
                         let columnsData = res.data.columns;
                         let formsData = res.data.forms;
                         let keysData = res.data.keys;
@@ -268,7 +268,7 @@
                             _key_id ++;
                         });
 
-                        // 字段设置
+                        // 字段設定
                         layui.use(["table", "common", "popup"], function () {
 
                             let table = layui.table;
@@ -279,37 +279,37 @@
                                     width: 50,
                                 },
                                 {
-                                    title: "字段名称",
+                                    title: "字段名稱",
                                     field: "field",
                                     templet: "#col-field",
                                     width: 182
                                 },
                                 {
-                                    title: "字段备注",
+                                    title: "字段備註",
                                     field: "comment",
                                     templet: "#col-comment",
                                     width: 182
                                 },
                                 {
-                                    title: "长度/值",
+                                    title: "長度/值",
                                     field: "length",
                                     templet: "#col-length",
                                     width: 182
                                 },
                                 {
-                                    title: "默认值",
+                                    title: "預設值",
                                     field: "default",
                                     templet: "#col-default",
                                     width: 182
                                 },
                                 {
-                                    title: "字段类型",
+                                    title: "字段類型",
                                     field: "type",
                                     templet: "#col-type",
                                     width: 182
                                 },
                                 {
-                                    title: "主键",
+                                    title: "主鍵",
                                     field: "primary_key",
                                     templet: "#col-primary_key",
                                     width: 50,
@@ -323,7 +323,7 @@
                                     align: "center",
                                 },
                                 {
-                                    title: "为空",
+                                    title: "為空",
                                     field: "nullable",
                                     templet: "#col-nullable",
                                     width: 50,
@@ -374,7 +374,7 @@
 
                             let batchRemove = function(obj) {
                                 let checkIds = common.checkField(obj,"_field_id");
-                                if (checkIds === "") return layui.popup.warning("未选中数据");
+                                if (checkIds === "") return layui.popup.warning("未選取資料");
                                 let data = table.getData("column-table");
                                 let newData = [];
                                 let deleteIds = checkIds.split(",");
@@ -390,7 +390,7 @@
 
                         });
 
-                        // 表单设置
+                        // 表單設定
                         layui.use(["table", "common", "element"], function () {
                             let table = layui.table;
 
@@ -400,59 +400,59 @@
 
                             let cols = [
                                 {
-                                    title: "字段名称",
+                                    title: "字段名稱",
                                     field: "field",
                                     templet: "#form-field",
                                     width: 180
                                 },
                                 {
-                                    title: "字段备注",
+                                    title: "字段備註",
                                     field: "comment",
                                     templet: "#form-comment",
                                     width: 180
                                 },
                                 {
-                                    title: "控件类型",
+                                    title: "控制項類型",
                                     field: "control",
                                     templet: "#form-control",
                                     width: 180
                                 },
                                 {
-                                    title: "控件参数",
+                                    title: "控制項參數",
                                     field: "control_args",
                                     templet: "#form-control_args",
                                     width: 180
                                 },
                                 {
-                                    title: "表单显示",
+                                    title: "表單顯示",
                                     field: "form_show",
                                     templet: "#form-form_show",
                                     width: 67,
                                     align: "center",
                                 },
                                 {
-                                    title: "列表显示",
+                                    title: "列表顯示",
                                     field: "list_show",
                                     templet: "#form-list_show",
                                     width: 67,
                                     align: "center",
                                 },
                                 {
-                                    title: "支持排序",
+                                    title: "支援排序",
                                     field: "enable_sort",
                                     templet: "#form-enable_sort",
                                     width: 67,
                                     align: "center",
                                 },
                                 {
-                                    title: "支持查询",
+                                    title: "支援查詢",
                                     field: "searchable",
                                     templet: "#form-searchable",
                                     width: 67,
                                     align: "center",
                                 },
                                 {
-                                    title: "查询类型",
+                                    title: "查詢類型",
                                     field: "search_type",
                                     templet: "#form-search_type",
                                     width: 130,
@@ -476,7 +476,7 @@
 
                         });
 
-                        // 索引设置
+                        // 索引設定
                         layui.use(["table", "common", "xmSelect", "popup"], function () {
                             let table = layui.table;
                             let common = layui.common;
@@ -487,19 +487,19 @@
                                     width: 52,
                                 },
                                 {
-                                    title: "索引名称",
+                                    title: "索引名稱",
                                     field: "name",
                                     templet: "#key-name",
                                     width: 200,
                                 },
                                 {
-                                    title: "索引字段",
+                                    title: "索引欄位",
                                     field: "columns",
                                     templet: "#key-columns",
                                     width: 200,
                                 },
                                 {
-                                    title: "索引类型",
+                                    title: "索引類型",
                                     field: "type",
                                     templet: "#key-type",
                                     width: 200,
@@ -544,7 +544,7 @@
 
                             let batchRemove = function(obj) {
                                 var checkIds = common.checkField(obj,"_key_id");
-                                if (checkIds === "") return layui.popup.warning("未选中数据");
+                                if (checkIds === "") return layui.popup.warning("未選取資料");
                                 let data = table.getData("key-table");
                                 let newData = [];
                                 let deleteIds = checkIds.split(",");

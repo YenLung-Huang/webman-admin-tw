@@ -9,7 +9,7 @@
     </head>
     <body class="pear-container">
 
-    <!-- 顶部查询表单 -->
+    <!-- 頂部查詢表單 -->
     <div class="layui-card">
         <div class="layui-card-body">
             <form class="layui-form top-search-from">
@@ -17,21 +17,21 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">表名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="table_name" id="table_name" placeholder="请输入表名" class="layui-input">
+                        <input type="text" name="table_name" id="table_name" placeholder="請輸入表名" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item layui-inline">
                     <label class="layui-form-label"></label>
                     <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="table-query">
-                        <i class="layui-icon layui-icon-search"></i>查询
+                        <i class="layui-icon layui-icon-search"></i>查詢
                     </button>
                     <button type="reset" class="pear-btn pear-btn-md" lay-submit lay-filter="table-reset">
                         <i class="layui-icon layui-icon-refresh"></i>重置
                     </button>
                 </div>
                 <div class="toggle-btn">
-                    <a class="layui-hide">展开<i class="layui-icon layui-icon-down"></i></a>
+                    <a class="layui-hide">展開<i class="layui-icon layui-icon-down"></i></a>
                     <a class="layui-hide">收起<i class="layui-icon layui-icon-up"></i></a>
                 </div>
 
@@ -47,17 +47,17 @@
 
         <script type="text/html" id="table-toolbar">
             <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add" permission="app.admin.table.create">
-                <i class="layui-icon layui-icon-add-1"></i>创建表格
+                <i class="layui-icon layui-icon-add-1"></i>建立表格
             </button>
             <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove" permission="app.admin.table.drop">
-                <i class="layui-icon layui-icon-delete"></i>删除表格
+                <i class="layui-icon layui-icon-delete"></i>刪除表格
             </button>
         </script>
 
         <script type="text/html" id="table-bar">
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.table.modify">编辑</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.table.drop">删除</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="crud" permission="app.admin.table.crud">一键菜单</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="app.admin.table.modify">編輯</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="app.admin.table.drop">刪除</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="crud" permission="app.admin.table.crud">一鍵選單</button>
         </script>
 
         <script src="/app/admin/component/layui/layui.js?v=2.8.12"></script>
@@ -67,7 +67,7 @@
 
         <script>
 
-            // 相关接口
+            // 相關介面
             const SELECT_API = "/app/admin/table/show";
             const DROP_API = "/app/admin/table/drop";
             const VIEW_URL = "/app/admin/table/view";
@@ -92,11 +92,11 @@
                         }
                     },
                     {
-                        title: "备注",
+                        title: "備註",
                         field: "TABLE_COMMENT",
                     },
                     {
-                        title: "记录数",
+                        title: "記錄數",
                         field: "TABLE_ROWS",
                         width: 100,
                     },
@@ -110,7 +110,7 @@
                         field: "TABLE_COLLATION",
                     },
                     {
-                        title: "创建时间",
+                        title: "創建時間",
                         field: "CREATE_TIME",
                     },
                     {
@@ -130,7 +130,7 @@
                     size: "lg",
                     toolbar: "#table-toolbar",
                     defaultToolbar: [{
-                        title: "刷新",
+                        title: "重新整理",
                         layEvent: "refresh",
                         icon: "layui-icon-refresh",
                     }, "filter", "print", "exports"]
@@ -176,7 +176,7 @@
                 let add = function() {
                     layer.open({
                         type: 2,
-                        title: "创建表格",
+                        title: "建立表格",
                         shade: 0.1,
                         maxmin: true,
                         area: [common.isModile()?"100%":"98%", common.isModile()?"100%":"95%"],
@@ -200,7 +200,7 @@
                     let table = obj.data.TABLE_NAME;
                     layer.open({
                         type: 2,
-                        title: "一键菜单",
+                        title: "一鍵選單",
                         shade: 0.1,
                         maxmin: true,
                         area: [common.isModile()?"100%":"500px", common.isModile()?"100%":"500px"],
@@ -215,14 +215,14 @@
                 let batchRemove = function(obj) {
                     var tables = common.checkField(obj, "TABLE_NAME");
                     if (tables === "") {
-                        layui.popup.warning("未选中数据");
+                        layui.popup.warning("未選取資料");
                         return false;
                     }
                     doRemove(tables.split(","));
                 }
 
                 let doRemove = function (tables) {
-                    layer.confirm("确定删除?", {
+                    layer.confirm("確定刪除?", {
                         icon: 3,
                         title: "提示"
                     }, function(index) {
@@ -261,7 +261,7 @@
                 }
             })
 
-            // 获取选择组件配置项
+            // 取得選擇組件配置項目
             function getControlProps(control_args)
             {
                 if (!control_args) {

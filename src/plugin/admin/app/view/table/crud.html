@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>一键菜单</title>
+        <title>一鍵選單</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
         <style>
@@ -20,19 +20,19 @@
                 <div class="main-container mr-5">
                     <input type="hidden" name="table" value="<?=htmlspecialchars($table)?>">
                     <div class="layui-form-item">
-                        <label class="layui-form-label required">菜单名</label>
+                        <label class="layui-form-label required">菜單名稱</label>
                         <div class="layui-input-block">
                             <input type="text" name="title" value="" required lay-verify="required" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">图标</label>
+                        <label class="layui-form-label">圖示</label>
                         <div class="layui-input-block">
                             <input name="icon" id="icon" value="" />
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">上级菜单</label>
+                        <label class="layui-form-label">上級選單</label>
                         <div class="layui-input-block">
                             <div name="pid" id="pid"></div>
                         </div>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">强制覆盖</label>
+                        <label class="layui-form-label">強制覆蓋</label>
                         <div class="layui-input-block">
                             <input type="checkbox" name="overwrite" lay-skin="primary">
                         </div>

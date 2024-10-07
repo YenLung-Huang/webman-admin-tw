@@ -17,13 +17,13 @@ use Throwable;
 class TableController extends Base
 {
     /**
-     * 不需要鉴权的方法
+     * 不需要鑑權的方法
      * @var string[]
      */
     protected $noNeedAuth = ['types'];
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */
@@ -53,7 +53,7 @@ class TableController extends Base
     }
 
     /**
-     * 查询表
+     * 查詢表
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -91,7 +91,7 @@ class TableController extends Base
     }
 
     /**
-     * 创建表
+     * 創建表
      * @param Request $request
      * @return Response
      * @throws BusinessException|Throwable
@@ -129,7 +129,7 @@ class TableController extends Base
         }
 
         if ($primary_key_count > 1) {
-            throw new BusinessException('不支持复合主键');
+            throw new BusinessException('不支援複合主鍵');
         }
 
         foreach ($forms as $index => $item) {
@@ -156,7 +156,7 @@ class TableController extends Base
                     throw new BusinessException("请为{$column['field']}选择类型");
                 }
                 if (!isset($type_method_map[$column['type']])) {
-                    throw new BusinessException("不支持的类型{$column['type']}");
+                    throw new BusinessException("不支援的類型{$column['type']}");
                 }
                 $this->createColumn($column, $table);
             }
@@ -245,11 +245,11 @@ class TableController extends Base
         }
 
         if ($primary_key_count > 1) {
-            throw new BusinessException('不支持复合主键');
+            throw new BusinessException('不支援複合主鍵');
         }
 
         if ($auto_increment_count > 1) {
-            throw new BusinessException('一个表只能有一个自增字段，并且必须为key');
+            throw new BusinessException('一個表格只能有一個自增字段，且必須為key');
         }
 
         foreach ($forms as $index => $item) {
@@ -278,11 +278,11 @@ class TableController extends Base
 
         foreach ($columns as $column) {
             if (!isset($type_method_map[$column['type']])) {
-                throw new BusinessException("不支持的类型{$column['type']}");
+                throw new BusinessException("不支援的類型{$column['type']}");
             }
             $field = $column['old_field'] ?? $column['field'] ;
             $old_column = $old_columns[$field] ?? [];
-            // 类型更改
+            // 類型更改
             foreach ($old_column as $key => $value) {
                 if (key_exists($key, $column) && ($column[$key] != $value || ($key === 'default' && $column[$key] !== $value))) {
                     $this->modifyColumn($column, $table_name);
@@ -314,7 +314,7 @@ class TableController extends Base
             }
         });
 
-        // 找到删除的字段
+        // 找到刪除的欄位
         $old_columns = Util::getSchema($table_name, 'columns');
         $exists_column_names = array_column($columns, 'field', 'field');
         $old_columns_names = array_column($old_columns, 'field');
@@ -329,7 +329,7 @@ class TableController extends Base
             foreach ($keys as $key) {
                 $key_name = $key['name'];
                 $old_key = $old_keys[$key_name] ?? [];
-                // 如果索引有变动，则删除索引，重新建立索引
+                // 如果索引有變動，則刪除索引，重新建立索引
                 if ($old_key && ($key['type'] != $old_key['type'] || $key['columns'] != implode(',', $old_key['columns']))) {
                     $old_key = [];
                     unset($old_keys[$key_name]);
@@ -350,7 +350,7 @@ class TableController extends Base
                 }
             }
 
-            // 找到删除的索引
+            // 找到刪除的索引
             $exists_key_names = array_column($keys, 'name', 'name');
             $old_keys_names = array_column($old_keys, 'name');
             $drop_keys_names = array_diff($old_keys_names, $exists_key_names);
@@ -360,7 +360,7 @@ class TableController extends Base
             }
         });
 
-        // 变更主键
+        // 變更主鍵
         if ($old_primary_key != $primary_key) {
             if ($old_primary_key) {
                 Util::db()->statement("ALTER TABLE `$table_name` DROP PRIMARY KEY");
@@ -371,7 +371,7 @@ class TableController extends Base
             }
         }
 
-        // 一个表只能有一个 auto_increment 字段，并且是key，所以需要在最后设置
+        // 一個表格只能有一個 auto_increment 字段，而且是key，所以需要在最後設定
         if ($auto_increment_column) {
             $this->modifyColumn($auto_increment_column, $table_name);
         }
@@ -389,7 +389,7 @@ class TableController extends Base
 
 
     /**
-     * 一键菜单
+     * 一鍵選單
      * @param Request $request
      * @return Response
      * @throws BusinessException|Throwable
@@ -417,7 +417,7 @@ class TableController extends Base
         $model_file = '/' . trim($request->post('model', ''), '/');
         $overwrite = $request->post('overwrite');
         if ($controller_file === '/' || $model_file === '/') {
-            return $this->json(1, '控制器和model不能为空');
+            return $this->json(1, '控制器和model不能為空');
         }
 
         $controller_info = pathinfo($controller_file);
@@ -429,46 +429,46 @@ class TableController extends Base
         $model_file_name = Util::filterAlphaNum($model_info['filename'] ?? '');
 
         if ($controller_info['extension'] !== 'php' || $model_info['extension'] !== 'php' ) {
-            return $this->json(1, '控制器和model必须以.php为后缀');
+            return $this->json(1, '控制器和model必須以.php為字尾');
         }
 
         $pid = (int)$pid;
         if ($pid) {
             $parent_menu = Rule::find($pid);
             if (!$parent_menu) {
-                return $this->json(1, '父菜单不存在');
+                return $this->json(1, '父選單不存在');
             }
         }
 
         if (!$overwrite) {
             if (is_file(base_path($controller_file))) {
-                return $this->json(1, "$controller_file 已经存在");
+                return $this->json(1, "$controller_file 已經存在");
             }
             if (is_file(base_path($model_file))) {
-                return $this->json(1, "$model_file 已经存在");
+                return $this->json(1, "$model_file 已經存在");
             }
         }
 
         $explode = explode('/', trim($controller_path, '/'));
         $plugin = '';
         if (strpos(strtolower($controller_file), '/controller/') === false) {
-            return $this->json(2, '控制器必须在controller目录下');
+            return $this->json(2, '控制器必須在controller目錄下');
         }
         if ($explode[0] === 'plugin') {
             if (count($explode) < 4) {
-                return $this->json(2, '控制器参数非法');
+                return $this->json(2, '控制器參數非法');
             }
             $plugin = $explode[1];
             if (strtolower($explode[2]) !== 'app') {
-                return $this->json(2, '控制器必须在app目录');
+                return $this->json(2, '控制器必須在app目錄');
             }
             $app = strtolower($explode[3]) !== 'controller' ? $explode[3] : '';
         } else {
             if (count($explode) < 2) {
-                return $this->json(3, '控制器参数非法');
+                return $this->json(3, '控制器參數非法');
             }
             if (strtolower($explode[0]) !== 'app') {
-                return $this->json(3, '控制器必须在app目录');
+                return $this->json(3, '控制器必須在app目錄');
             }
             $app = strtolower($explode[1]) !== 'controller' ? $explode[1] : '';
         }
@@ -478,13 +478,13 @@ class TableController extends Base
             $model_class = $model_file_name;
             $model_namespace = str_replace('/', '\\', trim($model_path, '/'));
 
-            // 创建model
+            // 創建model
             $this->createModel($model_class, $model_namespace, base_path($model_file), $table_name);
 
             $controller_suffix = $plugin ? config("plugin.$plugin.app.controller_suffix") : config('app.controller_suffix');
             $controller_class = $controller_file_name;
             $controller_namespace = str_replace('/', '\\', trim($controller_path, '/'));
-            // 创建controller
+            // 創建controller
             $controller_url_name = $controller_suffix && substr($controller_class, -strlen($controller_suffix)) === $controller_suffix ? substr($controller_class, 0, -strlen($controller_suffix)) : $controller_class;
             $controller_url_name = str_replace('_', '-', $inflector->tableize($controller_url_name));
 
@@ -506,7 +506,7 @@ class TableController extends Base
             $template_path = $controller_base ? "$controller_base/$controller_url_name" : $controller_url_name;
             $this->createController($controller_class, $controller_namespace, base_path($controller_file), $model_class, $model_namespace, $title, $template_path);
 
-            // 创建模版
+            // 創建模版
             $template_file_path = ($plugin ? "/plugin/$plugin" : '') . '/app/' . ($app ? "$app/" : '') . 'view/' . $template_path;
 
             $model_class_with_namespace = "$model_namespace\\$model_class";
@@ -538,7 +538,7 @@ class TableController extends Base
             $rule_ids = array_merge($rule_ids, explode(',', $rule_string));
         }
 
-        // 不是超级管理员，则需要给当前管理员这个菜单的权限
+        // 不是超級管理員，則需要給目前管理員這個選單的權限
         if (!in_array('*', $rule_ids) && $roles){
             $role = Role::find(current($roles));
             if ($role) {
@@ -551,7 +551,7 @@ class TableController extends Base
     }
 
     /**
-     * 创建model
+     * 創建model
      * @param $class
      * @param $namespace
      * @param $file
@@ -573,7 +573,7 @@ class TableController extends Base
             foreach (Util::db()->select("select COLUMN_NAME,DATA_TYPE,COLUMN_KEY,COLUMN_COMMENT from INFORMATION_SCHEMA.COLUMNS where table_name = '$table' and table_schema = '$database' order by ORDINAL_POSITION") as $item) {
                 if ($item->COLUMN_KEY === 'PRI') {
                     $pk = $item->COLUMN_NAME;
-                    $item->COLUMN_COMMENT .= "(主键)";
+                    $item->COLUMN_COMMENT .= "(主鍵)";
                     if (strpos(strtolower($item->DATA_TYPE), 'int') === false) {
                         $incrementing = <<<EOF
 /**
@@ -639,7 +639,7 @@ EOF;
     }
 
     /**
-     * 创建控制器
+     * 建立控制器
      * @param $controller_class
      * @param $namespace
      * @param $file
@@ -680,7 +680,7 @@ class $controller_class extends Crud
     protected \$model = null;
 
     /**
-     * 构造函数
+     * 建構子
      * @return void
      */
     public function __construct()
@@ -689,7 +689,7 @@ class $controller_class extends Crud
     }
     
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      */
     public function index(): Response
@@ -732,7 +732,7 @@ EOF;
     }
 
     /**
-     * 创建控制器
+     * 建立控制器
      * @param $template_file_path
      * @param $table
      * @param $template_path
@@ -756,14 +756,14 @@ EOF;
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label"></label>
                 <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="table-query">
-                    <i class="layui-icon layui-icon-search"></i>查询
+                    <i class="layui-icon layui-icon-search"></i>查詢
                 </button>
                 <button type="reset" class="pear-btn pear-btn-md" lay-submit lay-filter="table-reset">
                     <i class="layui-icon layui-icon-refresh"></i>重置
                 </button>
             </div>
             <div class="toggle-btn">
-                <a class="layui-hide">展开<i class="layui-icon layui-icon-down"></i></a>
+                <a class="layui-hide">展開<i class="layui-icon layui-icon-down"></i></a>
                 <a class="layui-hide">收起<i class="layui-icon layui-icon-up"></i></a>
             </div>
         </form>
@@ -780,36 +780,36 @@ EOF
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8">
-        <title>浏览页面</title>
+        <title>瀏覽頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
     <body class="pear-container">
     
-        <!-- 顶部查询表单 -->
+        <!-- 頂部查詢表單 -->
         $html
         
-        <!-- 数据表格 -->
+        <!-- 資料表格 -->
         <div class="layui-card">
             <div class="layui-card-body">
                 <table id="data-table" lay-filter="data-table"></table>
             </div>
         </div>
 
-        <!-- 表格顶部工具栏 -->
+        <!-- 表格頂部工具列 -->
         <script type="text/html" id="table-toolbar">
             <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add" permission="$code_base.insert">
                 <i class="layui-icon layui-icon-add-1"></i>新增
             </button>
             <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove" permission="$code_base.delete">
-                <i class="layui-icon layui-icon-delete"></i>删除
+                <i class="layui-icon layui-icon-delete"></i>刪除
             </button>
         </script>
 
-        <!-- 表格行工具栏 -->
+        <!-- 表格列工具列 -->
         <script type="text/html" id="table-bar">
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="$code_base.update">编辑</button>
-            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="$code_base.delete">删除</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="edit" permission="$code_base.update">編輯</button>
+            <button class="pear-btn pear-btn-xs tool-btn" lay-event="remove" permission="$code_base.delete">刪除</button>
         </script>
 
         <script src="/app/admin/component/layui/layui.js?v=2.8.12"></script>
@@ -819,7 +819,7 @@ EOF
         
         <script>
 
-            // 相关常量
+            // 相關常數
             const PRIMARY_KEY = "$primary_key";
             const SELECT_API = "$url_path_base/select";
             const UPDATE_API = "$url_path_base/update";
@@ -835,7 +835,7 @@ EOF
                 let common = layui.common;
                 let util = layui.util;
                 $table_js
-                // 编辑或删除行事件
+                // 編輯或刪除行事件
                 table.on("tool(data-table)", function(obj) {
                     if (obj.event === "remove") {
                         remove(obj);
@@ -844,7 +844,7 @@ EOF
                     }
                 });
 
-                // 表格顶部工具栏事件
+                // 表格頂部工具列事件
                 table.on("toolbar(data-table)", function(obj) {
                     if (obj.event === "add") {
                         add();
@@ -855,7 +855,7 @@ EOF
                     }
                 });
 
-                // 表格顶部搜索事件
+                // 表格頂部搜尋事件
                 form.on("submit(table-query)", function(data) {
                     table.reload("data-table", {
                         page: {
@@ -866,21 +866,21 @@ EOF
                     return false;
                 });
                 
-                // 表格顶部搜索重置事件
+                // 表格頂部搜尋重置事件
                 form.on("submit(table-reset)", function(data) {
                     table.reload("data-table", {
                         where: []
                     })
                 });
                 
-                // 字段允许为空
+                // 字段允許為空
                 form.verify({
-                    phone: [/(^$)|^1\d{10}$/, "请输入正确的手机号"],
-                    email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "邮箱格式不正确"],
-                    url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "链接格式不正确"],
-                    number: [/(^$)|^\d+$/,'只能填写数字'],
-                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正确"],
-                    identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "请输入正确的身份证号"]
+                    phone: [/(^$)|^1\d{10}$/, "請輸入正確的手機號碼"],
+                    email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "郵件信箱格式不正確"],
+                    url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "連結格式不正確"],
+                    number: [/(^$)|^\d+$/,'只能填寫數字'],
+                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正確"],
+                    identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "請輸入正確的身分證字號"]
                 });
 
                 // 表格排序事件
@@ -895,7 +895,7 @@ EOF
                     });
                 });
 
-                // 表格新增数据
+                // 表格新增資料
                 let add = function() {
                     layer.open({
                         type: 2,
@@ -907,7 +907,7 @@ EOF
                     });
                 }
 
-                // 表格编辑数据
+                // 表格編輯資料
                 let edit = function(obj) {
                     let value = obj.data[PRIMARY_KEY];
                     layer.open({
@@ -920,26 +920,26 @@ EOF
                     });
                 }
 
-                // 删除一行
+                // 刪除一行
                 let remove = function(obj) {
                     return doRemove(obj.data[PRIMARY_KEY]);
                 }
 
-                // 删除多行
+                // 刪除多行
                 let batchRemove = function(obj) {
                     let checkIds = common.checkField(obj, PRIMARY_KEY);
                     if (checkIds === "") {
-                        layui.popup.warning("未选中数据");
+                        layui.popup.warning("未選取資料");
                         return false;
                     }
                     doRemove(checkIds.split(","));
                 }
 
-                // 执行删除
+                // 執行刪除
                 let doRemove = function (ids) {
                     let data = {};
                     data[PRIMARY_KEY] = ids;
-                    layer.confirm("确定删除?", {
+                    layer.confirm("確定刪除?", {
                         icon: 3,
                         title: "提示"
                     }, function(index) {
@@ -961,7 +961,7 @@ EOF
                     });
                 }
 
-                // 刷新表格数据
+                // 刷新表格資料
                 window.refreshTable = function() {
                     table.reloadData("data-table", {
                         scrollPos: "fixed",
@@ -994,7 +994,7 @@ EOF;
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>新增页面</title>
+        <title>新增頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/component/jsoneditor/css/jsoneditor.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
@@ -1030,19 +1030,19 @@ EOF;
         
         <script>
 
-            // 相关接口
+            // 相關介面
             const INSERT_API = "$url_path_base/insert";
             $js
             //提交事件
             layui.use(["form", "popup"], function () {
-                // 字段验证允许为空
+                // 字段驗證允許為空
                 layui.form.verify({
-                    phone: [/(^$)|^1\d{10}$/, "请输入正确的手机号"],
-                    email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "邮箱格式不正确"],
-                    url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "链接格式不正确"],
-                    number: [/(^$)|^\d+$/,'只能填写数字'],
-                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正确"],
-                    identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "请输入正确的身份证号"]
+                    phone: [/(^$)|^1\d{10}$/, "請輸入正確的手機號碼"],
+                    email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "郵件信箱格式不正確"],
+                    url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "連結格式不正確"],
+                    number: [/(^$)|^\d+$/,'只能填寫數字'],
+                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正確"],
+                    identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "請輸入正確的身分證字號"]
                 });
                 layui.form.on("submit(save)", function (data) {
                     layui.$.ajax({
@@ -1081,7 +1081,7 @@ EOF;
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>更新页面</title>
+        <title>更新頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/component/jsoneditor/css/jsoneditor.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
@@ -1117,12 +1117,12 @@ EOF;
         
         <script>
 
-            // 相关接口
+            // 相關介面
             const PRIMARY_KEY = "$primary_key";
             const SELECT_API = "$url_path_base/select" + location.search;
             const UPDATE_API = "$url_path_base/update";
 
-            // 获取数据库记录
+            // 取得資料庫記錄
             layui.use(["form", "util", "popup"], function () {
                 let $ = layui.$;
                 $.ajax({
@@ -1130,11 +1130,11 @@ EOF;
                     dataType: "json",
                     success: function (res) {
                         
-                        // 给表单初始化数据
+                        // 給表單初始化資料
                         layui.each(res.data[0], function (key, value) {
                             let obj = $('*[name="'+key+'"]');
                             if (key === "password") {
-                                obj.attr("placeholder", "不更新密码请留空");
+                                obj.attr("placeholder", "不更新密碼請留空");
                                 return;
                             }
                             if (typeof obj[0] === "undefined" || !obj[0].nodeName) return;
@@ -1147,7 +1147,7 @@ EOF;
                         });
                         $js
                         
-                        // ajax返回失败
+                        // ajax返回失敗
                         if (res.code) {
                             layui.popup.failure(res.msg);
                         }
@@ -1158,14 +1158,14 @@ EOF;
 
             //提交事件
             layui.use(["form", "popup"], function () {
-                // 字段验证允许为空
+                // 字段驗證允許為空
                 layui.form.verify({
-                    phone: [/(^$)|^1\d{10}$/, "请输入正确的手机号"],
-                    email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "邮箱格式不正确"],
-                    url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "链接格式不正确"],
-                    number: [/(^$)|^\d+$/,'只能填写数字'],
-                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正确"],
-                    identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "请输入正确的身份证号"]
+                    phone: [/(^$)|^1\d{10}$/, "請輸入正確的手機號碼"],
+                    email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "郵件信箱格式不正確"],
+                    url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "連結格式不正確"],
+                    number: [/(^$)|^\d+$/,'只能填寫數字'],
+                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正確"],
+                    identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "請輸入正確的身分證字號"]
                 });
                 layui.form.on("submit(save)", function (data) {
                     data.field[PRIMARY_KEY] = layui.url().search[PRIMARY_KEY];
@@ -1201,7 +1201,7 @@ EOF;
     }
 
     /**
-     * 创建目录
+     * 建立目錄
      * @param $file
      * @return void
      */
@@ -1215,7 +1215,7 @@ EOF;
 
 
     /**
-     * 查询记录
+     * 查詢記錄
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -1285,7 +1285,7 @@ EOF;
     }
 
     /**
-     * 插入记录
+     * 插入記錄
      * @param Request $request
      * @return Response
      * @throws BusinessException|Throwable
@@ -1312,7 +1312,7 @@ EOF;
                 unset($data[$col]);
                 continue;
             }
-            // 非字符串类型传空则为null
+            // 非字串型別傳空則為null
             if ($item === '' && strpos(strtolower($columns[$col]), 'varchar') === false && strpos(strtolower($columns[$col]), 'text') === false) {
                 $data[$col] = null;
             }
@@ -1336,7 +1336,7 @@ EOF;
     }
 
     /**
-     * 更新记录
+     * 更新記錄
      * @param Request $request
      * @return Response
      * @throws BusinessException|Throwable
@@ -1360,10 +1360,10 @@ EOF;
         $table_info = Util::getSchema($table, 'table');
         $primary_keys = $table_info['primary_key'];
         if (empty($primary_keys)) {
-            return $this->json(1, '该表没有主键，无法执行更新操作');
+            return $this->json(1, '該表沒有主鍵，無法執行更新操作');
         }
         if (count($primary_keys) > 1) {
-            return $this->json(1, '不支持复合主键更新');
+            return $this->json(1, '不支援複合主鍵更新');
         }
         $primary_key = $primary_keys[0];
         $value = $request->post($primary_key);
@@ -1378,7 +1378,7 @@ EOF;
                 unset($data[$col]);
                 continue;
             }
-            // 非字符串类型传空则为null
+            // 非字串型別傳空則為null
             if ($item === '' && strpos(strtolower($columns[$col]), 'varchar') === false && strpos(strtolower($columns[$col]), 'text') === false) {
                 $data[$col] = null;
             }
@@ -1386,7 +1386,7 @@ EOF;
                 $data[$col] = implode(',', $item);
             }
             if ($col === 'password') {
-                // 密码为空，则不更新密码
+                // 密碼為空，則不更新密碼
                 if ($item == '') {
                     unset($data[$col]);
                     continue;
@@ -1403,7 +1403,7 @@ EOF;
     }
 
     /**
-     * 删除记录
+     * 刪除記錄
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -1414,10 +1414,10 @@ EOF;
         $table_info = Util::getSchema($table, 'table');
         $primary_keys = $table_info['primary_key'];
         if (empty($primary_keys)) {
-            return $this->json(1, '该表没有主键，无法执行删除操作');
+            return $this->json(1, '該表沒有主鍵，無法執行刪除操作');
         }
         if (count($primary_keys) > 1) {
-            return $this->json(1, '不支持复合主键删除');
+            return $this->json(1, '不支援複合主鍵刪除');
         }
         $primary_key = $primary_keys[0];
         $value = (array)$request->post($primary_key);
@@ -1427,7 +1427,7 @@ EOF;
 
 
     /**
-     * 删除表
+     * 刪除表
      * @param Request $request
      * @return Response
      */
@@ -1440,11 +1440,11 @@ EOF;
         $prefix = 'wa_';
         $table_not_allow_drop = ["{$prefix}admins", "{$prefix}users", "{$prefix}options", "{$prefix}roles", "{$prefix}rules", "{$prefix}admin_roles", "{$prefix}uploads"];
         if ($found = array_intersect($tables, $table_not_allow_drop)) {
-            return $this->json(400, implode(',', $found) . '不允许删除');
+            return $this->json(400, implode(',', $found) . '不允許刪除');
         }
         foreach ($tables as $table) {
             Util::schema()->drop($table);
-            // 删除schema
+            // 刪除schema
             Util::db()->table('wa_options')->where('name', "table_form_schema_$table")->delete();
         }
         return $this->json(0, 'ok');
@@ -1469,7 +1469,7 @@ EOF;
     }
 
     /**
-     * 创建字段
+     * 建立字段
      * @param $column
      * @param Blueprint $table
      * @return mixed
@@ -1479,7 +1479,7 @@ EOF;
         $method = $column['type'];
         $args = [$column['field']];
         if (stripos($method, 'int') !== false) {
-            // auto_increment 会自动成为主键
+            // auto_increment 會自動成為主鍵
             if ($column['auto_increment']) {
                 $column['nullable'] = false;
                 $column['default'] = null;
@@ -1617,7 +1617,7 @@ EOF;
     }
 
     /**
-     * 字段类型列表
+     * 字段類型列表
      * @param Request $request
      * @return Response
      */
@@ -1629,7 +1629,7 @@ EOF;
 
 
     /**
-     * 更新表的form schema信息
+     * 更新表的form schema資訊
      * @param $table_name
      * @param $data
      * @return string
@@ -1647,7 +1647,7 @@ EOF;
     }
 
     /**
-     * 字段类型到php类型映射
+     * 字段類型到php類型映射
      * @param string $type
      * @return string
      */

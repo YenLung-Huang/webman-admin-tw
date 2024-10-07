@@ -1,5 +1,5 @@
 tinymce.PluginManager.add('indent2em', function(editor, url) {
-    var pluginName='首行缩进';
+    var pluginName='首行縮排';
     var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
     var indent2em_val = editor.getParam('indent2em_val', '2em');
     var doAct = function () {

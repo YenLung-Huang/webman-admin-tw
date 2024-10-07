@@ -76,14 +76,14 @@ JSONEditor = function(container, options, json) {
     // check availability of JSON parser (not available in IE7 and older)
     if (!JSON) {
         throw new Error(
-            "您当前使用的浏览器不支持 JSON. \n\n" +
-            "请下载安装最新版本的浏览, 本站推荐Google Chrome.\n" +
-            "(PS: 当前主流浏览器都支持JSON)."
+            "您目前使用的瀏覽器不支援 JSON. \n\n" +
+            "請下載安裝最新版本的瀏覽, 本站推薦Google Chrome.\n" +
+            "(PS: 目前主流瀏覽器都支援JSON)."
         );
     }
 
     if (!container) {
-        throw new Error("没有提供容器元素.");
+        throw new Error("沒有提供容器元素.");
     }
     this.container = container;
     this.dom = {};
@@ -995,7 +995,7 @@ JSONEditor.Node.prototype.insertBefore = function(node, beforeNode) {
             // insert before a child node
             var index = this.childs.indexOf(beforeNode);
             if (index == -1) {
-                throw new Error("节点未找到.");
+                throw new Error("節點未找到.");
             }
 
             // adjust the link to the parent
@@ -1211,7 +1211,7 @@ JSONEditor.Node.prototype._move = function(node, beforeNode) {
 
     // check if this node is not a child of the node to be moved here
     if (node.containsNode(this)) {
-        throw new Error("不能把区域移动到自身的子节点.");
+        throw new Error("不能把區域移動到自身的子節點.");
     }
 
     // remove the original node
@@ -2313,23 +2313,23 @@ JSONEditor.Node.types = [
     {
         value: "array",
         className: "jsoneditor-option-array",
-        title: '"array" 类型: 包含了有序值集合的数组.'
+        title: '"array" 類型: 包含了有序值集合的陣列.'
     },
     {
         value: "auto",
         className: "jsoneditor-option-auto",
         title:
-            '"auto" 类型: 节点类型将自动从值中获取, 可以是: string, number, boolean, 或 null.'
+            '"auto" 類型: 節點類型將自動從值中取得, 可以是: string, number, boolean, 或 null.'
     },
     {
         value: "object",
         className: "jsoneditor-option-object",
-        title: '"object" 类型: 对象包含了一些无序的键/值对.'
+        title: '"object" 類型: 物件包含了一些無序的鍵/值對.'
     },
     {
         value: "string",
         className: "jsoneditor-option-string",
-        title: '"string" 类型: 节点类型不从值中自动获取, 但永远返回string.'
+        title: '"string" 類型: 節點類型不會從值中自動取得, 但永遠回傳string.'
     }
 ];
 
@@ -2342,7 +2342,7 @@ JSONEditor.Node.prototype._createDomTypeButton = function() {
     var node = this;
     var domType = document.createElement("button");
     domType.className = "jsoneditor-type-" + node.type;
-    domType.title = "改变节点类型";
+    domType.title = "改變節點類型";
 
     return domType;
 };
@@ -2512,7 +2512,7 @@ JSONEditor.Node.prototype._createDomRemoveButton = function() {
     ) {
         var buttonRemove = document.createElement("button");
         buttonRemove.className = "jsoneditor-remove";
-        buttonRemove.title = "删除节点 (包括所有子节点)";
+        buttonRemove.title = "刪除節點 (包含所有子節點)";
 
         return buttonRemove;
     } else {
@@ -2534,7 +2534,7 @@ JSONEditor.Node.prototype._createDomDuplicateButton = function() {
     ) {
         var buttonDupliate = document.createElement("button");
         buttonDupliate.className = "jsoneditor-duplicate";
-        buttonDupliate.title = "复制节点 (包括所有子节点)";
+        buttonDupliate.title = "複製節點 (包含所有子節點)";
 
         return buttonDupliate;
     } else {
@@ -2874,7 +2874,7 @@ JSONEditor.prototype._createFrame = function() {
     // create expand all button
     var expandAll = document.createElement("button");
     expandAll.className = "jsoneditor-menu jsoneditor-expand-all";
-    expandAll.title = "展开";
+    expandAll.title = "展開";
     expandAll.onclick = function() {
         editor.expandAll();
     };
@@ -2882,7 +2882,7 @@ JSONEditor.prototype._createFrame = function() {
 
     // create expand all button
     var collapseAll = document.createElement("button");
-    collapseAll.title = "折叠";
+    collapseAll.title = "折疊";
     collapseAll.className = "jsoneditor-menu jsoneditor-collapse-all";
     collapseAll.onclick = function() {
         editor.collapseAll();
@@ -2899,7 +2899,7 @@ JSONEditor.prototype._createFrame = function() {
         // create undo button
         var undo = document.createElement("button");
         undo.className = "jsoneditor-menu jsoneditor-undo";
-        undo.title = "撤销";
+        undo.title = "撤銷";
         undo.onclick = function() {
             // undo last action
             editor.history.undo();
@@ -3023,9 +3023,9 @@ JSONFormatter = function(container, options, json) {
     // check availability of JSON parser (not available in IE7 and older)
     if (!JSON) {
         throw new Error(
-            "您当前使用的浏览器不支持 JSON. \n\n" +
-            "请下载安装最新版本的浏览, 本站推荐Google Chrome.\n" +
-            "(PS: 当前主流浏览器都支持JSON)."
+            "您目前使用的瀏覽器不支援 JSON. \n\n" +
+            "請下載安裝最新版本的瀏覽, 本站推薦Google Chrome.\n" +
+            "(PS: 目前主流瀏覽器都支援JSON)."
         );
     }
 
@@ -3051,7 +3051,7 @@ JSONFormatter = function(container, options, json) {
     var buttonFormat = document.createElement("button");
     //buttonFormat.innerHTML = 'Format';
     buttonFormat.className = "jsoneditor-menu jsoneditor-format";
-    buttonFormat.title = "格式化JSON数据";
+    buttonFormat.title = "格式化JSON資料";
     //buttonFormat.className = 'jsoneditor-button';
     this.menu.appendChild(buttonFormat);
 
@@ -3059,7 +3059,7 @@ JSONFormatter = function(container, options, json) {
     var buttonCompact = document.createElement("button");
     //buttonCompact.innerHTML = 'Compact';
     buttonCompact.className = "jsoneditor-menu jsoneditor-compact";
-    buttonCompact.title = "压缩JSON数据, 清除所有空白字符";
+    buttonCompact.title = "壓縮JSON資料, 清除所有空白字元";
     //buttonCompact.className = 'jsoneditor-button';
     this.menu.appendChild(buttonCompact);
 
@@ -3205,7 +3205,7 @@ JSONEditor.SearchBox = function(editor, container) {
     var divInput = document.createElement("div");
     this.dom.input = divInput;
     divInput.className = "jsoneditor-search";
-    divInput.title = "查找区块";
+    divInput.title = "尋找區塊";
     td.appendChild(divInput);
 
     // table to contain the text input and search button
@@ -3249,7 +3249,7 @@ JSONEditor.SearchBox = function(editor, container) {
     tr.appendChild(td);
 
     var searchNext = document.createElement("button");
-    searchNext.title = "下一个 (Enter)";
+    searchNext.title = "下一個 (Enter)";
     searchNext.className = "jsoneditor-search-next";
     searchNext.onclick = function() {
         searchBox.next();
@@ -3259,7 +3259,7 @@ JSONEditor.SearchBox = function(editor, container) {
     tr.appendChild(td);
 
     var searchPrevious = document.createElement("button");
-    searchPrevious.title = "上一个 (Shift+Enter)";
+    searchPrevious.title = "上一個 (Shift+Enter)";
     searchPrevious.className = "jsoneditor-search-previous";
     searchPrevious.onclick = function() {
         searchBox.previous();
@@ -3398,11 +3398,11 @@ JSONEditor.SearchBox.prototype.onSearch = function(event, forceSearch) {
             var resultCount = this.results.length;
             switch (resultCount) {
                 case 0:
-                    this.dom.results.innerHTML = "区块/值未找到";
+                    this.dom.results.innerHTML = "區塊/值未找到";
                     break;
                 default:
                     this.dom.results.innerHTML =
-                        "找到&nbsp;" + resultCount + "&nbsp;个节点";
+                        "找到找到&nbsp;" + resultCount + "&nbsp;个节点nbsp;" + resultCount + "找到&nbsp;" + resultCount + "&nbsp;个节点nbsp;個節點";
                     break;
             }
         } else {
@@ -3813,7 +3813,7 @@ JSONEditor.validate = function(jsonString) {
             message +=
                 '<div id="by-jsonlint"> <a class="error" href="http://zaach.github.com/jsonlint/" target="_blank">' +
                 "JSONLint" +
-                "</a> 提供验证.</div>";
+                "</a> 提供驗證.</div>";
         }
     }
 
@@ -3827,7 +3827,7 @@ function jsonArea(ob) {
     let change = ob.change;
     let thisare = new Object();
     if (!inputEle) {
-        throw new Error("没有提供数据.");
+        throw new Error("沒有提供資料.");
     }
     // if target to multi dom
     if (nth) {
@@ -3859,7 +3859,7 @@ function jsonArea(ob) {
                 return false;
             }
         }
-        console.log("不是丢�个stringify");
+        console.log("不是丟�個stringify");
     };
     // json data
     thisare.jsonval = "{}";

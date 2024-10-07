@@ -6,7 +6,7 @@ use support\Model;
 use support\Response;
 
 /**
- * 基础控制器
+ * 基礎控制器
  */
 class Base
 {
@@ -17,33 +17,33 @@ class Base
     protected $model = null;
 
     /**
-     * 无需登录及鉴权的方法
+     * 無須登入及鑑權的方法
      * @var array
      */
     protected $noNeedLogin = [];
 
     /**
-     * 需要登录无需鉴权的方法
+     * 需要登入無須鑑權的方法
      * @var array
      */
     protected $noNeedAuth = [];
 
     /**
-     * 数据限制
-     * null 不做限制，任何管理员都可以查看该表的所有数据
-     * auth 管理员能看到自己以及自己的子管理员插入的数据
-     * personal 管理员只能看到自己插入的数据
+     * 資料限制
+     * null 不做限制，任何管理員都可以查看該表的所有資料
+     * auth 管理員能看到自己以及自己的子管理員插入的資料
+     * personal 管理員只能看到自己插入的資料
      * @var string
      */
     protected $dataLimit = null;
 
     /**
-     * 数据限制字段
+     * 資料限製字段
      */
     protected $dataLimitField = 'admin_id';
 
     /**
-     * 返回格式化json数据
+     * 返回格式化json資料
      *
      * @param int $code
      * @param string $msg
@@ -60,7 +60,7 @@ class Base
         return $this->json(0, $msg, $data);
     }
 
-    protected function fail(string $msg = '失败', array $data = []): Response
+    protected function fail(string $msg = '失敗', array $data = []): Response
     {
         return $this->json(1, $msg, $data);
     }

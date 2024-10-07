@@ -15,12 +15,12 @@ use Throwable;
 class DictController extends Base
 {
     /**
-     * 不需要授权的方法
+     * 不需要授權的方法
      */
     protected $noNeedAuth = ['get'];
 
     /**
-     * 浏览
+     * 瀏覽
      * @return Response
      * @throws Throwable
      */
@@ -30,7 +30,7 @@ class DictController extends Base
     }
 
     /**
-     * 查询
+     * 查詢
      * @param Request $request
      * @return Response
      */
@@ -64,10 +64,10 @@ class DictController extends Base
         if ($request->method() === 'POST') {
             $name = $request->post('name');
             if (Dict::get($name)) {
-                return $this->json(1, '字典已经存在');
+                return $this->json(1, '字典已經存在');
             }
             if (!preg_match('/^[a-zA-Z0-9]+$/', $name)) {
-                return $this->json(2, '字典名称只能是字母数字的组合');
+                return $this->json(2, '字典名稱只能是字母數字的組合');
             }
             $values = (array)$request->post('value', []);
             Dict::save($name, $values);
@@ -89,7 +89,7 @@ class DictController extends Base
                 return $this->json(1, '字典不存在');
             }
             if (!preg_match('/^[a-zA-Z0-9]+$/', $name)) {
-                return $this->json(2, '字典名称只能是字母数字的组合');
+                return $this->json(2, '字典名稱只能是字母數字的組合');
             }
             Dict::save($name, $request->post('value'));
         }
@@ -97,7 +97,7 @@ class DictController extends Base
     }
 
     /**
-     * 删除
+     * 刪除
      * @param Request $request
      * @return Response
      */
@@ -109,7 +109,7 @@ class DictController extends Base
     }
 
     /**
-     * 获取
+     * 獲取
      * @param Request $request
      * @param $name
      * @return Response

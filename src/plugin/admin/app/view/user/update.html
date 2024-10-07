@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
-        <title>更新页面</title>
+        <title>更新頁面</title>
         <link rel="stylesheet" href="/app/admin/component/pear/css/pear.css" />
         <link rel="stylesheet" href="/app/admin/admin/css/reset.css" />
     </head>
@@ -14,63 +14,63 @@
                 <div class="main-container mr-5">
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label required">用户名</label>
+                        <label class="layui-form-label required">使用者名稱</label>
                         <div class="layui-input-block">
                             <input type="text" name="username" value="" required lay-verify="required" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label required">昵称</label>
+                        <label class="layui-form-label required">暱稱</label>
                         <div class="layui-input-block">
                             <input type="text" name="nickname" value="" required lay-verify="required" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">密码</label>
+                        <label class="layui-form-label">密碼</label>
                         <div class="layui-input-block">
                             <input type="text" name="password" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">性别</label>
+                        <label class="layui-form-label">性別</label>
                         <div class="layui-input-block">
                             <div name="sex" id="sex" value="" ></div>
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">头像</label>
+                        <label class="layui-form-label">頭像</label>
                         <div class="layui-input-block">
                             <img class="img-3" src=""/>
                             <input type="text" style="display:none" name="avatar" value="" />
                             <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="avatar" permission="app.admin.upload.avatar">
-                                <i class="layui-icon layui-icon-upload"></i>上传图片
+                                <i class="layui-icon layui-icon-upload"></i>上傳圖片
                             </button>
                             <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" id="attachment-choose-avatar" permission="app.admin.upload.attachment">
-                                <i class="layui-icon layui-icon-align-left"></i>选择图片
+                                <i class="layui-icon layui-icon-align-left"></i>選擇圖片
                             </button>
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">邮箱</label>
+                        <label class="layui-form-label">信箱</label>
                         <div class="layui-input-block">
                             <input type="text" name="email" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">手机</label>
+                        <label class="layui-form-label">智慧型手機</label>
                         <div class="layui-input-block">
                             <input type="text" name="mobile" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">等级</label>
+                        <label class="layui-form-label">等級</label>
                         <div class="layui-input-block">
                             <input type="number" name="level" value="" class="layui-input">
                         </div>
@@ -84,42 +84,42 @@
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">余额(元)</label>
+                        <label class="layui-form-label">餘額(元)</label>
                         <div class="layui-input-block">
                             <input type="number" name="money" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">积分</label>
+                        <label class="layui-form-label">積分</label>
                         <div class="layui-input-block">
                             <input type="number" name="score" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">登录时间</label>
+                        <label class="layui-form-label">登入時間</label>
                         <div class="layui-input-block">
                             <input type="text" name="last_time" id="last_time" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">登录ip</label>
+                        <label class="layui-form-label">登入ip</label>
                         <div class="layui-input-block">
                             <input type="text" name="last_ip" value="" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">注册时间</label>
+                        <label class="layui-form-label">註冊時間</label>
                         <div class="layui-input-block">
                             <input type="text" name="join_time" id="join_time" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label">注册ip</label>
+                        <label class="layui-form-label">註冊ip</label>
                         <div class="layui-input-block">
                             <input type="text" name="join_ip" value="" class="layui-input">
                         </div>
@@ -154,12 +154,12 @@
         <script src="/app/admin/admin/js/permission.js"></script>
         <script>
 
-            // 相关接口
+            // 相關介面
             const PRIMARY_KEY = "id";
             const SELECT_API = "/app/admin/user/select" + location.search;
             const UPDATE_API = "/app/admin/user/update";
 
-            // 获取数据库记录
+            // 取得資料庫記錄
             layui.use(["form", "util", "popup"], function () {
                 let $ = layui.$;
                 $.ajax({
@@ -167,11 +167,11 @@
                     dataType: "json",
                     success: function (res) {
                         
-                        // 给表单初始化数据
+                        // 給表單初始化資料
                         layui.each(res.data[0], function (key, value) {
                             let obj = $('*[name="'+key+'"]');
                             if (key === "password") {
-                                obj.attr("placeholder", "不更新密码请留空");
+                                obj.attr("placeholder", "不更新密碼請留空");
                                 return;
                             }
                             if (typeof obj[0] === "undefined" || !obj[0].nodeName) return;
@@ -182,7 +182,7 @@
                             }
                         });
                         
-                        // 字段 性别 sex
+                        // 字段 性別 sex
                         layui.use(["jquery", "xmSelect", "popup"], function() {
                             layui.$.ajax({
                                 url: "/app/admin/dict/get/sex",
@@ -206,14 +206,14 @@
                             });
                         });
                         
-                        // 字段 头像 avatar
+                        // 字段 頭像 avatar
                         layui.use(["upload", "layer"], function() {
                             let input = layui.$("#avatar").prev();
                             input.prev().attr("src", input.val());
                             layui.$("#attachment-choose-avatar").on("click", function() {
                                 parent.layer.open({
                                     type: 2,
-                                    title: "选择附件",
+                                    title: "選擇附件",
                                     content: "/app/admin/upload/attachment?ext=jpg,jpeg,png,gif,bmp",
                                     area: ["95%", "90%"],
                                     success: function (layero, index) {
@@ -242,7 +242,7 @@
                             });
                         })
                         
-                        // 字段 登录时间 last_time
+                        // 字段 登入時間 last_time
                         layui.use(["laydate"], function() {
                             layui.laydate.render({
                                 elem: "#last_time",
@@ -250,7 +250,7 @@
                             });
                         })
                         
-                        // 字段 注册时间 join_time
+                        // 字段 註冊時間 join_time
                         layui.use(["laydate"], function() {
                             layui.laydate.render({
                                 elem: "#join_time",
@@ -267,7 +267,7 @@
                             });
                         })
 
-                        // ajax产生错误
+                        // ajax產生錯誤
                         if (res.code) {
                             layui.popup.failure(res.msg);
                         }

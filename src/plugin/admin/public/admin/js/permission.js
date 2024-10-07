@@ -1,5 +1,5 @@
 /**
- * 获取控制器详细权限，并决定展示哪些按钮或dom元素
+ * 取得控制器詳細權限，並決定要展示哪些按鈕或dom元素
  */
 layui.$(function () {
     let $ = layui.$;
@@ -22,7 +22,7 @@ layui.$(function () {
             }
             if (isSuperAdmin) return;
 
-            // 细分权限
+            // 細分權限
             layui.each(codes, function (k, code) {
                 codes[k] = '*[permission^="'+code+'"]';
             });

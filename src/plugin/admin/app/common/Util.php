@@ -15,7 +15,7 @@ use Workerman\Worker;
 class Util
 {
     /**
-     * 密码哈希
+     * 密碼哈希
      * @param $password
      * @param string $algo
      * @return false|string|null
@@ -26,7 +26,7 @@ class Util
     }
 
     /**
-     * 验证密码哈希
+     * 驗證密碼哈希
      * @param $password
      * @param $hash
      * @return bool
@@ -37,7 +37,7 @@ class Util
     }
 
     /**
-     * 获取webman-admin数据库连接
+     * 取得webman-admin資料庫連線
      * @return Connection
      */
     public static function db(): Connection
@@ -46,7 +46,7 @@ class Util
     }
 
     /**
-     * 获取SchemaBuilder
+     * 獲取SchemaBuilder
      * @return Builder
      */
     public static function schema(): Builder
@@ -55,7 +55,7 @@ class Util
     }
 
     /**
-     * 获取语义化时间
+     * 取得語意化時間
      * @param $time
      * @return false|string
      */
@@ -70,12 +70,12 @@ class Util
                 return $dur . '秒前';
             } else {
                 if ($dur < 3600) {
-                    return floor($dur / 60) . '分钟前';
+                    return floor($dur / 60) . '分鐘前';
                 } else {
                     if ($dur < 86400) {
-                        return floor($dur / 3600) . '小时前';
+                        return floor($dur / 3600) . '小時前';
                     } else {
-                        if ($dur < 2592000) { // 30天内
+                        if ($dur < 2592000) { // 30天內
                             return floor($dur / 86400) . '天前';
                         } else {
                             return date('Y-m-d', $timestamp);;
@@ -88,7 +88,7 @@ class Util
     }
 
     /**
-     * 格式化文件大小
+     * 格式化檔案大小
      * @param $file_size
      * @return string
      */
@@ -103,7 +103,7 @@ class Util
     }
 
     /**
-     * 数据库字符串转义
+     * 資料庫字串轉義
      * @param $var
      * @return false|string
      */
@@ -113,7 +113,7 @@ class Util
     }
 
     /**
-     * 检查表名是否合法
+     * 檢查表名是否合法
      * @param string $table
      * @return string
      * @throws BusinessException
@@ -127,7 +127,7 @@ class Util
     }
 
     /**
-     * 变量或数组中的元素只能是字母数字下划线组合
+     * 變數或陣列中的元素只能是字母數字底線組合
      * @param $var
      * @return mixed
      * @throws BusinessException
@@ -137,14 +137,14 @@ class Util
         $vars = (array)$var;
         array_walk_recursive($vars, function ($item) {
             if (is_string($item) && !preg_match('/^[a-zA-Z_0-9]+$/', $item)) {
-                throw new BusinessException('参数不合法');
+                throw new BusinessException('參數不合法');
             }
         });
         return $var;
     }
 
     /**
-     * 变量或数组中的元素只能是字母数字
+     * 變數或陣列中的元素只能是字母數字
      * @param $var
      * @return mixed
      * @throws BusinessException
@@ -154,14 +154,14 @@ class Util
         $vars = (array)$var;
         array_walk_recursive($vars, function ($item) {
             if (is_string($item) && !preg_match('/^[0-9]+$/', $item)) {
-                throw new BusinessException('参数不合法');
+                throw new BusinessException('參數不合法');
             }
         });
         return $var;
     }
 
     /**
-     * 检测是否是合法URL Path
+     * 檢測是否為合法URL Path
      * @param $var
      * @return string
      * @throws BusinessException
@@ -169,13 +169,13 @@ class Util
     public static function filterUrlPath($var): string
     {
         if (!is_string($var) || !preg_match('/^[a-zA-Z0-9_\-\/&?.]+$/', $var)) {
-            throw new BusinessException('参数不合法');
+            throw new BusinessException('參數不合法');
         }
         return $var;
     }
 
     /**
-     * 检测是否是合法Path
+     * 檢測是否為合法Path
      * @param $var
      * @return string
      * @throws BusinessException
@@ -183,13 +183,13 @@ class Util
     public static function filterPath($var): string
     {
         if (!is_string($var) || !preg_match('/^[a-zA-Z0-9_\-\/]+$/', $var)) {
-            throw new BusinessException('参数不合法');
+            throw new BusinessException('參數不合法');
         }
         return $var;
     }
 
     /**
-     * 类转换为url path
+     * 類別轉換為url path
      * @param $controller_class
      * @return false|string
      */
@@ -229,7 +229,7 @@ class Util
     }
 
     /**
-     * 转换为驼峰
+     * 轉換為駝峰
      * @param string $value
      * @return string
      */
@@ -248,7 +248,7 @@ class Util
     }
 
     /**
-     * 转换为小驼峰
+     * 轉換為小駝峰
      * @param $value
      * @return string
      */
@@ -258,7 +258,7 @@ class Util
     }
 
     /**
-     * 获取注释中第一行
+     * 取得註解中第一行
      * @param $comment
      * @return false|mixed|string
      */
@@ -276,13 +276,13 @@ class Util
     }
 
     /**
-     * 表单类型到插件的映射
+     * 表單類型到外掛程式的映射
      * @return \string[][]
      */
     public static function methodControlMap(): array
     {
         return  [
-            //method=>[控件]
+            //method=>[控制項]
             'integer' => ['InputNumber'],
             'string' => ['Input'],
             'text' => ['TextArea'],
@@ -321,7 +321,7 @@ class Util
     }
 
     /**
-     * 数据库类型到插件的转换
+     * 資料庫類型到外掛程式的轉換
      * @param $type
      * @return string
      */
@@ -343,7 +343,7 @@ class Util
     }
 
     /**
-     * 数据库类型到表单类型的转换
+     * 資料庫類型到表單類型的轉換
      * @param $type
      * @param $unsigned
      * @return string
@@ -365,7 +365,7 @@ class Util
     }
 
     /**
-     * 按表获取摘要
+     * 按表格取得摘要
      * @param $table
      * @param null $section
      * @return array|mixed
@@ -443,7 +443,7 @@ class Util
     }
 
     /**
-     * 获取字段长度或默认值
+     * 取得欄位長度或預設值
      * @param $schema
      * @return mixed|string
      */
@@ -468,7 +468,7 @@ class Util
     }
 
     /**
-     * 获取控件参数
+     * 取得控制項參數
      * @param $control
      * @param $control_args
      * @return array
@@ -509,7 +509,7 @@ class Util
     }
 
     /**
-     * 获取某个composer包的版本
+     * 取得某個composer包的版本
      * @param string $package
      * @return mixed|string
      */

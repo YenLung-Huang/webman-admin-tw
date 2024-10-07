@@ -19,7 +19,7 @@ option = {
         }
     },
     legend: {
-        data: ['新开会员', '激活会员', '关闭会员'],
+        data: ['新開會員', '啟動會員', '關閉會員'],
         align: 'left',
         right: 0,
         
@@ -48,7 +48,7 @@ option = {
     xAxis: [{
         type: 'category',
         offset: 10,
-        data: ['团队1', '团队2', '团队3', '团队4'],
+        data: ['團隊1', '團隊2', '團隊3', '團隊4'],
         axisLine: {
             show: false
         },
@@ -79,17 +79,17 @@ option = {
         }
     }],
     series: [{
-        name: '新开会员',
+        name: '新開會員',
         type: 'bar',
         data: [20, 34, 18, 14, 16],
-        barWidth: 22, //柱子宽度
-        barGap: 1, //柱子之间间距
+        barWidth: 22, //柱子寬度
+        barGap: 1, //柱子之間間距
         itemStyle: {
             color: '#0071c8',
             opacity: 1,
         }
     }, {
-        name: '激活会员',
+        name: '啟動會員',
         type: 'bar',
         data: [10, 24, 5, 24, 16],
         barWidth: 22,
@@ -99,7 +99,7 @@ option = {
             opacity: 1,
         }
     }, {
-        name: '关闭会员',
+        name: '關閉會員',
         type: 'bar',
         data: [7, 24, 18, 20, 6],
         barWidth: 22,

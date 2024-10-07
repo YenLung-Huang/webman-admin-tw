@@ -9,23 +9,23 @@ layui.define(['jquery'],function (exports) {
 
     var response = setter.response || {}
 
-    var plugin_filename = 'tinymce.min.js'//插件路径，不包含base_url部分
+    var plugin_filename = 'tinymce.min.js'//插件路徑，不包含base_url部分
 
     var settings = {
         base_url: modPath
         , relative_urls: false
         , remove_script_host: true
-        , images_upload_url: ''//图片上传接口，可在option传入，也可在这里修改，option的值优先
-        , language: 'zh_CN'//语言，可在option传入，也可在这里修改，option的值优先
-        , response: {//后台返回数据格式设置
-            statusName: response.statusName || 'code'//返回状态字段
-            , msgName: response.msgName || 'msg'//返回消息字段
-            , dataName: response.dataName || 'data'//返回的数据
+        , images_upload_url: ''//圖片上傳接口，可在option傳入，也可在此修改，option的值優先
+        , language: 'zh_CN'//語言，可在option傳入，也可在此修改，option的值優先
+        , response: {//後台返回資料格式設定
+            statusName: response.statusName || 'code'//返回狀態欄位
+            , msgName: response.msgName || 'msg'//返回訊息欄位
+            , dataName: response.dataName || 'data'//返回的資料
             , statusCode: response.statusCode || {
-                ok: 0//数据正常
+                ok: 0//資料正常
             }
         }
-        , success: function (res, succFun, failFun) {//图片上传完成回调 根据自己需要修改
+        , success: function (res, succFun, failFun) {//圖片上傳完成回呼 依自己需要修改
             if (res[this.response.statusName] == this.response.statusCode.ok) {
                 succFun(res[this.response.dataName]["url"]);
             } else {
@@ -34,7 +34,7 @@ layui.define(['jquery'],function (exports) {
         }
     };
 
-    //  ----------------  以下代码无需修改  ----------------
+    //  ----------------  以下程式碼無需修改  ----------------
 
     var t = {};
 
@@ -58,7 +58,7 @@ layui.define(['jquery'],function (exports) {
 
     t.init = t.render
 
-    // 获取ID对应的编辑器对象
+    // 取得ID對應的編輯器物件
     t.get = function (elem) {
 
         initTinymce();
@@ -72,7 +72,7 @@ layui.define(['jquery'],function (exports) {
         }
     }
 
-    //重载
+    //重載
     t.reload = function (elem, option, callback) {
            
         var options = {}
@@ -100,9 +100,9 @@ layui.define(['jquery'],function (exports) {
 
         var form = option.form || {}
 
-        var file_field = form.name || 'edit' //文件字段名
+        var file_field = form.name || 'edit' //檔案欄位名稱
 
-        var form_data = form.data || {} //其他表单数据 {key:value, ...}
+        var form_data = form.data || {} //其他表單資料 {key:value, ...}
 
         option.suffix= isset(option.suffix) ? option.suffix : (plugin_filename.indexOf('.min')>-1 ? '.min' : '')
 
@@ -134,7 +134,7 @@ layui.define(['jquery'],function (exports) {
 
         option.menu = isset(option.menu) ? option.menu : {
             file: {title: '文件', items: 'newdocument | print preview fullscreen | wordcount'},
-            edit: {title: '编辑', items: 'undo redo | cut copy paste pastetext selectall | searchreplace'},
+            edit: {title: '編輯', items: 'undo redo | cut copy paste pastetext selectall | searchreplace'},
             format: {
                 title: '格式',
                 items: 'bold italic underline strikethrough superscript subscript | formats | forecolor backcolor | removeformat'
@@ -150,7 +150,7 @@ layui.define(['jquery'],function (exports) {
 
         option.images_upload_handler = isset(option.images_upload_handler) ? option.images_upload_handler : function(blobInfo, succFun, failFun) {
             if(isEmpty(option.images_upload_url)){
-                failFun("上传接口未配置");
+                failFun("上傳介面未配置");
                 return console.error('images_upload_url未配置');
             }
             var formData = new FormData();
@@ -171,7 +171,7 @@ layui.define(['jquery'],function (exports) {
                     settings.success(res, succFun, failFun)
                 },
                 error: function (res) {
-                    failFun("网络错误：" + res.status);
+                    failFun("網路錯誤：" + res.status);
                 }
             };
             if (typeof admin.req == 'function') {
@@ -190,7 +190,7 @@ layui.define(['jquery'],function (exports) {
 
     function initTinymce() {
         if (typeof tinymce == 'undefined') {
-            $.ajax({//获取插件
+            $.ajax({//取得外掛
                 url: settings.base_url + '/' + plugin_filename,
                 dataType: 'script',
                 cache: true,

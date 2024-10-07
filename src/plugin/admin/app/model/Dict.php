@@ -6,12 +6,12 @@ namespace plugin\admin\app\model;
 use support\exception\BusinessException;
 
 /**
- * 字典相关
+ * 字典相關
  */
 class Dict
 {
     /**
-     * 获取字典
+     * 取得字典
      * @param $name
      * @return mixed|null
      */
@@ -44,7 +44,7 @@ class Dict
     }
 
     /**
-     * 删除字典
+     * 刪除字典
      * @param array $names
      * @return void
      */
@@ -57,7 +57,7 @@ class Dict
     }
 
     /**
-     * 字典名到option名转换
+     * 字典名到option名轉換
      * @param string $name
      * @return string
      */
@@ -67,7 +67,7 @@ class Dict
     }
 
     /**
-     * option名到字典名转换
+     * option名到字典名轉換
      * @param string $name
      * @return string
      */
@@ -77,7 +77,7 @@ class Dict
     }
 
     /**
-     * 过滤值
+     * 過濾值
      * @param array $values
      * @return array
      * @throws BusinessException
@@ -87,7 +87,7 @@ class Dict
         $format_values = [];
         foreach ($values as $item) {
             if (!isset($item['value']) || !isset($item['name'])) {
-                throw new BusinessException('字典格式错误', 1);
+                throw new BusinessException('字典格式錯誤', 1);
             }
             $format_values[] =  ['value' => $item['value'], 'name' => $item['name']];
         }

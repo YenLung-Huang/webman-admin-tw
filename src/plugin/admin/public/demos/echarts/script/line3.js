@@ -11,7 +11,7 @@ layui.use(['echarts'], function() {
 	option = {
 		backgroundColor: '#fff',
 		title: {
-			text: "告警数",
+			text: "告警數",
 			left: "18px",
 			top: "0",			
 			color: "#999",
@@ -39,7 +39,7 @@ layui.use(['echarts'], function() {
 			containLabel: true
 		},
 		legend: {
-			data: ['上周', '本周'],
+			data: ['上週', '本週'],
 			orient: 'horizontal',
 			icon: "rect",
 			show: true,
@@ -48,7 +48,7 @@ layui.use(['echarts'], function() {
 		},
 		xAxis: {
 			type: 'category',
-			data: ['爱立信端局', '中兴端局', '爱立信HSS', '中兴HSS', '华为HSS', '华为智能网', '中兴VIMS'],
+			data: ['愛立信端局', '中興端局', '愛立信HSS', '中興HSS', '華為HSS', '華為智慧網', '中興VIMS'],
 			splitLine: {
 				show: false
 			},
@@ -79,13 +79,13 @@ layui.use(['echarts'], function() {
 			},
 		},
 		series: [{
-				name: '上周',
+				name: '上週',
 				type: 'line',
 				smooth: true,
 				data: [1800, 1000, 2000, 1000, 500, 100, 1200]
 			},
 			{
-				name: '本周',
+				name: '本週',
 				type: 'line',
 				smooth: true,
 				data: [1700, 999, 1100, 899, 199, 99, 1000]

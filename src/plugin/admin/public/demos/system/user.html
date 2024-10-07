@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>用户管理</title>
+		<title>用戶管理</title>
 		<link rel="stylesheet" href="../../component/pear/css/pear.css" />
 	</head>
 	<body class="pear-container">
@@ -11,19 +11,19 @@
 				<form class="layui-form" action="">
 					<div class="layui-form-item">
 						<div class="layui-form-item layui-inline">
-							<label class="layui-form-label">用户名</label>
+							<label class="layui-form-label">使用者名稱</label>
 							<div class="layui-input-inline">
 								<input type="text" name="realName" placeholder="" class="layui-input">
 							</div>
 						</div>
 						<div class="layui-form-item layui-inline">
-							<label class="layui-form-label">性别</label>
+							<label class="layui-form-label">性別</label>
 							<div class="layui-input-inline">
 								<input type="text" name="realName" placeholder="" class="layui-input">
 							</div>
 						</div>
 						<div class="layui-form-item layui-inline">
-							<label class="layui-form-label">邮箱</label>
+							<label class="layui-form-label">信箱</label>
 							<div class="layui-input-inline">
 								<input type="text" name="realName" placeholder="" class="layui-input">
 							</div>
@@ -31,7 +31,7 @@
 						<div class="layui-form-item layui-inline">
 							<button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="user-query">
 								<i class="layui-icon layui-icon-search"></i>
-								查询
+								查詢
 							</button>
 							<button type="reset" class="pear-btn pear-btn-md">
 								<i class="layui-icon layui-icon-refresh"></i>
@@ -55,7 +55,7 @@
 		    </button>
 		    <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
 		        <i class="layui-icon layui-icon-delete"></i>
-		        删除
+		        刪除
 		    </button>
 		</script>
 
@@ -65,7 +65,7 @@
 		</script>
 
 		<script type="text/html" id="user-enable">
-			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="user-enable" {{ d.enable== true ? 'checked' : '' }} />
+			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="啟用|停用" lay-filter="user-enable" {{ d.enable== true ? 'checked' : '' }} />
 		</script>
 
 		<script type="text/html" id="user-sex">
@@ -78,9 +78,9 @@
 
 		<script type="text/html" id="user-login">
 			{{#if (d.login == 0) { }}
-		    <span>在线</span>
+		    <span>線上</span>
 		    {{# }else if(d.sex == 1){ }}
-		    <span>离线</span>
+		    <span>離線</span>
 		    {{# } }}
 		</script>
 
@@ -104,7 +104,7 @@
 							type: 'checkbox'
 						},
 						{
-							title: '账号',
+							title: '帳號',
 							field: 'username',
 							align: 'center',
 							width: 100
@@ -115,31 +115,31 @@
 							align: 'center'
 						},
 						{
-							title: '性别',
+							title: '性別',
 							field: 'sex',
 							align: 'center',
 							width: 80,
 							templet: '#user-sex'
 						},
 						{
-							title: '电话',
+							title: '電話',
 							field: 'phone',
 							align: 'center'
 						},
 						{
-							title: '启用',
+							title: '啟用',
 							field: 'enable',
 							align: 'center',
 							templet: '#user-enable'
 						},
 						{
-							title: '登录',
+							title: '登入',
 							field: 'login',
 							align: 'center',
 							templet: '#user-login'
 						},
 						{
-							title: '注册',
+							title: '註冊',
 							field: 'createTime',
 							align: 'center',
 							templet: '#user-createTime'
@@ -161,7 +161,7 @@
 					skin: 'line',
 					toolbar: '#user-toolbar',
 					defaultToolbar: [{
-						title: '刷新',
+						title: '重新整理',
 						layEvent: 'refresh',
 						icon: 'layui-icon-refresh',
 					}, 'filter', 'print', 'exports']
@@ -217,7 +217,7 @@
 				}
 
 				window.remove = function(obj) {
-					layer.confirm('确定要删除该用户', {
+					layer.confirm('確定要刪除該使用者', {
 						icon: 3,
 						title: '提示'
 					}, function(index) {
@@ -252,14 +252,14 @@
 					var checkIds = common.checkField(obj,'userId');
 					
 					if (checkIds === "") {
-						layer.msg("未选中数据", {
+						layer.msg("未選取資料", {
 							icon: 3,
 							time: 1000
 						});
 						return false;
 					}
 					
-					layer.confirm('确定要删除这些用户', {
+					layer.confirm('確定要刪除這些使用者', {
 						icon: 3,
 						title: '提示'
 					}, function(index) {

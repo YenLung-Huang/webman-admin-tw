@@ -3,7 +3,7 @@
 	box-shadow: 2px 0 6px rgb(0 21 41 / 0.04) !important;
 }
 
-/* 扩展动画开始 */
+/* 擴充動畫開始 */
 .pear-drawer.layui-layer {
 	border-radius: 0 !important;
 	overflow: auto;
@@ -321,4 +321,4 @@
 	animation-name: layer-bt-close
 }
 
-/* 扩展动画结束 */
+/* 擴充動畫結束 */

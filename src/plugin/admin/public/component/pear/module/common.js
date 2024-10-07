@@ -2,7 +2,7 @@ layui.define(['jquery', 'element','table'], function(exports) {
 	"use strict";
 
 	/**
-	 * 常用封装类
+	 * 常用封裝類別
 	 * */
 	var MOD_NAME = 'common',
 		$ = layui.jquery,
@@ -12,9 +12,9 @@ layui.define(['jquery', 'element','table'], function(exports) {
 	var common = new function() {
 		
 		/**
-		 * 获取当前表格选中字段
-		 * @param obj 表格回调参数
-		 * @param field 要获取的字段
+		 * 取得目前表格選取欄位
+		 * @param obj 表格回呼參數
+		 * @param field 要取得的欄位
 		 * */
 		this.checkField = function(obj, field) {
 			let data = table.checkStatus(obj.config.id).data;
@@ -30,7 +30,7 @@ layui.define(['jquery', 'element','table'], function(exports) {
 		}
 		
 		/**
-		 * 当前是否为与移动端
+		 * 當前是否為與行動端
 		 * */
 		this.isModile = function(){
 			if ($(window).width() <= 768) {
@@ -41,10 +41,10 @@ layui.define(['jquery', 'element','table'], function(exports) {
 		
 		
 		/**
-		 * 提交 json 数据
-		 * @param data 提交数据
+		 * 提交 json 資料
+		 * @param data 提交資料
 		 * @param href 提交接口
-		 * @param table 刷新父级表
+		 * @param table 刷新父級表
 		 * 
 		 * */
 		this.submit = function(data,href,table,callback){
@@ -57,7 +57,7 @@ layui.define(['jquery', 'element','table'], function(exports) {
 			    success:callback !=null?callback(result):function(result){
 			        if(result.success){
 			            layer.msg(result.msg,{icon:1,time:1000},function(){
-			                parent.layer.close(parent.layer.getFrameIndex(window.name));//关闭当前页
+			                parent.layer.close(parent.layer.getFrameIndex(window.name));//關閉目前頁面
 			                parent.layui.table.reload(table);
 			            });
 			        }else{

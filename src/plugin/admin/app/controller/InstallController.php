@@ -11,18 +11,18 @@ use support\Response;
 use Webman\Captcha\CaptchaBuilder;
 
 /**
- * 安装
+ * 安裝
  */
 class InstallController extends Base
 {
     /**
-     * 不需要登录的方法
+     * 不需要登入的方法
      * @var string[]
      */
     protected $noNeedLogin = ['step1', 'step2'];
 
     /**
-     * 设置数据库
+     * 設定資料庫
      * @param Request $request
      * @return Response
      * @throws BusinessException|\Throwable
@@ -32,11 +32,11 @@ class InstallController extends Base
         $database_config_file = base_path() . '/plugin/admin/config/database.php';
         clearstatcache();
         if (is_file($database_config_file)) {
-            return $this->json(1, '管理后台已经安装！如需重新安装，请删除该插件数据库配置文件并重启');
+            return $this->json(1, '管理後台已經安裝！如需重新安裝，請刪除該外掛程式資料庫設定檔並重新啟動');
         }
 
         if (!class_exists(CaptchaBuilder::class) || !class_exists(Manager::class)) {
-            return $this->json(1, '请运行 composer require -W illuminate/database 安装illuminate/database组件并重启');
+            return $this->json(1, '請執行 composer require -W illuminate/database 安裝illuminate/database元件並重新啟動');
         }
 
         $user = $request->post('user');
@@ -57,13 +57,13 @@ class InstallController extends Base
             $tables = $smt->fetchAll();
         } catch (\Throwable $e) {
             if (stripos($e, 'Access denied for user')) {
-                return $this->json(1, '数据库用户名或密码错误');
+                return $this->json(1, '資料庫使用者名稱或密碼錯誤');
             }
             if (stripos($e, 'Connection refused')) {
-                return $this->json(1, 'Connection refused. 请确认数据库IP端口是否正确，数据库已经启动');
+                return $this->json(1, 'Connection refused. 請確認資料庫IP連接埠是否正確，資料庫已啟動');
             }
             if (stripos($e, 'timed out')) {
-                return $this->json(1, '数据库连接超时，请确认数据库IP端口是否正确，安全组及防火墙已经放行端口');
+                return $this->json(1, '資料庫連線逾時，請確認資料庫IP連接埠是否正確，安全群組及防火牆已放行連接埠');
             }
             throw $e;
         }
@@ -85,7 +85,7 @@ class InstallController extends Base
         $tables_conflict = array_intersect($tables_to_install, $tables_exist);
         if (!$overwrite) {
             if ($tables_conflict) {
-                return $this->json(1, '以下表' . implode(',', $tables_conflict) . '已经存在，如需覆盖请选择强制覆盖');
+                return $this->json(1, '以下表' . implode(',', $tables_conflict) . '已經存在，如需覆蓋請選擇強制覆蓋');
             }
         } else {
             foreach ($tables_conflict as $table) {
@@ -95,7 +95,7 @@ class InstallController extends Base
 
         $sql_file = base_path() . '/plugin/admin/install.sql';
         if (!is_file($sql_file)) {
-            return $this->json(1, '数据库SQL文件不存在');
+            return $this->json(1, '資料庫SQL檔案不存在');
         }
 
         $sql_query = file_get_contents($sql_file);
@@ -105,9 +105,9 @@ class InstallController extends Base
             $db->exec($sql);
         }
 
-        // 导入菜单
+        // 導入選單
         $menus = include base_path() . '/plugin/admin/config/menu.php';
-        // 安装过程中没有数据库配置，无法使用api\Menu::import()方法
+        // 安裝过程中没有数据库配置，无法使用api\Menu::import()方法
         $this->importMenu($menus, $db);
 
         $config_content = <<<EOF
@@ -140,32 +140,32 @@ return [
     'default' => 'mysql',
     'connections' => [
         'mysql' => [
-            // 数据库类型
+            // 資料庫類型
             'type' => 'mysql',
-            // 服务器地址
+            // 伺服器位址
             'hostname' => '$host',
-            // 数据库名
+            // 資料庫名稱
             'database' => '$database',
-            // 数据库用户名
+            // 資料庫使用者名稱
             'username' => '$user',
-            // 数据库密码
+            // 資料庫密碼
             'password' => '$password',
-            // 数据库连接端口
+            // 資料庫連線連接埠
             'hostport' => $port,
-            // 数据库连接参数
+            // 資料庫連線參數
             'params' => [
-                // 连接超时3秒
+                // 連線逾時3秒
                 \PDO::ATTR_TIMEOUT => 3,
             ],
-            // 数据库编码默认采用utf8
+            // 資料庫編碼預設採用utf8
             'charset' => 'utf8mb4',
-            // 数据库表前缀
+            // 資料庫表前綴
             'prefix' => '',
-            // 断线重连
+            // 斷線重連
             'break_reconnect' => true,
-            // 关闭SQL监听日志
+            // 關閉SQL監聽日誌
             'trigger_sql' => true,
-            // 自定义分页类
+            // 自訂分頁類
             'bootstrap' =>  ''
         ],
     ],
@@ -174,7 +174,7 @@ EOF;
         file_put_contents(base_path() . '/plugin/admin/config/thinkorm.php', $think_orm_config);
 
 
-        // 尝试reload
+        // 嘗試reload
         if (function_exists('posix_kill')) {
             set_error_handler(function () {});
             posix_kill(posix_getppid(), SIGUSR1);
@@ -185,7 +185,7 @@ EOF;
     }
 
     /**
-     * 设置管理员
+     * 設定管理員
      * @param Request $request
      * @return Response
      * @throws BusinessException
@@ -196,17 +196,17 @@ EOF;
         $password = $request->post('password');
         $password_confirm = $request->post('password_confirm');
         if ($password != $password_confirm) {
-            return $this->json(1, '两次密码不一致');
+            return $this->json(1, '兩次密碼不一致');
         }
         if (!is_file($config_file = base_path() . '/plugin/admin/config/database.php')) {
-            return $this->json(1, '请先完成第一步数据库配置');
+            return $this->json(1, '請先完成第一步資料庫配置');
         }
         $config = include $config_file;
         $connection = $config['connections']['mysql'];
         $pdo = $this->getPdo($connection['host'], $connection['username'], $connection['password'], $connection['port'], $connection['database']);
 
         if ($pdo->query('select * from `wa_admins`')->fetchAll()) {
-            return $this->json(1, '后台已经安装完毕，无法通过此页面创建管理员');
+            return $this->json(1, '後台已經安裝完畢，無法透過此頁面建立管理員');
         }
 
         $smt = $pdo->prepare("insert into `wa_admins` (`username`, `password`, `nickname`, `created_at`, `updated_at`) values (:username, :password, :nickname, :created_at, :updated_at)");
@@ -214,7 +214,7 @@ EOF;
         $data = [
             'username' => $username,
             'password' => Util::passwordHash($password),
-            'nickname' => '超级管理员',
+            'nickname' => '超級管理員',
             'created_at' => $time,
             'updated_at' => $time
         ];
@@ -234,7 +234,7 @@ EOF;
     }
 
     /**
-     * 添加菜单
+     * 新增選單
      * @param array $menu
      * @param \PDO $pdo
      * @return int
@@ -268,7 +268,7 @@ EOF;
     }
 
     /**
-     * 导入菜单
+     * 導入選單
      * @param array $menu_tree
      * @param \PDO $pdo
      * @return void
@@ -306,7 +306,7 @@ EOF;
     }
 
     /**
-     * 去除sql文件中的注释
+     * 去除sql檔案中的註解
      * @param $sql
      * @return string
      */
@@ -316,7 +316,7 @@ EOF;
     }
 
     /**
-     * 分割sql文件
+     * 分割sql檔案
      * @param $sql
      * @param $delimiter
      * @return array
@@ -365,7 +365,7 @@ EOF;
     }
 
     /**
-     * 获取pdo连接
+     * 取得pdo連線
      * @param $host
      * @param $username
      * @param $password

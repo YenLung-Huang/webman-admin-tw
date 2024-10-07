@@ -1,5 +1,5 @@
 /**
- * 浏览页面顶部搜索框展开收回控制
+ * 瀏覽頁面頂部搜尋框展開收回控制
  */
 function toggleSearchFormShow()
 {

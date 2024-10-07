@@ -79,9 +79,9 @@ layui.use(['echarts'], function() {
 								x2: 0,
 								y2: 1,
 								colorStops: [{
-									offset: 0, color: 'rgba(59,102,246)' // 0% 处的颜色
+									offset: 0, color: 'rgba(59,102,246)' // 0% 處的顏色
 								}, {
-									offset: 1, color: 'rgba(118,237,252)' // 100% 处的颜色
+									offset: 1, color: 'rgba(118,237,252)' // 100% 處的顏色
 								}]
 							},
 							shadowBlur: 4,
@@ -96,9 +96,9 @@ layui.use(['echarts'], function() {
 							x2: 0,
 							y2: 1,
 							colorStops: [{
-								offset: 0, color: 'rgba(227,233,250,.9)' // 0% 处的颜色
+								offset: 0, color: 'rgba(227,233,250,.9)' // 0% 處的顏色
 							}, {
-								offset: 1, color: 'rgba(248,251,252,.3)' // 100% 处的颜色
+								offset: 1, color: 'rgba(248,251,252,.3)' // 100% 處的顏色
 							}]
 						}	                   
 					},

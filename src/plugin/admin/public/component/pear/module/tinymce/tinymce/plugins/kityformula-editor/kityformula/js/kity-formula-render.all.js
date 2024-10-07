@@ -38,8 +38,8 @@ var _p = {
 };
 
 /*!
- * canvg库封装
- * canvg官网： https://code.google.com/p/canvg/
+ * canvg庫封裝
+ * canvg官網： https://code.google.com/p/canvg/
  */
 _p[0] = {
     value: function(require) {
@@ -3244,7 +3244,7 @@ _p[0] = {
 };
 
 /*!
- * 输出转换器，提供输出支持
+ * 輸出轉換器，提供輸出支援
  */
 _p[1] = {
     value: function(require) {
@@ -3319,7 +3319,7 @@ _p[1] = {
 };
 
 /*!
- * 所有字符的列表
+ * 所有字元的列表
  */
 _p[2] = {
     value: function() {
@@ -3328,19 +3328,19 @@ _p[2] = {
 };
 
 /*!
- * 字符配置
+ * 字元配置
  */
 _p[3] = {
     value: function() {
         return {
-            // 默认字体
+            // 預設字體
             defaultFont: "KF AMS MAIN"
         };
     }
 };
 
 /*!
- * 工厂方法，创建兼容各浏览器的text实现
+ * 工廠方法，創建相容各瀏覽器的text實作
  */
 _p[4] = {
     value: function(require) {
@@ -3359,7 +3359,7 @@ _p[4] = {
             return text;
         }
         /**
-     * 构建节点来转换内容
+     * 建構節點來轉換內容
      */
         function convertContent(content) {
             divNode.innerHTML = '<svg><text gg="asfdas">' + content.replace(/\s/gi, "&nbsp;") + "</text></svg>";
@@ -3374,7 +3374,7 @@ _p[4] = {
 };
 
 /**
- * 文本
+ * 文字
  */
 _p[5] = {
     value: function(require) {
@@ -3386,7 +3386,7 @@ _p[5] = {
                 this.fontFamily = fontFamily;
                 this.fontSize = 50;
                 this.content = content || "";
-                // 移除多余的节点
+                // 移除多餘的節點
                 this.box.remove();
                 this.translationContent = this.translation(this.content);
                 this.contentShape = new kity.Group();
@@ -3423,7 +3423,7 @@ _p[5] = {
             },
             translation: function(content) {
                 var fontFamily = this.fontFamily;
-                // 首先特殊处理掉两个相连的"`"符号
+                // 先特別處理掉兩個相連的"`"符號
                 return content.replace(/``/g, "“").replace(/\\([a-zA-Z,]+)\\/g, function(match, input) {
                     if (input === ",") {
                         return " ";
@@ -3440,7 +3440,7 @@ _p[5] = {
 };
 
 /**
- * 定义公式中各种对象的类型
+ * 定義公式中各種物件的類型
  */
 _p[6] = {
     value: function() {
@@ -3454,7 +3454,7 @@ _p[6] = {
 };
 
 /**
- * 定义公式中上下标的类型
+ * 定義公式中上下標的類型
  */
 _p[7] = {
     value: function() {
@@ -3466,7 +3466,7 @@ _p[7] = {
 };
 
 /**
- * 下标表达式
+ * 下標表達式
  */
 _p[8] = {
     value: function(require) {
@@ -3482,7 +3482,7 @@ _p[8] = {
 };
 
 /**
- * 上标表达式
+ * 上標表達式
  */
 _p[9] = {
     value: function(require) {
@@ -3498,7 +3498,7 @@ _p[9] = {
 };
 
 /**
- * 二元操作表达式
+ * 二元運算式
  */
 _p[10] = {
     value: function(require) {
@@ -3527,7 +3527,7 @@ _p[10] = {
 };
 
 /**
- * 自动增长括号表达式
+ * 自動增長括號表達式
  */
 _p[11] = {
     value: function(require) {
@@ -3535,18 +3535,18 @@ _p[11] = {
         return kity.createClass("BracketsExpression", {
             base: _p.r(19),
             /**
-         * 构造函数调用方式：
-         *  new Constructor( 左括号, 右括号, 表达式 )
-         *  或者
-         *  new Constructor( 括号, 表达式 ), 该构造函数转换成上面的构造函数，是： new Constructor( 括号, 括号, 表达式 )
-         * @param left 左括号
-         * @param right 右括号
-         * @param exp 表达式
+         * 建構函式呼叫方式：
+         *  new Constructor( 左括號, 右括號, 表達式 )
+         *  或
+         *  new Constructor( 括號, 表達式 ), 此建構函數轉換成上面的建構函數，是： new Constructor( 括號, 括號, 表達式 )
+         * @param left 左括號
+         * @param right 右括號
+         * @param exp 表達式
          */
             constructor: function(left, right, exp) {
                 this.callBase();
                 this.setFlag("Brackets");
-                // 参数整理
+                // 參數整理
                 if (arguments.length === 2) {
                     exp = right;
                     right = left;
@@ -3567,8 +3567,8 @@ _p[11] = {
 };
 
 /**
- * 组合表达式
- * 可以组合多个表达式
+ * 組合表達式
+ * 可以組合多個表達式
  */
 _p[12] = {
     value: function(require) {
@@ -3615,7 +3615,7 @@ _p[12] = {
 };
 
 /**
- * 分数表达式
+ * 分數表達式
  */
 _p[13] = {
     value: function(require) {
@@ -3627,7 +3627,7 @@ _p[13] = {
                 this.setFlag("Fraction");
                 this.setOperator(new FractionOperator());
             },
-            /*------- 重写分数结构的baseline和mealine计算方式 */
+            /*------- 重寫分數結構的baseline和mealine計算方式 */
             getBaseline: function(refer) {
                 var downOperand = this.getOperand(1), rectBox = downOperand.getRenderBox(refer);
                 return rectBox.y + downOperand.getBaselineProportion() * rectBox.height;
@@ -3641,7 +3641,7 @@ _p[13] = {
 };
 
 /**
- * 函数表达式
+ * 函數表達式
  */
 _p[14] = {
     value: function(require) {
@@ -3649,11 +3649,11 @@ _p[14] = {
         return kity.createClass("FunctionExpression", {
             base: _p.r(19),
             /**
-         * function表达式构造函数
-         * @param funcName function名称
-         * @param expr 函数表达式
-         * @param sup 上标
-         * @param sub 下标
+         * function表達式建構子
+         * @param funcName function名稱
+         * @param expr 函數表達式
+         * @param sup 上標
+         * @param sub 下標
          */
             constructor: function(funcName, expr, sup, sub) {
                 this.callBase();
@@ -3664,7 +3664,7 @@ _p[14] = {
                 this.setSuperscript(sup);
                 this.setSubscript(sub);
             },
-            // 当前函数应用的script位置是否是在侧面
+            // 當前函數應用的script位置是否是在側面
             isSideScript: function() {
                 return !FUNC_CONF["ud-script"][this.funcName];
             },
@@ -3682,15 +3682,15 @@ _p[14] = {
 };
 
 /**
- * 积分表达式
+ * 積分錶達式
  */
 _p[15] = {
     value: function(require) {
         var kity = _p.r(34), IntegrationOperator = _p.r(40), IntegrationExpression = kity.createClass("IntegrationExpression", {
             base: _p.r(19),
             /**
-             * 构造积分表达式
-             * @param integrand 被积函数
+             * 構造積分錶達式
+             * @param integrand 被積函數
              * @param supOperand 上限
              * @param subOperand 下限
              */
@@ -3725,7 +3725,7 @@ _p[15] = {
 };
 
 /**
- * 方根表达式
+ * 方根表達式
  */
 _p[16] = {
     value: function(require) {
@@ -3733,9 +3733,9 @@ _p[16] = {
         return kity.createClass("RadicalExpression", {
             base: _p.r(10),
             /**
-         * 构造开方表达式
-         * @param radicand 被开方数
-         * @param exponent 指数
+         * 構造開方表達式
+         * @param radicand 被開方數
+         * @param exponent 指數
          */
             constructor: function(radicand, exponent) {
                 this.callBase(radicand, exponent);
@@ -3759,7 +3759,7 @@ _p[16] = {
 };
 
 /**
- * 上标表达式
+ * 上標表達式
  */
 _p[17] = {
     value: function(require) {
@@ -3788,7 +3788,7 @@ _p[17] = {
 };
 
 /**
- * 求和表达式
+ * 求和表達式
  */
 _p[18] = {
     value: function(require) {
@@ -3796,10 +3796,10 @@ _p[18] = {
         return kity.createClass("SummationExpression", {
             base: _p.r(19),
             /**
-         * 构造求和表达式
-         * @param expr 求和表达式
-         * @param upOperand 上标
-         * @param downOperand 下标
+         * 構造求和表達式
+         * @param expr 求和表達式
+         * @param upOperand 上標
+         * @param downOperand 下標
          */
             constructor: function(expr, superscript, subscript) {
                 this.callBase();
@@ -3823,7 +3823,7 @@ _p[18] = {
 };
 
 /**
- * 复合表达式
+ * 複合表達式
  * @abstract
  */
 _p[19] = {
@@ -3843,7 +3843,7 @@ _p[19] = {
                 this.setChildren(0, this.operatorBox);
                 this.setChildren(1, this.operandBox);
             },
-            // 操作符存储在第1位置
+            // 運算元儲存在第1位置
             setOperator: function(operator) {
                 if (operator === undefined) {
                     return this;
@@ -3854,16 +3854,16 @@ _p[19] = {
                 this.operatorBox.addShape(operator);
                 this.operator = operator;
                 this.operator.setParentExpression(this);
-                // 表达式关联到操作符
+                // 表達式關聯到運算子
                 operator.expression = this;
                 return this;
             },
             getOperator: function() {
                 return this.operator;
             },
-            // 操作数存储位置是从1开始
+            // 操作數儲存位置是從1開始
             setOperand: function(operand, index, isWrap) {
-                // 不包装操作数
+                // 不包裝操作數
                 if (isWrap === false) {
                     this.operands[index] = operand;
                     return this;
@@ -3891,8 +3891,8 @@ _p[19] = {
 };
 
 /**
- * 空表达式
- * 该表达式主要用途是用于站位
+ * 空表達式
+ * 此表達式主要用途是用於站位
  */
 _p[20] = {
     value: function(require) {
@@ -3914,7 +3914,7 @@ _p[20] = {
         EmptyExpression.isEmpty = function(target) {
             return target instanceof EmptyExpression;
         };
-        // 注册打包函数
+        // 註冊打包函數
         Expression.registerWrap("empty", function(operand) {
             if (operand === null || operand === undefined) {
                 return new EmptyExpression();
@@ -3925,19 +3925,19 @@ _p[20] = {
 };
 
 /**
- * 基础表达式， 该类是表达式和操作数的高层抽象
+ * 基礎表達式， 此類別是表達式和操作數的高層抽象
  * @abstract
  */
 _p[21] = {
     value: function(require) {
-        var kity = _p.r(34), GTYPE = _p.r(6), FONT_CONF = _p.r(47).font, // 打包函数列表
-        WRAP_FN = [], // 注册的打包函数的名称与其在注册器列表中的索引之间的对应关系
+        var kity = _p.r(34), GTYPE = _p.r(6), FONT_CONF = _p.r(47).font, // 打包函數列表
+        WRAP_FN = [], // 註冊的打包函數的名稱與其在註冊器清單中的索引之間的對應關係
         WRAP_FN_INDEX = {}, Expression = kity.createClass("Expression", {
             base: _p.r(46),
             constructor: function() {
                 this.callBase();
                 this.type = GTYPE.EXP;
-                // 表达式的上下偏移
+                // 表達式的上下偏移
                 this._offset = {
                     top: 0,
                     bottom: 0
@@ -3978,7 +3978,7 @@ _p[21] = {
                 this.setAttr("data-flag", flag || "Expression");
             },
             setChildren: function(index, exp) {
-                // 首先清理掉之前的表达式
+                // 先清理掉之前的表達式
                 if (this.children[index]) {
                     this.children[index].remove();
                 }
@@ -4026,7 +4026,7 @@ _p[21] = {
                 return this.box;
             }
         });
-        // 表达式自动打包
+        // 表達式自動打包
         kity.Utils.extend(Expression, {
             registerWrap: function(name, fn) {
                 WRAP_FN_INDEX[name] = WRAP_FN.length;
@@ -4041,7 +4041,7 @@ _p[21] = {
                 }
                 return fn;
             },
-            // 打包函数
+            // 打包函數
             wrap: function(operand) {
                 var result;
                 kity.Utils.each(WRAP_FN, function(fn) {
@@ -4061,7 +4061,7 @@ _p[21] = {
 };
 
 /**
- * Text表达式
+ * Text表達式
  */
 _p[22] = {
     value: function(require) {
@@ -4089,7 +4089,7 @@ _p[22] = {
                 return this;
             }
         });
-        // 注册文本表达式的打包函数
+        // 註冊文字表達式的打包函數
         Expression.registerWrap("text", function(operand) {
             var operandType = typeof operand;
             if (operandType === "number" || operandType === "string") {
@@ -4102,7 +4102,7 @@ _p[22] = {
 };
 
 /*!
- * 字体信息检测模板，用于检测浏览器的字体信息
+ * 字型資訊偵測模板，用於偵測瀏覽器的字型資訊
  */
 _p[23] = {
     value: function() {
@@ -4111,7 +4111,7 @@ _p[23] = {
 };
 
 /*!
- * 字体安装器
+ * 字型安裝器
  */
 _p[24] = {
     value: function(require) {
@@ -4122,7 +4122,7 @@ _p[24] = {
                 this.resource = resource || "../src/resource/";
                 this.doc = doc;
             },
-            // 挂载字体
+            // 掛載字體
             mount: function(callback) {
                 var fontList = FontManager.getFontList(), count = 0, _self = this;
                 kity.Utils.each(fontList, function(fontInfo) {
@@ -4168,7 +4168,7 @@ _p[24] = {
             NODE_LIST.push(node);
         }
         /**
-     * 计算字体系统信息
+     * 計算字體系統資訊
      */
         function initFontSystemInfo(doc) {
             var tmpNode = doc.createElement("div");
@@ -4176,9 +4176,9 @@ _p[24] = {
             tmpNode.innerHTML = _p.r(23).join("");
             doc.body.appendChild(tmpNode);
             var rectBox = tmpNode.getElementsByTagName("text")[0].getBBox();
-            // text实际占用空间
+            // text實際佔用空間
             FONT_CONF.spaceHeight = rectBox.height;
-            // text顶部空间
+            // text頂部空間
             FONT_CONF.topSpace = -rectBox.y - FONT_CONF.baseline;
             FONT_CONF.bottomSpace = FONT_CONF.spaceHeight - FONT_CONF.topSpace - FONT_CONF.baseHeight;
             // text偏移值
@@ -4202,7 +4202,7 @@ _p[24] = {
 };
 
 /*!
- * 字体管理器
+ * 字體管理器
  */
 _p[25] = {
     value: function(require) {
@@ -4228,7 +4228,7 @@ _p[25] = {
 };
 
 /*!
- * 双线字体
+ * 雙線字體
  */
 _p[26] = {
     value: function() {
@@ -4242,7 +4242,7 @@ _p[26] = {
 };
 
 /*!
- * 手写体
+ * 手寫體
  */
 _p[27] = {
     value: function() {
@@ -4256,7 +4256,7 @@ _p[27] = {
 };
 
 /*!
- * 花体
+ * 花體
  */
 _p[28] = {
     value: function() {
@@ -4270,7 +4270,7 @@ _p[28] = {
 };
 
 /*!
- * 字体主文件
+ * 字體主檔案
  */
 _p[29] = {
     value: function() {
@@ -4701,7 +4701,7 @@ _p[29] = {
 };
 
 /*!
- * 罗马字体
+ * 羅馬字體
  */
 _p[30] = {
     value: function() {
@@ -4715,7 +4715,7 @@ _p[30] = {
 };
 
 /**
- * 公式对象，表达式容器
+ * 公式對象，表達式容器
  */
 _p[31] = {
     value: function(require) {
@@ -4837,7 +4837,7 @@ _p[31] = {
                 FontManager.registerFont(fontData);
             }
         });
-        // 调整表达式之间的偏移
+        // 調整表達式之間的偏移
         function correctOffset() {
             var exprOffset = 0;
             kity.Utils.each(this.expressions, function(expr) {
@@ -4852,7 +4852,7 @@ _p[31] = {
             });
             return this;
         }
-        // 通知表达式已接入到paper
+        // 通知表達式已接取至paper
         function notifyExpression(expression) {
             var len = 0;
             if (!expression) {
@@ -4863,11 +4863,11 @@ _p[31] = {
                     notifyExpression(expression.getChild(i));
                 }
             } else if (expression.getType() === GTYPE.COMPOUND_EXP) {
-                // 操作数处理
+                // 操作數處理
                 for (var i = 0, len = expression.getOperands().length; i < len; i++) {
                     notifyExpression(expression.getOperand(i));
                 }
-                // 处理操作符
+                // 處理運算子
                 notifyExpression(expression.getOperator());
             }
             expression.addedCall && expression.addedCall();
@@ -4877,7 +4877,7 @@ _p[31] = {
 };
 
 /**
- * 公式专用paper
+ * 公式專用paper
  */
 _p[32] = {
     value: function(require) {
@@ -4931,7 +4931,7 @@ _p[33] = {
 };
 
 /**
- * kity库封包
+ * kity庫封包
  */
 _p[34] = {
     value: function() {
@@ -4943,7 +4943,7 @@ _p[34] = {
 };
 
 /**
- * 小括号操作符：()
+ * 小括號運算子：()
  */
 _p[35] = {
     value: function(require) {
@@ -4971,8 +4971,8 @@ _p[35] = {
 };
 
 /**
- * 组合操作符
- * 操作多个表达式组合在一起
+ * 組合運算子
+ * 操作多個表達式組合在一起
  */
 _p[36] = {
     value: function(require) {
@@ -4984,9 +4984,9 @@ _p[36] = {
             },
             applyOperand: function() {
                 // 偏移量
-                var offsetX = 0, // 操作数
-                operands = arguments, // 操作对象最大高度
-                maxHeight = 0, // 垂直距离最大偏移
+                var offsetX = 0, // 操作數
+                operands = arguments, // 操作物件最大高度
+                maxHeight = 0, // 垂直距離最大偏移
                 maxOffsetTop = 0, maxOffsetBottom = 0, cached = [], // 偏移集合
                 offsets = [];
                 kity.Utils.each(operands, function(operand) {
@@ -5011,14 +5011,14 @@ _p[36] = {
 };
 
 /*!
- * 上下标控制器
+ * 上下標控制器
  */
 _p[37] = {
     value: function(require) {
         var kity = _p.r(34), EmptyExpression = _p.r(20), defaultOptions = {
             subOffset: 0,
             supOffset: 0,
-            // 上下标的默认缩放值
+            // 上下標的預設縮放值
             zoom: .66
         };
         return kity.createClass("ScriptController", {
@@ -5029,7 +5029,7 @@ _p[37] = {
                 this.sub = sub;
                 this.options = kity.Utils.extend({}, defaultOptions, options);
             },
-            // 上下标记
+            // 上下標記
             applyUpDown: function() {
                 var target = this.target, sup = this.sup, sub = this.sub, options = this.options;
                 sup.scale(options.zoom);
@@ -5043,7 +5043,7 @@ _p[37] = {
                         bottom: 0
                     };
                 } else {
-                    // 上标
+                    // 上標
                     if (!EmptyExpression.isEmpty(sup) && EmptyExpression.isEmpty(sub)) {
                         return this.applyUp(target, sup);
                     } else if (EmptyExpression.isEmpty(sup) && !EmptyExpression.isEmpty(sub)) {
@@ -5054,11 +5054,11 @@ _p[37] = {
                 }
             },
             /**
-         * 返回应用上下标后的空间占用情况，其中的key各自的意义是：
-         * top: 上空间偏移
-         * bottom: 下空间偏移
-         * width: 当前整个图形的实际占用空间的width
-         * height: 当前整个图形的实际占用空间的height
+         * 返回應用程式上下標後的空間佔用情況，其中的key各自的意義是：
+         * top: 上空間偏移
+         * bottom: 下空間偏移
+         * width: 目前整個圖形的實際佔用空間的width
+         * height: 目前整個圖形的實際佔用空間的height
          * @returns {*}
          */
             applySide: function() {
@@ -5072,7 +5072,7 @@ _p[37] = {
                         bottom: 0
                     };
                 } else {
-                    // 下标处理
+                    // 下標處理
                     if (EmptyExpression.isEmpty(sup) && !EmptyExpression.isEmpty(sub)) {
                         return this.applySideSub(target, sub);
                     } else if (!EmptyExpression.isEmpty(sup) && EmptyExpression.isEmpty(sub)) {
@@ -5105,14 +5105,14 @@ _p[37] = {
             },
             applySideSub: function(target, sub) {
                 sub.scale(this.options.zoom);
-                var targetRectBox = target.getRenderBox(this.observer), subRectBox = sub.getRenderBox(this.observer), subOffset = sub.getOffset(), targetBaseline = target.getBaseline(this.observer), // 下标定位线
+                var targetRectBox = target.getRenderBox(this.observer), subRectBox = sub.getRenderBox(this.observer), subOffset = sub.getOffset(), targetBaseline = target.getBaseline(this.observer), // 下標定位線
                 subPosition = (subRectBox.height + subOffset.top + subOffset.bottom) / 2, diff = targetRectBox.height - targetBaseline - subPosition, space = {
                     top: 0,
                     bottom: 0,
                     width: targetRectBox.width + subRectBox.width,
                     height: targetRectBox.height
                 };
-                // 定位下标位置
+                // 定位下標位置
                 sub.translate(targetRectBox.width, subOffset.top + targetBaseline - subPosition);
                 if (this.options.subOffset) {
                     sub.translate(this.options.subOffset, 0);
@@ -5126,7 +5126,7 @@ _p[37] = {
             applySideScript: function(target, sup, sub) {
                 sup.scale(this.options.zoom);
                 sub.scale(this.options.zoom);
-                var targetRectBox = target.getRenderBox(this.observer), subRectBox = sub.getRenderBox(this.observer), supRectBox = sup.getRenderBox(this.observer), targetMeanline = target.getMeanline(this.observer), targetBaseline = target.getBaseline(this.observer), supBaseline = sup.getBaseline(this.observer), // 上下标都存在时， 下标的定位以上伸线为准
+                var targetRectBox = target.getRenderBox(this.observer), subRectBox = sub.getRenderBox(this.observer), supRectBox = sup.getRenderBox(this.observer), targetMeanline = target.getMeanline(this.observer), targetBaseline = target.getBaseline(this.observer), supBaseline = sup.getBaseline(this.observer), // 上下標都存在時， 下標的定位以上伸線為準
                 subAscenderline = sub.getAscenderline(this.observer), supPosition = targetMeanline, subPosition = targetMeanline + (targetBaseline - targetMeanline) * 2 / 3, topDiff = supPosition - supBaseline, bottomDiff = targetRectBox.height - subPosition - (subRectBox.height - subAscenderline), space = {
                     top: 0,
                     bottom: 0,
@@ -5141,7 +5141,7 @@ _p[37] = {
                 if (this.options.subOffset) {
                     sub.translate(this.options.subOffset, 0);
                 }
-                // 定位纠正
+                // 定位糾正
                 if (topDiff > 0) {
                     if (bottomDiff < 0) {
                         targetRectBox.height -= bottomDiff;
@@ -5156,7 +5156,7 @@ _p[37] = {
                         space.bottom = -topDiff;
                     } else {
                         space.height -= bottomDiff;
-                        // 比较上下偏移， 获取正确的偏移值
+                        // 比較上下偏移， 取得正確的偏移值
                         topDiff = -topDiff;
                         bottomDiff = -bottomDiff;
                         if (topDiff > bottomDiff) {
@@ -5207,7 +5207,7 @@ _p[37] = {
 };
 
 /**
- * 分数操作符
+ * 分數運算子
  */
 _p[38] = {
     value: function(require) {
@@ -5220,13 +5220,13 @@ _p[38] = {
             applyOperand: function(upOperand, downOperand) {
                 upOperand.scale(ZOOM);
                 downOperand.scale(ZOOM);
-                var upWidth = Math.ceil(upOperand.getWidth()), downWidth = Math.ceil(downOperand.getWidth()), upHeight = Math.ceil(upOperand.getHeight()), downHeight = Math.ceil(downOperand.getHeight()), // 分数线overflow值
-                overflow = 3, // 整体padding
+                var upWidth = Math.ceil(upOperand.getWidth()), downWidth = Math.ceil(downOperand.getWidth()), upHeight = Math.ceil(upOperand.getHeight()), downHeight = Math.ceil(downOperand.getHeight()), // 分數線overflow值
+                overflow = 3, // 整體padding
                 padding = 1, maxWidth = Math.max(upWidth, downWidth), maxHeight = Math.max(upHeight, downHeight), operatorShape = generateOperator(maxWidth, overflow);
                 this.addOperatorShape(operatorShape);
                 upOperand.translate((maxWidth - upWidth) / 2 + overflow, 0);
                 operatorShape.translate(0, upHeight + 1);
-                // 下部不需要偏移
+                // 下部不需偏移
                 downOperand.translate((maxWidth - downWidth) / 2 + overflow, upHeight + operatorShape.getHeight() + 1 * 2);
                 this.parentExpression.setOffset(maxHeight - upHeight, maxHeight - downHeight);
                 this.parentExpression.expand(padding * 2, padding * 2);
@@ -5240,7 +5240,7 @@ _p[38] = {
 };
 
 /**
- * 函数操作符
+ * 函數運算子
  */
 _p[39] = {
     value: function(require) {
@@ -5252,8 +5252,8 @@ _p[39] = {
                 this.funcName = funcName;
             },
             /*
-         * 积分操作符应用操作数
-         * @param expr 函数表达式
+         * 積分運算子應用運算元
+         * @param expr 函數表達式
          * @param sup 上限
          * @param sub 下限
          */
@@ -5261,7 +5261,7 @@ _p[39] = {
                 var opShape = generateOperator.call(this), expBox = expr.getFixRenderBox(), scriptHanlder = this.parentExpression.isSideScript() ? "applySide" : "applyUpDown", space = new ScriptController(this, opShape, sup, sub, {
                     zoom: .5
                 })[scriptHanlder](), padding = 5, diff = (space.height + space.top + space.bottom - expBox.height) / 2;
-                // 应用偏移， 使图形在正确的位置上
+                // 套用偏移， 使圖形在正確的位置上
                 opShape.translate(0, space.top);
                 sup.translate(0, space.top);
                 sub.translate(0, space.top);
@@ -5274,16 +5274,16 @@ _p[39] = {
                     sub.translate(0, diff);
                     expr.translate(space.width + padding, 0);
                 }
-                // 只扩展左边， 不扩展右边， 所以padding不 *2
+                // 只擴充左邊， 不擴充右邊， 所以padding不 *2
                 this.parentExpression.expand(padding, padding * 2);
                 this.parentExpression.translateElement(padding, padding);
             }
         });
-        /* 返回操作符对象 */
+        /* 返回操作符號物件 */
         function generateOperator() {
             var opShape = new Text(this.funcName, "KF AMS ROMAN");
             this.addOperatorShape(opShape);
-            // 为操作符图形创建baseline和meanline方法
+            // 為運算元圖形建立baseline和meanline方法
             opShape.getBaseline = function() {
                 return opShape.getFixRenderBox().height;
             };
@@ -5296,7 +5296,7 @@ _p[39] = {
 };
 
 /**
- * 积分操作符：∫
+ * 積分運算符：∫
  */
 _p[40] = {
     value: function(require) {
@@ -5305,13 +5305,13 @@ _p[40] = {
             base: _p.r(41),
             constructor: function(type) {
                 this.callBase("Integration");
-                // 默认是普通单重积分
+                // 預設為普通單重積分
                 this.opType = type || 1;
             },
             setType: function(type) {
                 this.opType = type | 0;
             },
-            // 重置类型
+            // 重置類型
             resetType: function() {
                 this.opType = 1;
             },
@@ -5347,7 +5347,7 @@ _p[40] = {
                 }
                 opGroup.scale(1.6);
                 tmpShape = null;
-                // 为操作符图形创建baseline和meanline方法
+                // 為運算元圖形建立baseline和meanline方法
                 group.getBaseline = function() {
                     return opGroup.getFixRenderBox().height;
                 };
@@ -5361,7 +5361,7 @@ _p[40] = {
 };
 
 /**
- * 操作符抽象类
+ * 操作符抽象類別
  * @abstract
  */
 _p[41] = {
@@ -5372,11 +5372,11 @@ _p[41] = {
             constructor: function(operatorName) {
                 this.callBase();
                 this.type = GTYPE.OP;
-                // 该操作符所属的表达式
+                // 該運算元所屬的表達式
                 this.parentExpression = null;
-                // 操作符名称
+                // 操作符名稱
                 this.operatorName = operatorName;
-                // 操作符图形
+                // 操作符圖形
                 this.operatorShape = new kity.Group();
                 this.addShape(this.operatorShape);
             },
@@ -5392,7 +5392,7 @@ _p[41] = {
             clearParentExpression: function() {
                 this.parentExpression = null;
             },
-            // 提供给具体实现类附加其绘制的操作符图形的接口
+            // 提供給具體實作類別附加其繪製的操作符圖形的介面
             addOperatorShape: function(shpae) {
                 return this.operatorShape.addShape(shpae);
             },
@@ -5404,13 +5404,13 @@ _p[41] = {
 };
 
 /**
- * 开方操作符
+ * 開方運算子
  */
 _p[42] = {
     value: function(require) {
-        var kity = _p.r(34), // 符号图形属性
-        // 线条宽度
-        SHAPE_DATA_WIDTH = 1, // 计算公式
+        var kity = _p.r(34), // 符號圖形屬性
+        // 線條寬度
+        SHAPE_DATA_WIDTH = 1, // 計算公式
         radians = 2 * Math.PI / 360, sin15 = Math.sin(15 * radians), cos15 = Math.cos(15 * radians), tan15 = Math.tan(15 * radians);
         return kity.createClass("RadicalOperator", {
             base: _p.r(41),
@@ -5421,9 +5421,9 @@ _p[42] = {
                 generateOperator.call(this, radicand, exponent);
             }
         });
-        // 根据给定的操作数生成操作符的pathData
-        // radicand 表示被开方数
-        // exponent 表示指数
+        // 根據給定的運算元產生運算符的pathData
+        // radicand 表示被開方數
+        // exponent 表示指數
         function generateOperator(radicand, exponent) {
             var decoration = generateDecoration(radicand), vLine = generateVLine(radicand), padding = 5, hLine = generateHLine(radicand);
             this.addOperatorShape(decoration);
@@ -5433,11 +5433,11 @@ _p[42] = {
             this.parentExpression.expand(0, padding * 2);
             this.parentExpression.translateElement(0, padding);
         }
-        // 生成根号中的左边装饰部分
+        // 生成根號中的左邊裝飾部分
         function generateDecoration(radicand) {
-            var shape = new kity.Path(), // 命名为a以便于精简表达式
+            var shape = new kity.Path(), // 命名為a以便於精簡表達式
             a = SHAPE_DATA_WIDTH, h = radicand.getHeight() / 3, drawer = shape.getDrawer();
-            // 根号尾部左上角开始
+            // 根號尾部左上角開始
             drawer.moveTo(0, cos15 * a * 6);
             drawer.lineBy(sin15 * a, cos15 * a);
             drawer.lineBy(cos15 * a * 3, -sin15 * a * 3);
@@ -5447,9 +5447,9 @@ _p[42] = {
             drawer.close();
             return shape.fill("black");
         }
-        // 根据操作数生成根号的竖直线部分
+        // 根據操作數產生根號的垂直直線部分
         function generateVLine(operand) {
-            var shape = new kity.Path(), // * 0.9 是为了在视觉上使斜线部分不至于太高
+            var shape = new kity.Path(), // * 0.9 是為了在視覺上讓斜線部分不至於太高
             h = operand.getHeight() * .9, drawer = shape.getDrawer();
             drawer.moveTo(tan15 * h, 0);
             drawer.lineTo(0, h);
@@ -5458,26 +5458,26 @@ _p[42] = {
             drawer.close();
             return shape.fill("black");
         }
-        // 根据操作数生成根号的水平线部分
+        // 根據操作數產生根號的水平線部分
         function generateHLine(operand) {
-            // 表达式宽度
+            // 表達式寬度
             var w = operand.getWidth() + 2 * SHAPE_DATA_WIDTH;
             return new kity.Rect(w, 2 * SHAPE_DATA_WIDTH).fill("black");
         }
-        // 合并根号的各个部分， 并返回根号的关键点位置数据
+        // 合併根號的各個部分， 並傳回根號的關鍵點位置資料
         function mergeShape(decoration, vLine, hLine) {
             var decoBox = decoration.getFixRenderBox(), vLineBox = vLine.getFixRenderBox();
             vLine.translate(decoBox.width - sin15 * SHAPE_DATA_WIDTH * 3, 0);
             decoration.translate(0, vLineBox.height - decoBox.height);
             vLineBox = vLine.getFixRenderBox();
             hLine.translate(vLineBox.x + vLineBox.width - SHAPE_DATA_WIDTH / cos15, 0);
-            // 返回关键点数据
+            // 返回關鍵點資料
             return {
                 x: vLineBox.x + vLineBox.width - SHAPE_DATA_WIDTH / cos15,
                 y: 0
             };
         }
-        // 调整整个根号表达式的各个部分： 位置、操作符、被开方数、指数
+        // 調整整個根號表達式的各個部分： 位置、運算子、被開方數、指數
         function adjustmentPosition(position, operator, radicand, exponent) {
             var exponentBox = null, opOffset = {
                 x: 0,
@@ -5487,7 +5487,7 @@ _p[42] = {
             exponentBox = exponent.getFixRenderBox();
             if (exponentBox.width > 0 && exponentBox.height > 0) {
                 opOffset.y = exponentBox.height - opBox.height / 2;
-                // 指数不超出根号， 则移动指数
+                // 指數不超出根號， 則移動指數
                 if (opOffset.y < 0) {
                     exponent.translate(0, -opOffset.y);
                     opOffset.y = 0;
@@ -5501,7 +5501,7 @@ _p[42] = {
 };
 
 /**
- * 上下标操作符
+ * 上下標運算子
  */
 _p[43] = {
     value: function(require) {
@@ -5523,7 +5523,7 @@ _p[43] = {
 };
 
 /**
- * 求和操作符：∑
+ * 求和運算子：∑
  */
 _p[44] = {
     value: function(require) {
@@ -5570,13 +5570,13 @@ _p[44] = {
 };
 
 /*!
- * 资源管理器
- * 负责管理资源的加载，并在资源ready之后提供Formula构造器
+ * 資源管理器
+ * 負責管理資源的加載，並在資源ready之後提供Formula構造器
  */
 _p[45] = {
     value: function(require) {
-        var kity = _p.r(34), cbList = [], RES_CONF = _p.r(47).resource, FontInstall = _p.r(24), Formula = _p.r(31), // 资源管理器就绪状态
-        __readyState = false, // 资源管理器是否已启动
+        var kity = _p.r(34), cbList = [], RES_CONF = _p.r(47).resource, FontInstall = _p.r(24), Formula = _p.r(31), // 資源管理器就緒狀態
+        __readyState = false, // 資源管理器是否已啟動
         inited = false;
         return {
             // 初始化
@@ -5595,7 +5595,7 @@ _p[45] = {
             }
         };
         /**
-     * 资源初始化
+     * 資源初始化
      */
         function init(options) {
             options = kity.Utils.extend({}, RES_CONF, options);
@@ -5620,7 +5620,7 @@ _p[45] = {
 };
 
 /*!
- * 所有符号的基类
+ * 所有符號的基底類
  * @abstract
  */
 _p[46] = {
@@ -5665,7 +5665,7 @@ _p[46] = {
 };
 
 /*!
- * 系统项目配置文件.
+ * 系統項目設定檔.
  */
 _p[47] = {
     value: function(require) {
@@ -5675,16 +5675,16 @@ _p[47] = {
                 meanline: Math.round(380 / 1e3 * 50),
                 baseline: Math.round(800 / 1e3 * 50),
                 baseHeight: 50,
-                // 系统字体列表
+                // 系統字體清單
                 list: [ _p.r(29), _p.r(27), _p.r(28), _p.r(26), _p.r(30) ]
             },
-            /*------------------------- 资源配置*/
+            /*------------------------- 資源配置*/
             resource: {
                 path: "src/resource/"
             },
-            // 函数相关配置
+            // 函數相關配置
             func: {
-                // 上下标在函数名上下两侧的函数列表
+                // 上下標在函數名稱上下兩側的函數列表
                 "ud-script": {
                     lim: true
                 }
@@ -5694,7 +5694,7 @@ _p[47] = {
 };
 
 /*!
- * 启动代码
+ * 啟動代碼
  */
 _p[48] = {
     value: function(require) {
@@ -5730,7 +5730,7 @@ function use(name) {
     _p.r([ moduleMapping[name] ]);
 }
 /**
- * 模块暴露
+ * 模組暴露
  */
 
 ( function ( global ) {
@@ -5747,7 +5747,7 @@ function use(name) {
         }
     });
 
-    // build环境中才含有use
+    // build環境中才含有use
     try {
         use( 'kf.start' );
     } catch ( e ) {

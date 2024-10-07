@@ -7,7 +7,7 @@ layui.use(['echarts'], function() {
 	option = {
 		backgroundColor:'#fff',
 		title:{
-			text:"描边柱状图",
+			text:"描邊長條圖",
 			top:10,
 			left:15,			
 			color:"#35598d",
@@ -28,7 +28,7 @@ layui.use(['echarts'], function() {
 		xAxis :{
 			type : 'category',
 			data : ['策略1','策略2','策略3','策略4','策略5','策略6','策略7','策略8','策略9'],
-			axisLabel:{          //坐标轴字体颜色
+			axisLabel:{          //座標軸字體顏色
 				color: '#9eaaba'
 			},
 			axisLine:{
@@ -36,37 +36,37 @@ layui.use(['echarts'], function() {
 					color:"#e5e5e5"
 				}
 			}, 
-			axisTick:{       //y轴刻度线
+			axisTick:{       //y軸刻度線
 			show:false
 			},
-			splitLine:{    //网格
+			splitLine:{    //網格
 				show: false,
 			}
 		},
 		yAxis :{
 			type : 'value',
-			axisLabel:{        //坐标轴字体颜色
+			axisLabel:{        //座標軸字體顏色
 				color: '#9eaaba'
 			},
 			axisLine:{
 				show:false,
 			},
-			axisTick:{       //y轴刻度线
+			axisTick:{       //y軸刻度線
 			show:false
 			},
-			splitLine:{    //网格
+			splitLine:{    //網格
 				show: true,
 				lineStyle:{
 					color:'#dadde4',
-					type:"dashed" //坐标网线类型
+					type:"dashed" //座標網路線類型
 				}
 			}
 		},
 		series:{
 			name:'',
 			type:'bar',
-			barWidth : '40%',  //柱子宽度
-			itemStyle:{  //柱子颜色
+			barWidth : '40%',  //柱子寬度
+			itemStyle:{  //柱子顏色
 				borderWidth: 2,
 				borderColor: 'rgb(79, 116, 223)',
 				color:'rgba(79, 116, 223, .3)',

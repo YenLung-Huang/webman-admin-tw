@@ -17,7 +17,7 @@ layui.define('jquery', function(exports){
     this.configs = {}
   };
   
-  //全局设置
+  //全域設定
   tag.prototype.set = function(options){
     var that = this;
     $.extend(true, that.config, options);
@@ -25,7 +25,7 @@ layui.define('jquery', function(exports){
     return that;
   };
   
-  //表单事件监听
+  //表單事件監聽
   tag.prototype.on = function(events, callback){
     return layui.onevent.call(this, MOD_NAME, events, callback);
   };
@@ -38,7 +38,7 @@ layui.define('jquery', function(exports){
     return this;
   };
   
-  //外部Tag删除
+  //外部Tag刪除
   tag.prototype.delete = function(filter, layid){
     var tagElem = $(TAG_CLASS + '[lay-filter='+ filter +']')
     ,tagItemElem = tagElem.find('>.' + TAG_ITEM + '[lay-id="'+ layid +'"]');
@@ -46,9 +46,9 @@ layui.define('jquery', function(exports){
     return this;
   };
 
-  //基础事件体
+  //基礎事件體
   var call = {
-    //Tag点击
+    //Tag點擊
     tagClick: function(e, index, tagItemElem, options){
       options = options || {};
       var othis = tagItemElem || $(this)
@@ -74,13 +74,13 @@ layui.define('jquery', function(exports){
       if(result === false) return;
       buttonNewTag[0] ? buttonNewTag.before(newTag) : tagElem.append(newTag);
     }
-    //Tag输入事件
+    //Tag輸入事件
     ,input: function(e, othis){
       var buttonNewTag = othis || $(this)
       ,parents = buttonNewTag.parents(TAG_CLASS).eq(0)
       ,filter = parents.attr('lay-filter')
       var options = tag.configs[filter] = $.extend({}, tag.config, tag.configs[filter] || {}, options);
-      //标签输入框
+      //標籤輸入框
       var inpatNewTag = $('<div class="' + INPUT_NEW_TAG + '"><input type="text" autocomplete="off" class="layui-input"></div>');
       inpatNewTag.addClass(options.skin);
       buttonNewTag.after(inpatNewTag).remove();
@@ -95,7 +95,7 @@ layui.define('jquery', function(exports){
         call.tagAuto(filter);
       }).focus();
     }
-    //Tag删除
+    //Tag刪除
     ,delete: function(e, othis){
       var tagItem = othis || $(this).parent(), index = tagItem.index()
       ,parents = tagItem.parents(TAG_CLASS).eq(0)
@@ -108,7 +108,7 @@ layui.define('jquery', function(exports){
       if(result === false) return;
       tagItem.remove()
     }
-    //Tag 自适应
+    //Tag 自適應
     ,tagAuto: function(filter){
       filter = filter || '';
       var options = filter ? tag.configs[filter] || tag.config : tag.config;
@@ -118,7 +118,7 @@ layui.define('jquery', function(exports){
       $(TAG_CLASS + elemFilter).each(function(){
         var othis = $(this),tagItem = othis.children('.' + TAG_ITEM), buttonNewTag = othis.children('.' + BUTTON_NEW_TAG);
         tagItem.removeClass(DEFAULT_SKIN).addClass(options.skin);
-        //允许关闭
+        //允許關閉
         if(othis.attr('lay-allowClose') && tagItem.length){
           tagItem.each(function(){
             var li = $(this);
@@ -129,7 +129,7 @@ layui.define('jquery', function(exports){
             }
           });
         }
-        //允许新增标签
+        //允許新增標籤
         if(othis.attr('lay-newTag') && buttonNewTag.length === 0){
           buttonNewTag = $('<button type="button" class="' + BUTTON_NEW_TAG + '"></button>');
           buttonNewTag.on('click', call.input);
@@ -153,7 +153,7 @@ layui.define('jquery', function(exports){
   var tag = new tag(), dom = $(document);
   tag.render();
 
-  dom.on('click', '.' + TAG_ITEM, call.tagClick); //tag 单击事件
+  dom.on('click', '.' + TAG_ITEM, call.tagClick); //tag 點選事件
   exports(MOD_NAME, tag);
 });
 

@@ -51,9 +51,9 @@ layui.define(['layer', 'carousel'], function (exports) {
 
     var pearStep = {
         render: function (param) {
-            param.indicator = 'none'; // 不显示指示器
-            param.arrow = 'always'; // 始终显示箭头
-            param.autoplay = false; // 关闭自动播放
+            param.indicator = 'none'; // 不顯示指示器
+            param.arrow = 'always'; // 始終顯示箭頭
+            param.autoplay = false; // 關閉自動播放
             if (!param.stepWidth) {
                 param.stepWidth = '400px';
             }

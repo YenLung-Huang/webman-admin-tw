@@ -43,14 +43,14 @@
                 <div class="layui-inline">
                     <label class="layui-form-label required" style="width:auto">字典名</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="name" required lay-verify="required" disabled autocomplete="off" class="layui-input" placeholder="请输入英文字母组合">
+                        <input type="text" name="name" required lay-verify="required" disabled autocomplete="off" class="layui-input" placeholder="請輸入英文字母組合">
                     </div>
                 </div>
             </div>
 
             <div>
 
-                <!-- 字段属性 -->
+                <!-- 字段屬性 -->
                 <table id="column-table" lay-filter="column-table"></table>
 
                 <script type="text/html" id="column-toolbar">
@@ -58,7 +58,7 @@
                         <i class="layui-icon layui-icon-add-1"></i>新增
                     </button>
                     <button type="button" class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
-                        <i class="layui-icon layui-icon-delete"></i>删除
+                        <i class="layui-icon layui-icon-delete"></i>刪除
                     </button>
                 </script>
 
@@ -68,7 +68,7 @@
                 </script>
 
                 <script type="text/html" id="col-name">
-                    <input type="text" name="value[{{ d.LAY_NUM-1 }}][name]" placeholder="标题" autocomplete="off" class="layui-input" value="{{ d.name }}">
+                    <input type="text" name="value[{{ d.LAY_NUM-1 }}][name]" placeholder="標題" autocomplete="off" class="layui-input" value="{{ d.name }}">
                 </script>
 
             </div>
@@ -99,7 +99,7 @@
     const UPDATE_API = "/app/admin/dict/update";
     const SELECT_API = "/app/admin/dict/get/" + DICT_NAME;
 
-    // 字段设置
+    // 字段設定
     layui.use(["table", "common", "popup"], function () {
 
         let table = layui.table;
@@ -116,7 +116,7 @@
                 templet: "#col-value"
             },
             {
-                title: "标题",
+                title: "標題",
                 field: "name",
                 templet: "#col-name",
             }
@@ -135,7 +135,7 @@
                 layui.each(data, function (k, v) {
                     data[k]["_field_id"] = _field_id++;
                 })
-                // ajax产生错误
+                // ajax產生錯誤
                 if (res.code) {
                     layui.popup.failure(res.msg);
                 }
@@ -176,7 +176,7 @@
 
         let batchRemove = function(obj) {
             var checkIds = common.checkField(obj,"_field_id");
-            if (checkIds === "") return layui.popup.warning("未选中数据");
+            if (checkIds === "") return layui.popup.warning("未選取資料");
             let data = table.getData("column-table");
             let newData = [];
             let deleteIds = checkIds.split(",");

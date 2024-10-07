@@ -9,7 +9,7 @@ layui.use(['echarts'], function() {
 	const colorList = ["#9E87FF", '#73DDFF', '#fe9a8b', '#F56948', '#9E87FF']
 	option = {
 		title: {
-			text: '用电量'
+			text: '用電量'
 		},
 		tooltip: {
 			trigger: 'axis'
@@ -30,21 +30,21 @@ layui.use(['echarts'], function() {
 		},
 		xAxis: {
 			type: 'category',
-			boundaryGap: false,//坐标轴两边留白
+			boundaryGap: false,//坐標軸兩邊留白
 			data: ['12201', '12202', '12203','12204','12301','12302','12303','12304','12401', '12402', '12403','12404'],
-			axisLabel: { //坐标轴刻度标签的相关设置。
-				interval: 0,//设置为 1，表示『隔一个标签显示一个标签』
+			axisLabel: { //座標軸刻度標籤的相關設定。
+				interval: 0,//設定為 1，表示『隔一個標籤顯示一個標籤』
 			//	margin:15,
 				
 				color: '#1B253A',
 				fontStyle: 'normal',
-				fontFamily: '微软雅黑',
+				fontFamily: '微軟雅黑',
 				fontSize: 12,
 				
 				formatter:function(params) {
 					var newParamsName = "";
 					var paramsNameNumber = params.length;
-					var provideNumber = 4;  //一行显示几个字
+					var provideNumber = 4;  //一行顯示幾個字
 					var rowNumber = Math.ceil(paramsNameNumber / provideNumber);
 					if (paramsNameNumber > provideNumber) {
 						for (var p = 0; p < rowNumber; p++) {
@@ -66,16 +66,16 @@ layui.use(['echarts'], function() {
 				},
 				//rotate:50,
 			},
-			axisTick:{//坐标轴刻度相关设置。
+			axisTick:{//坐標軸刻度相關設定。
 				show: false,
 			},
-			axisLine:{//坐标轴轴线相关设置
+			axisLine:{//座標軸軸線相關設定
 				lineStyle:{
 					color:'#E5E9ED',
 					// opacity:0.2
 				}
 			},
-			splitLine: { //坐标轴在 grid 区域中的分隔线。
+			splitLine: { //座標軸在 grid 區域的分隔線。
 				show: true,
 				lineStyle: {
 					color: '#E5E9ED',
@@ -91,7 +91,7 @@ layui.use(['echarts'], function() {
 					
 					color: '#a8aab0',
 					fontStyle: 'normal',
-					fontFamily: '微软雅黑',
+					fontFamily: '微軟雅黑',
 					fontSize: 12
 					
 				},
